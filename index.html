@@ -3,211 +3,200 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ashwin Mishra — Portfolio</title>
+  <title>Ashwin Mishra</title>
 
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
       --bg: #0b0d12;
-      --card: rgba(255, 255, 255, 0.06);
-      --border: rgba(255, 255, 255, 0.12);
-      --text: #eaeaf0;
-      --muted: #a1a1b3;
+      --card: rgba(255,255,255,0.06);
+      --border: rgba(255,255,255,0.14);
+      --text: #ececf1;
+      --muted: #a6a6c3;
       --accent: #7c8cff;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      font-family: "Inter", system-ui, sans-serif;
-      background: radial-gradient(1200px 600px at 10% -20%, #1a1f55, transparent),
-                  radial-gradient(800px 400px at 90% 10%, #2a114a, transparent),
-                  var(--bg);
+      font-family: "Inter", sans-serif;
+      background:
+        radial-gradient(900px 400px at 10% -20%, #1a1f55, transparent),
+        radial-gradient(700px 350px at 90% 20%, #2a114a, transparent),
+        var(--bg);
       color: var(--text);
     }
 
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 4.5rem 1.5rem 6rem;
+    /* HERO */
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
     }
 
-    header {
-      margin-bottom: 5rem;
-    }
-
-    h1 {
-      font-size: 3rem;
+    .hero h1 {
+      font-size: 3.2rem;
       font-weight: 700;
       letter-spacing: -0.02em;
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.8rem;
     }
 
-    .role {
+    .typing {
       font-size: 1.15rem;
       color: var(--muted);
-      margin-bottom: 1.5rem;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid var(--accent);
+      width: 0;
+      animation: typing 3s steps(40, end) forwards, blink 0.8s infinite;
     }
 
-    .tagline {
-      max-width: 700px;
-      font-size: 1.05rem;
-      line-height: 1.7;
-      color: #d5d7e3;
+    @keyframes typing {
+      to { width: 100%; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    /* SECTION */
+    section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 5rem 1.5rem;
     }
 
     section h2 {
       font-size: 1.6rem;
-      margin-bottom: 1.8rem;
-      letter-spacing: -0.01em;
+      margin-bottom: 2rem;
     }
 
-    .projects {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.4rem;
-    }
-
-    .card {
+    /* PROJECT CARDS */
+    .project {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 14px;
       padding: 1.6rem 1.7rem;
-      transition: transform 0.25s ease, box-shadow 0.25s ease, border 0.25s ease;
+      margin-bottom: 1.5rem;
       backdrop-filter: blur(14px);
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.6s ease;
     }
 
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(124, 140, 255, 0.5);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+    .project.show {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    .card h3 {
+    .project h3 {
       margin: 0 0 0.6rem;
       font-size: 1.15rem;
       font-weight: 600;
     }
 
-    .card p {
+    .project p {
       margin: 0 0 1rem;
+      font-size: 0.95rem;
       color: var(--muted);
       line-height: 1.6;
-      font-size: 0.95rem;
     }
 
-    .card a {
+    .project a {
       color: var(--accent);
       text-decoration: none;
       font-weight: 500;
       font-size: 0.95rem;
     }
 
-    .card a:hover {
+    .project a:hover {
       text-decoration: underline;
     }
 
     footer {
-      margin-top: 6rem;
-      padding-top: 2.5rem;
-      border-top: 1px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
+      text-align: center;
+      padding: 3rem 1rem;
       color: var(--muted);
       font-size: 0.9rem;
-    }
-
-    footer a {
-      color: var(--text);
-      text-decoration: none;
-      margin-right: 1.2rem;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2.4rem;
-      }
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
 
-    <!-- HERO -->
-    <header>
+  <!-- HERO -->
+  <div class="hero">
+    <div>
       <h1>Ashwin Mishra</h1>
-      <div class="role">Product • Strategy • Decision Systems</div>
-      <p class="tagline">
-        I design company-level decision systems that balance monetization,
-        user behavior, and long-term value — not just short-term metrics.
-      </p>
-    </header>
-
-    <!-- PROJECTS -->
-    <section>
-      <h2>Selected Projects</h2>
-
-      <div class="projects">
-
-        <div class="card">
-          <h3>Dynamic Pricing Sensitivity & LTV Optimization</h3>
-          <p>
-            A pricing decision system that learns user price elasticity,
-            controls price shocks, and protects long-term Lifetime Value (LTV)
-            using policy-based guardrails.
-          </p>
-          <a href="https://github.com/ashwin33086/Dynamic-Pricing-Decision-System-LTV-optimization-" target="_blank">
-            View project →
-          </a>
-        </div>
-
-        <div class="card">
-          <h3>Automated Resume Relevance Scoring (n8n)</h3>
-          <p>
-            Workflow automation system that evaluates resume relevance
-            against job descriptions using structured decision logic.
-          </p>
-          <a href="https://github.com/ashwin33086/Automated-Resume-Relevance-Scoring-Workflow-Using-n8n" target="_blank">
-            View project →
-          </a>
-        </div>
-
-        <div class="card">
-          <h3>OPD Appointment Queue Automation</h3>
-          <p>
-            Process optimization system for hospital OPD scheduling,
-            reducing wait times and operational bottlenecks.
-          </p>
-          <a href="https://github.com/ashwin33086/opd-appointment-queue-automation-n8n" target="_blank">
-            View project →
-          </a>
-        </div>
-
+      <div class="typing">
+        Product • Strategy • Decision Systems
       </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-      <div>© Ashwin Mishra</div>
-      <div>
-        <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
-        <a href="https://github.com/ashwin33086" target="_blank">GitHub</a>
-        <a href="mailto:ashwin33086@gmail.com">Email</a>
-      </div>
-    </footer>
-
+    </div>
   </div>
+
+  <!-- PROJECTS -->
+  <section>
+    <h2>Selected Projects</h2>
+
+    <div class="project">
+      <h3>Dynamic Pricing Sensitivity & LTV Optimization</h3>
+      <p>
+        Pricing decision system that learns user elasticity, controls price
+        shocks, and protects long-term Lifetime Value (LTV).
+      </p>
+      <a href="https://github.com/ashwin33086/Dynamic-Pricing-Decision-System-LTV-optimization-" target="_blank">
+        View project →
+      </a>
+    </div>
+
+    <div class="project">
+      <h3>Automated Resume Relevance Scoring (n8n)</h3>
+      <p>
+        Workflow automation to evaluate resume relevance against job
+        descriptions using structured decision logic.
+      </p>
+      <a href="https://github.com/ashwin33086/Automated-Resume-Relevance-Scoring-Workflow-Using-n8n" target="_blank">
+        View project →
+      </a>
+    </div>
+
+    <div class="project">
+      <h3>OPD Appointment Queue Automation</h3>
+      <p>
+        Queue optimization and scheduling automation for hospital OPD workflows.
+      </p>
+      <a href="https://github.com/ashwin33086/opd-appointment-queue-automation-n8n" target="_blank">
+        View project →
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    © Ashwin Mishra ·
+    <a href="https://github.com/ashwin33086" target="_blank">GitHub</a> ·
+    <a href="mailto:ashwin33086@gmail.com">Email</a>
+  </footer>
+
+  <!-- SCROLL ANIMATION SCRIPT -->
+  <script>
+    const projects = document.querySelectorAll('.project');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    projects.forEach(p => observer.observe(p));
+  </script>
+
 </body>
 </html>
+
