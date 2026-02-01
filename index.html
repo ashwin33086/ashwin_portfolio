@@ -42,18 +42,21 @@
       overflow: hidden;
     }
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(
-          rgba(11, 21, 41, 0.75),
-          rgba(11, 21, 41, 0.75)
-        ),
-        url("/asset/pm-venn.png.png") center / cover no-repeat;
-      pointer-events: none;
-    }
+   .hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      rgba(11, 31, 51, 0.78),
+      rgba(11, 31, 51, 0.78)
+    ),
+    url("/asset/pm-venn.png") center / 70% no-repeat;
+
+  pointer-events: none;
+}
+
 
     .hero::after {
       content: "";
