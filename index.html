@@ -25,10 +25,7 @@
     body {
       margin: 0;
       font-family: "Inter", sans-serif;
-      background:
-        radial-gradient(900px 450px at 15% -10%, #2b317a, transparent),
-        radial-gradient(800px 400px at 85% 10%, #3a1a6a, transparent),
-        linear-gradient(180deg, var(--bg-main), var(--bg-secondary));
+      background: linear-gradient(180deg, var(--bg-main), var(--bg-secondary));
       color: var(--text-main);
     }
 
@@ -40,6 +37,40 @@
       justify-content: center;
       text-align: center;
       padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        url("/asset/pm-venn.png.png") center/520px no-repeat,
+        radial-gradient(900px 450px at 15% -10%, #2b317a, transparent),
+        radial-gradient(800px 400px at 85% 10%, #3a1a6a, transparent);
+      opacity: 0.18;
+      filter: blur(1px);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 140px;
+      background: linear-gradient(
+        to bottom,
+        rgba(12,16,34,0),
+        var(--bg-main)
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
     }
 
     .badge {
@@ -240,13 +271,12 @@
 
   <!-- HERO -->
   <div class="hero">
-    <div>
+    <div class="hero-content">
       <div class="badge">PM MODE</div>
       <h1>Ashwin Mishra</h1>
 
       <div class="typing">Product • Strategy • Decision Systems</div>
 
-      <!-- RESUME LINK -->
       <a class="resume-btn" href="/Ashwin_Mishra_Resume.pdf" target="_blank">
         View Resume
       </a>
