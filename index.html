@@ -1,21 +1,21 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ashwin Mishra</title>
+  <title>Ashwin Mishra — Product</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #0b0d12;
-      --card: rgba(255,255,255,0.06);
-      --border: rgba(255,255,255,0.14);
-      --text: #ececf1;
-      --muted: #a6a6c3;
-      --accent: #7c8cff;
+      --bg: #0a0c18;
+      --bg-accent: #14162b;
+      --card: rgba(255,255,255,0.07);
+      --border: rgba(255,255,255,0.18);
+      --text: #f1f2f7;
+      --muted: #b3b6d4;
+      --accent: #8b9cff;
     }
 
     * { box-sizing: border-box; }
@@ -24,9 +24,9 @@
       margin: 0;
       font-family: "Inter", sans-serif;
       background:
-        radial-gradient(900px 400px at 10% -20%, #1a1f55, transparent),
-        radial-gradient(700px 350px at 90% 20%, #2a114a, transparent),
-        var(--bg);
+        radial-gradient(1000px 500px at 15% -10%, #232a7a, transparent),
+        radial-gradient(900px 450px at 90% 10%, #3b155f, transparent),
+        linear-gradient(180deg, var(--bg), var(--bg-accent));
       color: var(--text);
     }
 
@@ -40,10 +40,23 @@
       padding: 2rem;
     }
 
+    .logo {
+      display: inline-block;
+      margin-bottom: 1.5rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      border: 1px solid var(--border);
+      color: var(--accent);
+    }
+
     h1 {
       font-size: 3.2rem;
       font-weight: 700;
       margin-bottom: 0.8rem;
+      letter-spacing: -0.02em;
     }
 
     .typing {
@@ -53,7 +66,16 @@
       overflow: hidden;
       border-right: 2px solid var(--accent);
       width: 0;
+      margin: 0 auto;
       animation: typing 3s steps(40, end) forwards, blink 0.8s infinite;
+    }
+
+    .slogan {
+      margin-top: 1.3rem;
+      font-size: 0.95rem;
+      font-style: italic;
+      color: #cdd2ff;
+      opacity: 0.95;
     }
 
     @keyframes typing { to { width: 100%; } }
@@ -68,7 +90,8 @@
 
     section h2 {
       font-size: 1.7rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.6rem;
+      letter-spacing: -0.01em;
     }
 
     /* ABOUT */
@@ -78,7 +101,7 @@
       border-radius: 16px;
       padding: 2rem 2.2rem;
       backdrop-filter: blur(14px);
-      line-height: 1.7;
+      line-height: 1.75;
       color: var(--muted);
       max-width: 900px;
     }
@@ -129,19 +152,20 @@
 
     .links {
       display: flex;
-      gap: 1.2rem;
+      gap: 1rem;
       margin-top: auto;
+      flex-wrap: wrap;
     }
 
     .links a {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       font-weight: 500;
       text-decoration: none;
       color: var(--accent);
-      border: 1px solid rgba(124,140,255,0.4);
-      padding: 0.4rem 0.9rem;
+      border: 1px solid rgba(139,156,255,0.5);
+      padding: 0.45rem 1rem;
       border-radius: 999px;
-      transition: background 0.2s ease, color 0.2s ease;
+      transition: all 0.2s ease;
     }
 
     .links a:hover {
@@ -149,11 +173,41 @@
       color: #fff;
     }
 
+    /* CONNECT */
+    .connect {
+      text-align: center;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 3rem 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      backdrop-filter: blur(16px);
+    }
+
+    .connect p {
+      color: var(--muted);
+      margin-bottom: 1.8rem;
+      font-size: 1rem;
+    }
+
+    .connect a {
+      margin: 0 0.8rem;
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .connect a:hover {
+      text-decoration: underline;
+    }
+
     footer {
       text-align: center;
       padding: 3rem 1rem;
       color: var(--muted);
-      font-size: 0.9rem;
+      font-size: 0.85rem;
     }
   </style>
 </head>
@@ -163,87 +217,93 @@
   <!-- HERO -->
   <div class="hero">
     <div>
+      <div class="logo">PM MODE</div>
       <h1>Ashwin Mishra</h1>
       <div class="typing">Product • Strategy • Decision Systems</div>
+      <div class="slogan">
+        Hire me as a product improvement feature — I optimize your KPIs.
+      </div>
     </div>
   </div>
 
-  <!-- ABOUT / RESUME -->
+  <!-- ABOUT -->
   <section>
     <h2>About Me</h2>
     <div class="about">
-      I am a <strong>Product & Strategy-focused problem solver</strong> with experience
-      designing decision systems, automation workflows, and analytics-driven solutions.
-      My work focuses on <strong>long-term value creation</strong> — balancing revenue,
-      user behavior, and operational constraints instead of optimizing isolated metrics.
-      <br /><br />
-      I enjoy working at the intersection of <strong>product thinking, data, and systems
-      design</strong>, and I build frameworks that can scale across companies and industries.
+      I work on <strong>product and decision systems</strong> that balance
+      growth, user behavior, and long-term value. My focus is on building
+      frameworks that <strong>scale across teams and companies</strong>,
+      instead of optimizing isolated features or short-term metrics.
     </div>
   </section>
 
   <!-- PROJECTS -->
   <section>
     <h2>Selected Projects</h2>
-
     <div class="projects">
 
       <div class="project">
         <h3>Dynamic Pricing Sensitivity & LTV Optimization</h3>
         <p>
-          A company-level pricing decision system that models user elasticity,
-          prevents value-destructive price shocks, and optimizes Lifetime Value
-          through policy-based guardrails.
+          A pricing decision system that models user elasticity,
+          prevents value-destructive price shocks, and protects
+          long-term Lifetime Value through policy guardrails.
         </p>
         <div class="links">
           <a href="https://github.com/ashwin33086/Dynamic-Pricing-Decision-System-LTV-optimization-" target="_blank">
             GitHub
           </a>
-          <a href="#" target="_blank">
-            PRD / Case Study
-          </a>
+          <a href="#" target="_blank">PRD / Case Study</a>
         </div>
       </div>
 
       <div class="project">
         <h3>Automated Resume Relevance Scoring (n8n)</h3>
         <p>
-          Workflow automation that scores resumes against job descriptions using
-          structured logic, reducing recruiter screening time.
+          Resume screening automation that evaluates relevance
+          against job descriptions using structured decision logic.
         </p>
         <div class="links">
           <a href="https://github.com/ashwin33086/Automated-Resume-Relevance-Scoring-Workflow-Using-n8n" target="_blank">
             GitHub
           </a>
-          <a href="#" target="_blank">
-            Case Study
-          </a>
+          <a href="#" target="_blank">Case Study</a>
         </div>
       </div>
 
       <div class="project">
         <h3>OPD Appointment Queue Automation</h3>
         <p>
-          Hospital OPD queue optimization system designed to reduce wait times
-          and improve operational throughput.
+          Hospital OPD queue optimization system designed to reduce
+          waiting times and improve operational throughput.
         </p>
         <div class="links">
           <a href="https://github.com/ashwin33086/opd-appointment-queue-automation-n8n" target="_blank">
             GitHub
           </a>
-          <a href="#" target="_blank">
-            Case Study
-          </a>
+          <a href="#" target="_blank">Case Study</a>
         </div>
       </div>
 
     </div>
   </section>
 
+  <!-- CONNECT -->
+  <section>
+    <div class="connect">
+      <h2>Let’s Connect</h2>
+      <p>
+        If you’re building products, improving decision systems,
+        or optimizing metrics that actually matter — let’s talk.
+      </p>
+      <a href="mailto:ashwin33086@gmail.com">Email</a>
+      <a href="https://github.com/ashwin33086" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+    </div>
+  </section>
+
   <footer>
-    © Ashwin Mishra ·
-    <a href="https://github.com/ashwin33086" target="_blank">GitHub</a> ·
-    <a href="mailto:ashwin33086@gmail.com">Email</a>
+    © Ashwin Mishra
   </footer>
 
   <!-- SCROLL ANIMATION -->
