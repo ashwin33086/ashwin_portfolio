@@ -3,31 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ashwin Mishra — Product</title>
+  <title>Ashwin Mishra — Product Portfolio</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #0a0c18;
-      --bg-accent: #14162b;
-      --card: rgba(255,255,255,0.07);
-      --border: rgba(255,255,255,0.18);
-      --text: #f1f2f7;
-      --muted: #b3b6d4;
-      --accent: #8b9cff;
+      --bg-main: #0c1022;
+      --bg-secondary: #14183a;
+      --card-bg: rgba(255, 255, 255, 0.08);
+      --border: rgba(255, 255, 255, 0.2);
+      --text-main: #f4f6ff;
+      --text-muted: #b7bce2;
+      --accent: #9aa7ff;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
       font-family: "Inter", sans-serif;
       background:
-        radial-gradient(1000px 500px at 15% -10%, #232a7a, transparent),
-        radial-gradient(900px 450px at 90% 10%, #3b155f, transparent),
-        linear-gradient(180deg, var(--bg), var(--bg-accent));
-      color: var(--text);
+        radial-gradient(900px 450px at 15% -10%, #2b317a, transparent),
+        radial-gradient(800px 400px at 85% 10%, #3a1a6a, transparent),
+        linear-gradient(180deg, var(--bg-main), var(--bg-secondary));
+      color: var(--text-main);
     }
 
     /* HERO */
@@ -40,28 +42,28 @@
       padding: 2rem;
     }
 
-    .logo {
+    .badge {
       display: inline-block;
-      margin-bottom: 1.5rem;
-      padding: 0.4rem 0.9rem;
+      margin-bottom: 1.6rem;
+      padding: 0.45rem 1rem;
       border-radius: 999px;
       font-size: 0.75rem;
       font-weight: 600;
       letter-spacing: 0.08em;
-      border: 1px solid var(--border);
       color: var(--accent);
+      border: 1px solid var(--border);
     }
 
     h1 {
-      font-size: 3.2rem;
+      font-size: 3.1rem;
       font-weight: 700;
-      margin-bottom: 0.8rem;
       letter-spacing: -0.02em;
+      margin-bottom: 0.7rem;
     }
 
     .typing {
       font-size: 1.15rem;
-      color: var(--muted);
+      color: var(--text-muted);
       white-space: nowrap;
       overflow: hidden;
       border-right: 2px solid var(--accent);
@@ -70,16 +72,39 @@
       animation: typing 3s steps(40, end) forwards, blink 0.8s infinite;
     }
 
+    .resume-btn {
+      display: inline-block;
+      margin-top: 1.6rem;
+      padding: 0.55rem 1.5rem;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: all 0.25s ease;
+    }
+
+    .resume-btn:hover {
+      background: var(--accent);
+      color: #0c1022;
+    }
+
     .slogan {
       margin-top: 1.3rem;
       font-size: 0.95rem;
       font-style: italic;
-      color: #cdd2ff;
+      color: #d6dbff;
       opacity: 0.95;
     }
 
-    @keyframes typing { to { width: 100%; } }
-    @keyframes blink { 50% { border-color: transparent; } }
+    @keyframes typing {
+      to { width: 100%; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
 
     /* SECTIONS */
     section {
@@ -96,18 +121,18 @@
 
     /* ABOUT */
     .about {
-      background: var(--card);
+      background: var(--card-bg);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 2rem 2.2rem;
-      backdrop-filter: blur(14px);
+      border-radius: 18px;
+      padding: 2rem 2.3rem;
+      backdrop-filter: blur(16px);
       line-height: 1.75;
-      color: var(--muted);
+      color: var(--text-muted);
       max-width: 900px;
     }
 
     .about strong {
-      color: var(--text);
+      color: var(--text-main);
       font-weight: 600;
     }
 
@@ -119,17 +144,16 @@
     }
 
     .project {
-      background: var(--card);
+      background: var(--card-bg);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 1.8rem;
-      backdrop-filter: blur(14px);
+      border-radius: 18px;
+      padding: 1.9rem;
+      backdrop-filter: blur(16px);
       opacity: 0;
       transform: translateY(40px);
       transition: all 0.6s ease;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
     }
 
     .project.show {
@@ -144,7 +168,7 @@
     }
 
     .project p {
-      color: var(--muted);
+      color: var(--text-muted);
       font-size: 0.95rem;
       line-height: 1.6;
       margin-bottom: 1.4rem;
@@ -162,7 +186,7 @@
       font-weight: 500;
       text-decoration: none;
       color: var(--accent);
-      border: 1px solid rgba(139,156,255,0.5);
+      border: 1px solid rgba(154,167,255,0.6);
       padding: 0.45rem 1rem;
       border-radius: 999px;
       transition: all 0.2s ease;
@@ -170,23 +194,23 @@
 
     .links a:hover {
       background: var(--accent);
-      color: #fff;
+      color: #0c1022;
     }
 
     /* CONNECT */
     .connect {
       text-align: center;
-      background: var(--card);
+      background: var(--card-bg);
       border: 1px solid var(--border);
-      border-radius: 20px;
+      border-radius: 22px;
       padding: 3rem 2rem;
-      max-width: 800px;
+      max-width: 820px;
       margin: 0 auto;
-      backdrop-filter: blur(16px);
+      backdrop-filter: blur(18px);
     }
 
     .connect p {
-      color: var(--muted);
+      color: var(--text-muted);
       margin-bottom: 1.8rem;
       font-size: 1rem;
     }
@@ -206,7 +230,7 @@
     footer {
       text-align: center;
       padding: 3rem 1rem;
-      color: var(--muted);
+      color: var(--text-muted);
       font-size: 0.85rem;
     }
   </style>
@@ -217,9 +241,16 @@
   <!-- HERO -->
   <div class="hero">
     <div>
-      <div class="logo">PM MODE</div>
+      <div class="badge">PM MODE</div>
       <h1>Ashwin Mishra</h1>
+
       <div class="typing">Product • Strategy • Decision Systems</div>
+
+      <!-- RESUME LINK -->
+      <a class="resume-btn" href="/Ashwin_Mishra_Resume.pdf" target="_blank">
+        View Resume
+      </a>
+
       <div class="slogan">
         Hire me as a product improvement feature — I optimize your KPIs.
       </div>
@@ -231,28 +262,26 @@
     <h2>About Me</h2>
     <div class="about">
       I work on <strong>product and decision systems</strong> that balance
-      growth, user behavior, and long-term value. My focus is on building
+      growth, user behavior, and long-term value. I focus on building
       frameworks that <strong>scale across teams and companies</strong>,
-      instead of optimizing isolated features or short-term metrics.
+      not just optimizing isolated features or short-term metrics.
     </div>
   </section>
 
   <!-- PROJECTS -->
   <section>
     <h2>Selected Projects</h2>
+
     <div class="projects">
 
       <div class="project">
         <h3>Dynamic Pricing Sensitivity & LTV Optimization</h3>
         <p>
-          A pricing decision system that models user elasticity,
-          prevents value-destructive price shocks, and protects
-          long-term Lifetime Value through policy guardrails.
+          Pricing decision system that models user elasticity, prevents
+          value-destructive price shocks, and protects long-term Lifetime Value.
         </p>
         <div class="links">
-          <a href="https://github.com/ashwin33086/Dynamic-Pricing-Decision-System-LTV-optimization-" target="_blank">
-            GitHub
-          </a>
+          <a href="https://github.com/ashwin33086/Dynamic-Pricing-Decision-System-LTV-optimization-" target="_blank">GitHub</a>
           <a href="#" target="_blank">PRD / Case Study</a>
         </div>
       </div>
@@ -260,13 +289,11 @@
       <div class="project">
         <h3>Automated Resume Relevance Scoring (n8n)</h3>
         <p>
-          Resume screening automation that evaluates relevance
-          against job descriptions using structured decision logic.
+          Resume screening automation that evaluates relevance against job
+          descriptions using structured decision logic.
         </p>
         <div class="links">
-          <a href="https://github.com/ashwin33086/Automated-Resume-Relevance-Scoring-Workflow-Using-n8n" target="_blank">
-            GitHub
-          </a>
+          <a href="https://github.com/ashwin33086/Automated-Resume-Relevance-Scoring-Workflow-Using-n8n" target="_blank">GitHub</a>
           <a href="#" target="_blank">Case Study</a>
         </div>
       </div>
@@ -274,13 +301,11 @@
       <div class="project">
         <h3>OPD Appointment Queue Automation</h3>
         <p>
-          Hospital OPD queue optimization system designed to reduce
-          waiting times and improve operational throughput.
+          Hospital OPD queue optimization system designed to reduce waiting
+          times and improve operational throughput.
         </p>
         <div class="links">
-          <a href="https://github.com/ashwin33086/opd-appointment-queue-automation-n8n" target="_blank">
-            GitHub
-          </a>
+          <a href="https://github.com/ashwin33086/opd-appointment-queue-automation-n8n" target="_blank">GitHub</a>
           <a href="#" target="_blank">Case Study</a>
         </div>
       </div>
@@ -293,8 +318,8 @@
     <div class="connect">
       <h2>Let’s Connect</h2>
       <p>
-        If you’re building products, improving decision systems,
-        or optimizing metrics that actually matter — let’s talk.
+        If you’re building products, improving decision systems, or optimizing
+        metrics that actually matter — let’s talk.
       </p>
       <a href="mailto:ashwin33086@gmail.com">Email</a>
       <a href="https://github.com/ashwin33086" target="_blank">GitHub</a>
@@ -302,9 +327,7 @@
     </div>
   </section>
 
-  <footer>
-    © Ashwin Mishra
-  </footer>
+  <footer>© Ashwin Mishra</footer>
 
   <!-- SCROLL ANIMATION -->
   <script>
