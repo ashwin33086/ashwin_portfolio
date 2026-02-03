@@ -12,21 +12,17 @@
       --bg-main: #0b1f33;
       --bg-secondary: #102a44;
 
-      /* default glass */
       --card-bg: rgba(255, 255, 255, 0.07);
-
-      /* PROJECT cards get a different tone */
       --project-bg: rgba(18, 52, 82, 0.85);
 
       --border: rgba(255, 255, 255, 0.18);
       --text-main: #f2f6fa;
       --text-muted: #b9c6d3;
       --accent: #6bb6ff;
+      --tag-bg: rgba(107, 182, 255, 0.15);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -59,20 +55,6 @@
         ),
         url("/asset/pm-venn.png.png") center / 70% no-repeat;
       pointer-events: none;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 160px;
-      background: linear-gradient(
-        to bottom,
-        rgba(11, 31, 51, 0),
-        var(--bg-main)
-      );
     }
 
     .hero-content {
@@ -112,6 +94,9 @@
       animation: typing 3s steps(40, end) forwards, blink 0.8s infinite;
     }
 
+    @keyframes typing { to { width: 100%; } }
+    @keyframes blink { 50% { border-color: transparent; } }
+
     .resume-btn {
       display: inline-block;
       margin-top: 1.8rem;
@@ -121,7 +106,6 @@
       color: var(--accent);
       text-decoration: none;
       font-size: 0.9rem;
-      font-weight: 500;
       transition: all 0.25s ease;
     }
 
@@ -137,14 +121,6 @@
       color: #d6e4ff;
     }
 
-    @keyframes typing {
-      to { width: 100%; }
-    }
-
-    @keyframes blink {
-      50% { border-color: transparent; }
-    }
-
     /* ================= SECTIONS ================= */
 
     section {
@@ -156,7 +132,6 @@
     section h2 {
       font-size: 1.85rem;
       margin-bottom: 2rem;
-      letter-spacing: -0.01em;
     }
 
     /* ================= ABOUT ================= */
@@ -175,7 +150,6 @@
 
     .about strong {
       color: var(--text-main);
-      font-weight: 600;
     }
 
     /* ================= PROJECTS ================= */
@@ -204,10 +178,29 @@
       transform: translateY(0);
     }
 
-    .project h3 {
-      margin: 0 0 0.8rem;
+    .project-header {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .project-header h3 {
+      margin: 0;
       font-size: 1.25rem;
       font-weight: 600;
+    }
+
+    .tag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      background: var(--tag-bg);
+      color: var(--accent);
+      border: 1px solid rgba(107,182,255,0.35);
     }
 
     .project p {
@@ -226,7 +219,6 @@
 
     .links a {
       font-size: 0.85rem;
-      font-weight: 500;
       text-decoration: none;
       color: var(--accent);
       border: 1px solid rgba(107,182,255,0.6);
@@ -250,7 +242,6 @@
       padding: 3.4rem 2.2rem;
       max-width: 900px;
       margin: 0 auto;
-      backdrop-filter: blur(18px);
     }
 
     .connect p {
@@ -264,7 +255,6 @@
       font-size: 0.9rem;
       text-decoration: none;
       color: var(--accent);
-      font-weight: 500;
     }
 
     footer {
@@ -296,9 +286,9 @@
     <h2>About Me</h2>
     <div class="about">
       I design <strong>product and decision systems</strong> that balance growth,
-      user behavior, and long-term value. My work focuses on building frameworks
-      that <strong>scale across teams, products, and organizations</strong> —
-      not just optimizing isolated features or chasing short-term metrics.
+      user behavior, and long-term value. I focus on frameworks that
+      <strong>scale across teams and organizations</strong>, not isolated
+      features or short-term metrics.
     </div>
   </section>
 
@@ -308,33 +298,42 @@
 
     <div class="projects">
 
+      <!-- LTV PROJECT WITH TAG -->
       <div class="project">
-        <h3>FlowSight Analytics — Funnel & Decision Intelligence</h3>
+        <div class="project-header">
+          <h3>Dynamic Pricing Sensitivity & LTV Optimization</h3>
+          <span class="tag">BRAINSTORMING</span>
+        </div>
         <p>
-          End-to-end product analytics system tracking user funnels,
-          identifying drop-offs, and converting behavioral data into
-          actionable product decisions and growth levers.
+          Pricing decision system exploring user elasticity, controlled price
+          experimentation, and long-term lifetime value protection to avoid
+          value-destructive revenue decisions.
         </p>
         <div class="links">
-          <a href="https://github.com/ashwin33086/Flowsight_Analytics.git" target="_blank">GitHub</a>
+          <a href="https://github.com/ashwin33086/Dynamic-Pricing-Decision-System-LTV-optimization-" target="_blank">GitHub</a>
           <a href="#" target="_blank">PRD / Case Study</a>
         </div>
       </div>
 
       <div class="project">
-        <h3>Dynamic Pricing Sensitivity & LTV Optimization</h3>
+        <div class="project-header">
+          <h3>FlowSight Analytics — Funnel & Decision Intelligence</h3>
+        </div>
         <p>
-          Pricing decision system modeling user elasticity to prevent
-          value-destructive price shocks and protect long-term lifetime value.
+          End-to-end analytics system tracking user funnels, identifying
+          drop-offs, and translating behavioral data into actionable
+          product and growth decisions.
         </p>
         <div class="links">
-          <a href="https://github.com/ashwin33086/Dynamic-Pricing-Decision-System-LTV-optimization-" target="_blank">GitHub</a>
-          <a href="#" target="_blank">Case Study</a>
+          <a href="https://github.com/ashwin33086/flowsight-analytics" target="_blank">GitHub</a>
+          <a href="#" target="_blank">PRD / Case Study</a>
         </div>
       </div>
 
       <div class="project">
-        <h3>Automated Resume Relevance Scoring (n8n)</h3>
+        <div class="project-header">
+          <h3>Automated Resume Relevance Scoring (n8n)</h3>
+        </div>
         <p>
           Resume screening automation evaluating candidate relevance against
           job descriptions using structured decision logic.
@@ -346,10 +345,12 @@
       </div>
 
       <div class="project">
-        <h3>OPD Appointment Queue Automation</h3>
+        <div class="project-header">
+          <h3>OPD Appointment Queue Automation</h3>
+        </div>
         <p>
-          Hospital queue optimization system reducing waiting time and
-          improving operational throughput.
+          Hospital queue optimization system designed to reduce patient wait
+          times and improve operational throughput.
         </p>
         <div class="links">
           <a href="https://github.com/ashwin33086/opd-appointment-queue-automation-n8n" target="_blank">GitHub</a>
