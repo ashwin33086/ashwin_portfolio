@@ -22,7 +22,9 @@
       --tag-bg: rgba(107, 182, 255, 0.15);
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
@@ -53,7 +55,7 @@
           rgba(11, 31, 51, 0.78),
           rgba(11, 31, 51, 0.78)
         ),
-        url("/asset/pm-venn.png.png") center / 70% no-repeat;
+        url("/asset/pm-venn.png") center / 70% no-repeat;
       pointer-events: none;
     }
 
@@ -94,8 +96,13 @@
       animation: typing 3s steps(40, end) forwards, blink 0.8s infinite;
     }
 
-    @keyframes typing { to { width: 100%; } }
-    @keyframes blink { 50% { border-color: transparent; } }
+    @keyframes typing {
+      to { width: 100%; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
 
     .resume-btn {
       display: inline-block;
@@ -276,7 +283,7 @@
       <div class="typing">Product • Strategy • Automation</div>
       <a class="resume-btn" href="/Ashwin_Mishra_Resume.pdf" target="_blank">View Resume</a>
       <div class="slogan">
-        Hire me as a product improvement feature — I optimize your KPIs.
+        Hire me as a product improvement feature — I automate your KPIs.
       </div>
     </div>
   </div>
@@ -285,10 +292,10 @@
   <section>
     <h2>About Me</h2>
     <div class="about">
-      I design <strong>product and decision systems</strong> that balance growth,
-      user behavior, and long-term value. I focus on frameworks that
-      <strong>scale across teams and organizations</strong>, not isolated
-      features or short-term metrics.
+      I build <strong>product-led automation systems</strong> that reduce manual
+      effort, enforce consistent decision-making, and improve scalability across
+      teams. My focus is on designing automation that balances business outcomes,
+      user experience, and long-term operational efficiency.
     </div>
   </section>
 
@@ -298,16 +305,16 @@
 
     <div class="projects">
 
-      <!-- LTV PROJECT WITH TAG -->
+      <!-- LTV PROJECT -->
       <div class="project">
         <div class="project-header">
           <h3>Dynamic Pricing Sensitivity & LTV Optimization</h3>
           <span class="tag">BRAINSTORMING</span>
         </div>
         <p>
-          Pricing decision system exploring user elasticity, controlled price
-          experimentation, and long-term lifetime value protection to avoid
-          value-destructive revenue decisions.
+          Automation-driven pricing framework exploring user elasticity,
+          controlled price experiments, and long-term lifetime value protection
+          to prevent revenue decisions that harm retention.
         </p>
         <div class="links">
           <a href="https://github.com/ashwin33086/Dynamic-Pricing-Decision-System-LTV-optimization-" target="_blank">GitHub</a>
@@ -317,12 +324,11 @@
 
       <div class="project">
         <div class="project-header">
-          <h3>FlowSight Analytics — Funnel & Decision Intelligence</h3>
+          <h3>FlowSight Analytics — Funnel Automation</h3>
         </div>
         <p>
-          End-to-end analytics system tracking user funnels, identifying
-          drop-offs, and translating behavioral data into actionable
-          product and growth decisions.
+          Product analytics automation tracking user funnels, detecting drop-offs,
+          and triggering insight-driven actions to support growth and retention.
         </p>
         <div class="links">
           <a href="https://github.com/ashwin33086/flowsight-analytics" target="_blank">GitHub</a>
@@ -335,8 +341,8 @@
           <h3>Automated Resume Relevance Scoring (n8n)</h3>
         </div>
         <p>
-          Resume screening automation evaluating candidate relevance against
-          job descriptions using structured decision logic.
+          End-to-end automation evaluating resume relevance against job
+          descriptions using structured scoring logic and rule-based workflows.
         </p>
         <div class="links">
           <a href="https://github.com/ashwin33086/Automated-Resume-Relevance-Scoring-Workflow-Using-n8n" target="_blank">GitHub</a>
@@ -349,8 +355,8 @@
           <h3>OPD Appointment Queue Automation</h3>
         </div>
         <p>
-          Hospital queue optimization system designed to reduce patient wait
-          times and improve operational throughput.
+          Hospital operations automation reducing patient wait times and
+          improving throughput via scheduled queues and workflow triggers.
         </p>
         <div class="links">
           <a href="https://github.com/ashwin33086/opd-appointment-queue-automation-n8n" target="_blank">GitHub</a>
@@ -366,8 +372,8 @@
     <div class="connect">
       <h2>Let’s Connect</h2>
       <p>
-        If you’re building products, improving decision systems, or optimizing
-        metrics that actually matter — let’s talk.
+        If you’re building automated products, scalable workflows, or systems
+        that remove operational friction — let’s talk.
       </p>
       <a href="mailto:ashwin33086@gmail.com">Email</a>
       <a href="https://github.com/ashwin33086" target="_blank">GitHub</a>
