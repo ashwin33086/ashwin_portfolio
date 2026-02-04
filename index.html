@@ -11,8 +11,10 @@
     :root {
       --bg-main: #0b1f33;
       --bg-secondary: #102a44;
+
       --card-bg: rgba(255, 255, 255, 0.07);
       --project-bg: rgba(18, 52, 82, 0.85);
+
       --border: rgba(255, 255, 255, 0.18);
       --text-main: #f2f6fa;
       --text-muted: #b9c6d3;
@@ -47,7 +49,10 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(rgba(11, 31, 51, 0.78), rgba(11, 31, 51, 0.78)),
+        linear-gradient(
+          rgba(11, 31, 51, 0.78),
+          rgba(11, 31, 51, 0.78)
+        ),
         url("/asset/pm-venn.png.png") center / 70% no-repeat;
       pointer-events: none;
     }
@@ -59,6 +64,7 @@
     }
 
     .badge {
+      display: inline-block;
       margin-bottom: 1.6rem;
       padding: 0.45rem 1.2rem;
       border-radius: 999px;
@@ -67,11 +73,12 @@
       letter-spacing: 0.1em;
       color: var(--accent);
       border: 1px solid var(--border);
-      display: inline-block;
     }
 
     h1 {
       font-size: 3.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
       margin-bottom: 0.8rem;
       text-shadow: 0 8px 28px rgba(0,0,0,0.45);
     }
@@ -79,25 +86,27 @@
     .typing {
       font-size: 1.2rem;
       color: #dbe7ff;
-      border-right: 2px solid var(--accent);
       white-space: nowrap;
       overflow: hidden;
+      border-right: 2px solid var(--accent);
       width: 0;
       margin: 0 auto;
-      animation: typing 3s steps(40,end) forwards, blink 0.8s infinite;
+      animation: typing 3s steps(40, end) forwards, blink 0.8s infinite;
     }
 
     @keyframes typing { to { width: 100%; } }
     @keyframes blink { 50% { border-color: transparent; } }
 
     .resume-btn {
+      display: inline-block;
       margin-top: 1.8rem;
       padding: 0.6rem 1.6rem;
       border-radius: 999px;
       border: 1px solid var(--accent);
       color: var(--accent);
       text-decoration: none;
-      display: inline-block;
+      font-size: 0.9rem;
+      transition: all 0.25s ease;
     }
 
     .resume-btn:hover {
@@ -107,6 +116,7 @@
 
     .slogan {
       margin-top: 1.4rem;
+      font-size: 0.95rem;
       font-style: italic;
       color: #d6e4ff;
     }
@@ -124,6 +134,24 @@
       margin-bottom: 2rem;
     }
 
+    /* ================= ABOUT ================= */
+
+    .about {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 2.8rem 3rem;
+      backdrop-filter: blur(18px);
+      line-height: 1.9;
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 1000px;
+    }
+
+    .about strong {
+      color: var(--text-main);
+    }
+
     /* ================= PROJECTS ================= */
 
     .projects {
@@ -134,23 +162,28 @@
 
     .project {
       background: var(--project-bg);
+      border: 1px solid rgba(107,182,255,0.25);
       border-radius: 22px;
       padding: 2.2rem;
-      border: 1px solid rgba(107,182,255,0.25);
-      cursor: pointer;
-      transition: transform 0.25s ease;
+      backdrop-filter: blur(16px);
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.6s ease;
+      display: flex;
+      flex-direction: column;
     }
 
-    .project:hover {
-      transform: translateY(-4px);
+    .project.show {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .project-header {
       display: flex;
       align-items: center;
       gap: 0.8rem;
+      margin-bottom: 0.8rem;
       flex-wrap: wrap;
-      margin-bottom: 0.6rem;
     }
 
     .project-header h3 {
@@ -162,6 +195,7 @@
     .tag {
       font-size: 0.7rem;
       font-weight: 600;
+      letter-spacing: 0.06em;
       padding: 0.3rem 0.7rem;
       border-radius: 999px;
       background: var(--tag-bg);
@@ -169,30 +203,17 @@
       border: 1px solid rgba(107,182,255,0.35);
     }
 
-    /* HIDDEN CONTENT */
-    .project-details {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease, opacity 0.3s ease;
-      opacity: 0;
-    }
-
-    .project.open .project-details {
-      max-height: 400px;
-      opacity: 1;
-      margin-top: 1.2rem;
-    }
-
-    .project-details p {
+    .project p {
       color: #d2deeb;
       font-size: 0.95rem;
       line-height: 1.65;
-      margin-bottom: 1.4rem;
+      margin-bottom: 1.8rem;
     }
 
     .links {
       display: flex;
       gap: 0.9rem;
+      margin-top: auto;
       flex-wrap: wrap;
     }
 
@@ -203,11 +224,37 @@
       border: 1px solid rgba(107,182,255,0.6);
       padding: 0.45rem 1.1rem;
       border-radius: 999px;
+      transition: all 0.2s ease;
     }
 
     .links a:hover {
       background: var(--accent);
       color: #0b1f33;
+    }
+
+    /* ================= CONNECT ================= */
+
+    .connect {
+      text-align: center;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 3.4rem 2.2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .connect p {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      font-size: 1.05rem;
+    }
+
+    .connect a {
+      margin: 0 1rem;
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: var(--accent);
     }
 
     footer {
@@ -234,15 +281,12 @@
     </div>
   </div>
 
-  <!-- PROJECTS -->
-
-
   <!-- ABOUT -->
   <section>
     <h2>About Me</h2>
     <div class="about">
-      I design <strong>product and automation systems</strong> that balance
-      growth, user behavior, and long-term value. I focus on frameworks that
+      I design <strong>product and decision systems</strong> that balance growth,
+      user behavior, and long-term value. I focus on frameworks that
       <strong>scale across teams and organizations</strong>, not isolated
       features or short-term metrics.
     </div>
@@ -254,29 +298,97 @@
 
     <div class="projects">
 
-      <a class="project" href="/projects/ltv.html">
+      <!-- LTV PROJECT WITH TAG -->
+      <div class="project">
         <div class="project-header">
           <h3>Dynamic Pricing Sensitivity & LTV Optimization</h3>
           <span class="tag">BRAINSTORMING</span>
         </div>
-      </a>
+        <p>
+          Pricing decision system exploring user elasticity, controlled price
+          experimentation, and long-term lifetime value protection to avoid
+          value-destructive revenue decisions.
+        </p>
+        <div class="links">
+          <a href="https://github.com/ashwin33086/Dynamic-Pricing-Decision-System-LTV-optimization-" target="_blank">GitHub</a>
+          <a href="https://github.com/ashwin33086/Dynamic-Pricing-Decision-System-LTV-optimization-/blob/0a6f46685952eb06e482668a8804ea03371ab0ac/PRD/Dynamic%20Pricing%20Sensitivity%20%2B%20LTV%20Optimization.docx" target="_blank">PRD / Case Study</a>
+        </div>
+      </div>
 
-      <a class="project" href="/projects/flowsight.html">
-        <h3>FlowSight Analytics — Funnel Intelligence</h3>
-      </a>
+      <div class="project">
+        <div class="project-header">
+          <h3>FlowSight Analytics — Funnel & Decision Intelligence</h3>
+        </div>
+        <p>
+          End-to-end analytics system tracking user funnels, identifying
+          drop-offs, and translating behavioral data into actionable
+          product and growth decisions.
+        </p>
+        <div class="links">
+          <a href="https://github.com/ashwin33086/Flowsight_Analytics" target="_blank">GitHub</a>
+          <a href="https://github.com/ashwin33086/Flowsight_Analytics/blob/573804176252156976b0fa8bea7ed9c919aa52a5/Flowsight_ppt/FlowSight.ppt.pdf" target="_blank">PRD / Case Study</a>
+        </div>
+      </div>
 
-      <a class="project" href="/projects/resume-automation.html">
-        <h3>Automated Resume Relevance Scoring</h3>
-      </a>
+      <div class="project">
+        <div class="project-header">
+          <h3>Automated Resume Relevance Scoring (n8n)</h3>
+        </div>
+        <p>
+          Resume screening automation evaluating candidate relevance against
+          job descriptions using structured decision logic.
+        </p>
+        <div class="links">
+          <a href="https://github.com/ashwin33086/Automated-Resume-Relevance-Scoring-Workflow-Using-n8n" target="_blank">GitHub</a>
+          <a href="https://www.loom.com/share/07a8067762ab4f0b8fa0336261e238e5" target="_blank">Watch Workflow</a>
+        </div>
+      </div>
 
-      <a class="project" href="/projects/opd-automation.html">
-        <h3>OPD Appointment Queue Automation</h3>
-      </a>
+      <div class="project">
+        <div class="project-header">
+          <h3>OPD Appointment Queue Automation</h3>
+        </div>
+        <p>
+          Hospital queue optimization system designed to reduce patient wait
+          times and improve operational throughput.
+        </p>
+        <div class="links">
+          <a href="https://github.com/ashwin33086/opd-appointment-queue-automation-n8n" target="_blank">GitHub</a>
+          <a href="#" target="_blank">Case Study</a>
+        </div>
+      </div>
 
     </div>
   </section>
 
+  <!-- CONNECT -->
+  <section>
+    <div class="connect">
+      <h2>Let’s Connect</h2>
+      <p>
+        If you’re building products, improving decision systems, or optimizing
+        metrics that actually matter — let’s talk.
+      </p>
+      <a href="mailto:ashwin33086@gmail.com">Email</a>
+      <a href="https://github.com/ashwin33086" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+    </div>
+  </section>
+
   <footer>© Ashwin Mishra</footer>
+
+  <script>
+    const projects = document.querySelectorAll('.project');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    projects.forEach(p => observer.observe(p));
+  </script>
 
 </body>
 </html>
