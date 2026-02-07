@@ -32,27 +32,27 @@
       margin: 0 auto;
       padding: 5rem 1.5rem;
       display: grid;
-      grid-template-columns: 1fr 100px;
-      gap: 3rem;
+      grid-template-columns: 1fr 120px;
+      gap: 3.5rem;
     }
 
     h1 {
-      font-size: 2.9rem;
+      font-size: 3rem;
       margin-top: 0;
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.3rem;
     }
 
     h3 {
       margin-top: 2.6rem;
-      margin-bottom: 0.8rem;
-      font-size: 1.2rem;
+      margin-bottom: 0.9rem;
+      font-size: 1.25rem;
       color: var(--accent);
     }
 
     p {
       color: var(--muted);
       line-height: 1.85;
-      font-size: 1.05rem;
+      font-size: 1.08rem;
       max-width: 900px;
     }
 
@@ -61,37 +61,42 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1.8rem;
+      gap: 2.2rem;
       padding-top: 0.5rem;
     }
 
     .action-btn {
-      width: 52px;
-      height: 52px;
+      width: 64px;
+      height: 64px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.1);
       border: 1px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+      transition: 
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
       text-decoration: none;
       color: var(--text);
       font-size: 0.75rem;
       font-weight: 600;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.04em;
+      text-align: center;
+      padding: 0.4rem;
     }
 
     .action-btn img {
-      width: 22px;
-      height: 22px;
-      filter: invert(1); /* makes dark SVG white */
+      width: 28px;
+      height: 28px;
+      filter: invert(1); /* ensures white icon */
     }
 
     .action-btn:hover {
       background: var(--accent);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 22px rgba(79,140,255,0.35);
+      transform: translateY(-4px);
+      box-shadow: 0 14px 30px rgba(79,140,255,0.35);
     }
 
     .action-btn:hover img {
@@ -107,8 +112,8 @@
       .side-links {
         flex-direction: row;
         justify-content: flex-start;
-        gap: 1.6rem;
-        margin-top: 2.5rem;
+        gap: 2rem;
+        margin-top: 3rem;
       }
     }
   </style>
@@ -154,14 +159,14 @@
         />
       </a>
 
-      <!-- PRD BUTTON -->
+      <!-- PRD / CASE STUDY BUTTON -->
       <a
         class="action-btn"
         href="https://github.com/ashwin33086/Dynamic-Pricing-Decision-System-LTV-optimization-/blob/0a6f46685952eb06e482668a8804ea03371ab0ac/PRD/Dynamic%20Pricing%20Sensitivity%20%2B%20LTV%20Optimization.docx"
         target="_blank"
-        title="View PRD"
+        title="View PRD / Case Study"
       >
-        PRD
+        PRD<br/>CASE
       </a>
 
     </div>
