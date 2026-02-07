@@ -12,6 +12,7 @@
       --bg: #0b1f33;
       --card: #122f4a;
       --card-light: #163d60;
+      --card-glow: rgba(79,140,255,0.15);
       --text: #f2f6fa;
       --muted: #b9c6d3;
       --accent: #4f8cff;
@@ -29,17 +30,17 @@
 
     /* ---------- PAGE LAYOUT ---------- */
     .container {
-      max-width: 1350px;
+      max-width: 1450px;
       margin: 0 auto;
-      padding: 5.8rem 1.5rem;
+      padding: 6rem 1.5rem;
       display: grid;
       grid-template-columns: 1fr 120px;
-      gap: 3.8rem;
+      gap: 4.2rem;
     }
 
     h1 {
-      font-size: 3.1rem;
-      margin-bottom: 1.4rem;
+      font-size: 3.2rem;
+      margin-bottom: 1rem;
     }
 
     p {
@@ -49,31 +50,59 @@
       max-width: 100%;
     }
 
+    /* ---------- ABOUT HEADER (GAMING MODE) ---------- */
+    .about-header {
+      margin-top: 2.2rem;
+      margin-bottom: 1.6rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .about-badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      padding: 0.45rem 1.1rem;
+      border-radius: 999px;
+      background: rgba(79,140,255,0.15);
+      border: 1px solid var(--border);
+      color: var(--accent);
+    }
+
+    .about-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, var(--accent), transparent);
+      opacity: 0.6;
+    }
+
     /* ---------- FEATURE BLOCK ---------- */
     .feature-block {
       display: grid;
-      grid-template-columns: 520px 1fr; /* IMAGE MUCH BIGGER */
-      gap: 4.2rem;
-      margin-top: 3.8rem;
-      align-items: center;
+      grid-template-columns: 620px 1fr;
+      gap: 5rem;
+      margin-top: 4.8rem;
+      align-items: flex-start;
     }
 
     /* ---------- 3D IMAGE ---------- */
     .photo-3d {
-      perspective: 1400px;
+      perspective: 1600px;
+      margin-top: 1.6rem; /* shift image slightly down */
     }
 
     .photo-3d img {
       width: 100%;
-      border-radius: 22px;
+      border-radius: 26px;
       border: 1px solid var(--border);
       transform:
         rotateX(10deg)
         rotateY(-12deg)
-        translateZ(32px);
+        translateZ(36px);
       box-shadow:
-        0 34px 68px rgba(0,0,0,0.48),
-        0 0 45px rgba(79,140,255,0.28);
+        0 38px 75px rgba(0,0,0,0.5),
+        0 0 60px rgba(79,140,255,0.3);
       transition: transform 0.6s ease, box-shadow 0.6s ease;
       background: #0b1f33;
     }
@@ -82,25 +111,50 @@
       transform:
         rotateX(0deg)
         rotateY(0deg)
-        translateZ(70px);
+        translateZ(80px);
       box-shadow:
-        0 50px 95px rgba(0,0,0,0.65),
-        0 0 65px rgba(79,140,255,0.38);
+        0 60px 110px rgba(0,0,0,0.7),
+        0 0 90px rgba(79,140,255,0.45);
     }
 
     /* ---------- TEXT CARD ---------- */
     .feature-text {
-      background: linear-gradient(180deg, var(--card-light), var(--card));
-      border-radius: 30px;
-      padding: 3.8rem;   /* BIGGER CARD */
+      background:
+        linear-gradient(180deg, var(--card-light), var(--card));
+      border-radius: 34px;
+      padding: 4.4rem 4.8rem;
       border: 1px solid var(--border);
+      box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,0.04),
+        0 30px 80px rgba(0,0,0,0.35),
+        0 0 40px var(--card-glow);
+      position: relative;
+      margin-top: 0.8rem;
+    }
+
+    .feature-text::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 34px;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,255,255,0.06),
+          transparent 40%
+        );
+      pointer-events: none;
     }
 
     .feature-text h3 {
       margin-top: 0;
-      margin-bottom: 1.1rem;
-      font-size: 1.45rem;
+      margin-bottom: 1.4rem;
+      font-size: 1.55rem;
       color: var(--text);
+    }
+
+    .feature-text p {
+      font-size: 1.05rem;
     }
 
     /* ---------- RIGHT ACTION BAR ---------- */
@@ -108,13 +162,13 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 2.4rem;
-      padding-top: 0.6rem;
+      gap: 2.6rem;
+      padding-top: 0.8rem;
     }
 
     .action-btn {
-      width: 68px;
-      height: 68px;
+      width: 72px;
+      height: 72px;
       border-radius: 50%;
       background: rgba(255,255,255,0.1);
       border: 1px solid var(--border);
@@ -125,24 +179,24 @@
       text-decoration: none;
       color: var(--text);
       font-size: 0.78rem;
-      font-weight: 600;
+      font-weight: 700;
       text-align: center;
     }
 
     .action-btn img {
-      width: 30px;
-      height: 30px;
+      width: 32px;
+      height: 32px;
       filter: invert(1);
     }
 
     .action-btn:hover {
       background: var(--accent);
       transform: translateY(-4px);
-      box-shadow: 0 16px 34px rgba(79,140,255,0.4);
+      box-shadow: 0 18px 40px rgba(79,140,255,0.45);
     }
 
     /* ---------- MOBILE ---------- */
-    @media (max-width: 900px) {
+    @media (max-width: 1000px) {
       .container {
         grid-template-columns: 1fr;
       }
@@ -150,11 +204,12 @@
       .side-links {
         flex-direction: row;
         justify-content: flex-start;
-        margin-top: 3.2rem;
+        margin-top: 3.5rem;
       }
 
       .feature-block {
         grid-template-columns: 1fr;
+        gap: 3.5rem;
       }
 
       .photo-3d img {
@@ -173,10 +228,21 @@
 
       <h1>FlowSight Analytics — Funnel Automation</h1>
 
+      <!-- ABOUT PROJECT HEADER -->
+      <div class="about-header">
+        <span class="about-badge">ABOUT THE PROJECT</span>
+        <div class="about-line"></div>
+      </div>
+
       <p>
-        FlowSight is an analytics-driven automation system that tracks user
-        funnels, identifies friction points, and converts behavioral data
-        into actionable product and growth decisions.
+        FlowSight is an analytics-driven automation system designed to track
+        user funnels, identify friction points, and translate behavioral data
+        into clear product and growth decisions.
+      </p>
+
+      <p>
+        The system focuses on reducing guesswork in product prioritization by
+        linking user behavior directly to actionable insights.
       </p>
 
       <!-- FEATURED IMAGE + TEXT -->
@@ -190,14 +256,30 @@
           >
         </div>
 
-        <!-- TEXT -->
+        <!-- TEXT CARD -->
         <div class="feature-text">
           <h3>Decision Intelligence in Action</h3>
+
           <p>
-            FlowSight does not just visualize funnels — it interprets them.
-            The system highlights where users drop, correlates events across
-            stages, and enables teams to prioritize fixes based on impact,
-            not intuition.
+            FlowSight goes beyond traditional dashboards by embedding decision
+            logic directly into analytics workflows. Instead of presenting
+            static metrics, the system highlights where users drop off,
+            correlates events across funnel stages, and surfaces the highest
+            impact intervention points.
+          </p>
+
+          <p>
+            By structuring funnel data into interpretable decision paths,
+            FlowSight enables teams to move faster with confidence. Product,
+            growth, and operations teams can align around the same insights
+            without relying on subjective interpretations of raw data.
+          </p>
+
+          <p>
+            The architecture is designed for scalability, allowing new events,
+            cohorts, and experiments to be layered without breaking existing
+            logic. This ensures long-term adaptability as product complexity
+            increases.
           </p>
         </div>
 
