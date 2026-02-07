@@ -1,1 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OPD Appointment Queue Automation</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Inter, sans-serif;
+      background: #0b1f33;
+      color: #f2f6fa;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 5rem 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 120px;
+      gap: 3.5rem;
+    }
+
+    p { color: #b9c6d3; line-height: 1.85; font-size: 1.08rem; }
+
+    .side-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2.2rem;
+    }
+
+    .action-btn {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: #f2f6fa;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .action-btn img { width: 28px; filter: invert(1); }
+
+    @media (max-width: 900px) {
+      .container { grid-template-columns: 1fr; }
+      .side-links { flex-direction: row; margin-top: 3rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div>
+    <h1>OPD Appointment Queue Automation</h1>
+
+    <h3>About the Project</h3>
+    <p>
+      Automation system designed to manage hospital OPD queues, reduce patient
+      waiting time, and improve operational throughput using workflow logic.
+    </p>
+
+    <h3>Why This Matters</h3>
+    <p>
+      Healthcare operations suffer from inefficiencies. This solution improves
+      patient experience while optimizing staff workload.
+    </p>
+  </div>
+
+  <div class="side-links">
+    <a class="action-btn" href="https://github.com/ashwin33086/opd-appointment-queue-automation-n8n" target="_blank">
+      <img src="https://raw.githubusercontent.com/ashwin33086/ashwin_portfolio/main/icons/github-svgrepo-com.svg">
+    </a>
+  </div>
+
+</div>
+
+</body>
+</html>
 
