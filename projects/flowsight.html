@@ -1,1 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FlowSight Analytics — Funnel Automation</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0b1f33;
+      --text: #f2f6fa;
+      --muted: #b9c6d3;
+      --accent: #4f8cff;
+      --border: rgba(255,255,255,0.15);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 5rem 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 120px;
+      gap: 3.5rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1.3rem;
+    }
+
+    h3 {
+      margin-top: 2.6rem;
+      color: var(--accent);
+    }
+
+    p {
+      color: var(--muted);
+      line-height: 1.85;
+      font-size: 1.08rem;
+      max-width: 900px;
+    }
+
+    .side-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2.2rem;
+    }
+
+    .action-btn {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease, background 0.2s ease;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .action-btn img {
+      width: 28px;
+      filter: invert(1);
+    }
+
+    .action-btn:hover {
+      background: var(--accent);
+      transform: translateY(-4px);
+    }
+
+    @media (max-width: 900px) {
+      .container { grid-template-columns: 1fr; }
+      .side-links { flex-direction: row; margin-top: 3rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div>
+    <h1>FlowSight Analytics — Funnel Automation</h1>
+
+    <h3>About the Project</h3>
+    <p>
+      FlowSight is an end-to-end analytics system designed to track user funnels,
+      identify drop-off points, and convert behavioral data into actionable
+      product insights.
+    </p>
+
+    <h3>Why This Matters</h3>
+    <p>
+      Teams often collect data but fail to act on it. FlowSight bridges that gap
+      by surfacing insights that directly inform product, growth, and retention
+      decisions.
+    </p>
+  </div>
+
+  <div class="side-links">
+    <a class="action-btn" href="https://github.com/ashwin33086/Flowsight_Analytics" target="_blank">
+      <img src="https://raw.githubusercontent.com/ashwin33086/ashwin_portfolio/main/icons/github-svgrepo-com.svg">
+    </a>
+
+    <a class="action-btn" href="https://github.com/ashwin33086/Flowsight_Analytics/blob/main/Flowsight_ppt/FlowSight.ppt.pdf" target="_blank">
+      PRD<br/>CASE
+    </a>
+  </div>
+
+</div>
+
+</body>
+</html>
 
