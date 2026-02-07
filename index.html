@@ -3,21 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ashwin Mishra — Product & Automation</title>
+  <title>Ashwin Mishra — Product Portfolio</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg-dark: #0b1f33;
-      --bg-light: #f6f8fb;
-      --card-dark: rgba(18,52,82,0.85);
-      --card-light: #ffffff;
-      --text-dark: #f2f6fa;
-      --text-muted-dark: #b9c6d3;
-      --text-light: #1f2d3d;
+      --bg: #0b1f33;
+      --card: #112b45;
+      --text: #f2f6fa;
+      --muted: #b9c6d3;
       --accent: #4f8cff;
-      --border: rgba(255,255,255,0.15);
+      --border: rgba(255,255,255,0.12);
     }
 
     * { box-sizing: border-box; }
@@ -25,8 +22,8 @@
     body {
       margin: 0;
       font-family: Inter, sans-serif;
-      background: linear-gradient(180deg, var(--bg-dark), #0e2a44);
-      color: var(--text-dark);
+      background: var(--bg);
+      color: var(--text);
     }
 
     section {
@@ -35,119 +32,92 @@
       padding: 5rem 1.5rem;
     }
 
-    h1 {
-      font-size: 3.2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 1.8rem;
-    }
-
-    p {
-      line-height: 1.8;
-      color: var(--text-muted-dark);
-    }
-
-    /* HERO */
+    /* ---------- HERO ---------- */
     .hero {
-      min-height: 90vh;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      position: relative;
     }
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(rgba(11,31,51,0.8), rgba(11,31,51,0.8)),
-        url("/assets/pm-venn.png") center / 60% no-repeat;
+    h1 {
+      font-size: 3.6rem;
+      margin-bottom: 0.4rem;
     }
 
-    .hero-content {
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero span {
+    .typing {
+      font-size: 1.3rem;
       color: var(--accent);
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      font-size: 0.85rem;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid var(--accent);
+      width: 0;
+      margin: 0 auto;
+      animation: typing 3.5s steps(40,end) forwards, blink 0.8s infinite;
     }
 
-    /* CAREER GOAL (KEY SECTION) */
-    .career {
-      background: linear-gradient(180deg, #ffffff, #eef2f7);
-      color: var(--text-light);
-      border-radius: 28px;
-      padding: 4rem;
+    @keyframes typing { to { width: 100%; } }
+    @keyframes blink { 50% { border-color: transparent; } }
+
+    .tagline {
+      margin-top: 1.4rem;
+      font-style: italic;
+      color: var(--muted);
+      font-size: 1rem;
     }
 
-    .career p {
-      color: #334155;
-      font-size: 1.1rem;
-      max-width: 900px;
-    }
-
-    .career-highlight {
-      margin-top: 2rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    .contact {
+      margin-top: 2.5rem;
+      display: flex;
+      justify-content: center;
       gap: 1.6rem;
     }
 
-    .career-card {
-      background: var(--card-light);
-      border-radius: 20px;
-      padding: 1.8rem;
-      border: 1px solid #dde3ea;
+    .contact a {
+      color: var(--accent);
+      text-decoration: none;
       font-weight: 500;
     }
 
-    /* PROJECTS */
+    /* ---------- ABOUT ---------- */
+    .about {
+      background: var(--card);
+      border-radius: 22px;
+      padding: 3rem;
+      border: 1px solid var(--border);
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: var(--muted);
+    }
+
+    /* ---------- PROJECTS ---------- */
     .projects {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
     }
 
     .project {
-      background: var(--card-dark);
+      background: var(--card);
       border-radius: 22px;
-      padding: 2.2rem;
+      padding: 2.4rem;
       border: 1px solid var(--border);
       text-decoration: none;
       color: inherit;
-      transition: transform 0.25s ease;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
     .project:hover {
       transform: translateY(-6px);
-    }
-
-    .tag {
-      display: inline-block;
-      margin-top: 0.6rem;
-      font-size: 0.7rem;
-      padding: 0.3rem 0.7rem;
-      border-radius: 999px;
-      background: rgba(79,140,255,0.15);
-      color: var(--accent);
-      border: 1px solid rgba(79,140,255,0.4);
-      font-weight: 600;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.35);
     }
 
     footer {
       text-align: center;
       padding: 3rem;
+      color: var(--muted);
       font-size: 0.85rem;
-      color: var(--text-muted-dark);
     }
   </style>
 </head>
@@ -155,58 +125,53 @@
 <body>
 
   <!-- HERO -->
-  <section class="hero">
-    <div class="hero-content">
-      <span>PRODUCT • STRATEGY • AUTOMATION</span>
+  <div class="hero">
+    <div>
       <h1>Ashwin Mishra</h1>
-      <p>Building scalable automation-driven products that optimize long-term business value.</p>
-    </div>
-  </section>
-
-  <!-- CAREER GOAL -->
-  <section>
-    <div class="career">
-      <h2>Career Goal</h2>
-      <p>
-        My long-term goal is to work as a <strong>Product Manager</strong> focused on
-        building automation-first systems that remove operational friction,
-        enable better decision-making, and scale sustainably.
-        I am particularly interested in products where
-        <strong>data, user behavior, and automation intersect</strong>.
-      </p>
-
-      <div class="career-highlight">
-        <div class="career-card">📈 Build products that scale beyond teams</div>
-        <div class="career-card">🤖 Replace manual workflows with automation</div>
-        <div class="career-card">📊 Optimize LTV, retention, and throughput</div>
-        <div class="career-card">🧠 Think in systems, not features</div>
+      <div class="typing">Product • Strategy • Automation • Analytics</div>
+      <div class="tagline">
+        Hire me as a product improvement feature — I optimize your KPIs.
       </div>
+
+      <div class="contact">
+        <a href="mailto:ashwin33086@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+        <a href="https://github.com/ashwin33086" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section>
+    <h2>About Me</h2>
+    <div class="about">
+      I work at the intersection of <strong>product, automation, and analytics</strong>.
+      My focus is on building systems that reduce manual effort, improve decision
+      quality, and scale sustainably across teams. I think in frameworks,
+      not features, and optimize for long-term value over short-term wins.
     </div>
   </section>
 
   <!-- PROJECTS -->
   <section>
-    <h2>Selected Projects</h2>
+    <h2>Projects</h2>
 
     <div class="projects">
-
       <a class="project" href="/projects/ltv.html">
-        <h3>Dynamic Pricing Sensitivity & LTV Optimization</h3>
-        <span class="tag">BRAINSTORMING</span>
+        Dynamic Pricing Sensitivity & LTV Optimization
       </a>
 
       <a class="project" href="/projects/flowsight.html">
-        <h3>FlowSight Analytics — Funnel Automation</h3>
+        FlowSight Analytics — Funnel Automation
       </a>
 
       <a class="project" href="/projects/resume-automation.html">
-        <h3>Automated Resume Relevance Scoring</h3>
+        Automated Resume Relevance Scoring
       </a>
 
       <a class="project" href="/projects/opd.html">
-        <h3>OPD Appointment Queue Automation</h3>
+        OPD Appointment Queue Automation
       </a>
-
     </div>
   </section>
 
