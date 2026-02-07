@@ -8,51 +8,203 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --bg:#0b1f33;
+      --card:#122f4a;
+      --card-light:#163d60;
+      --glow:rgba(79,140,255,0.18);
+      --text:#f2f6fa;
+      --muted:#b9c6d3;
+      --accent:#4f8cff;
+      --border:rgba(255,255,255,0.15);
+    }
+
+    * { box-sizing:border-box; }
+
     body {
-      margin: 0;
-      font-family: Inter, sans-serif;
-      background: #0b1f33;
-      color: #f2f6fa;
+      margin:0;
+      font-family:Inter,sans-serif;
+      background:var(--bg);
+      color:var(--text);
     }
 
+    /* ---------- PAGE LAYOUT ---------- */
     .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 5rem 1.5rem;
-      display: grid;
-      grid-template-columns: 1fr 120px;
-      gap: 3.5rem;
+      max-width:1600px;
+      margin:0 auto;
+      padding:6.5rem 1.5rem;
+      display:grid;
+      grid-template-columns:1fr 120px;
+      gap:4.5rem;
     }
 
-    p { color: #b9c6d3; line-height: 1.85; font-size: 1.08rem; }
+    h1 {
+      font-size:3.1rem;
+      margin-bottom:1.1rem;
+    }
 
+    p {
+      color:var(--muted);
+      line-height:1.85;
+      font-size:1.02rem;
+    }
+
+    /* ---------- ABOUT HEADER ---------- */
+    .about-header {
+      margin:2.3rem 0 1.8rem;
+      display:flex;
+      align-items:center;
+      gap:1rem;
+    }
+
+    .about-badge {
+      padding:.4rem 1.1rem;
+      border-radius:999px;
+      font-size:.72rem;
+      font-weight:700;
+      letter-spacing:.12em;
+      background:rgba(79,140,255,.15);
+      border:1px solid var(--border);
+      color:var(--accent);
+    }
+
+    .about-line {
+      flex:1;
+      height:1px;
+      background:linear-gradient(to right,var(--accent),transparent);
+      opacity:.6;
+    }
+
+    /* ---------- FEATURE BLOCK ---------- */
+    .feature-block {
+      margin-top:5rem;
+      display:grid;
+      grid-template-columns:620px minmax(520px, 1fr);
+      grid-template-rows:auto auto;
+      column-gap:4.5rem;
+      align-items:start;
+      position:relative;
+    }
+
+    /* ---------- IMAGE ---------- */
+    .photo-3d {
+      perspective:1600px;
+      grid-row:1;
+      display:flex;
+      justify-content:center;
+      z-index:2;
+    }
+
+    .photo-3d img {
+      width:100%;
+      max-width:560px;
+      border-radius:28px;
+      border:1px solid var(--border);
+      transform:rotateX(10deg) rotateY(-12deg) translateZ(38px);
+      box-shadow:
+        0 40px 80px rgba(0,0,0,.55),
+        0 0 70px var(--glow);
+      transition:.6s ease;
+      background:#0b1f33;
+    }
+
+    .photo-3d:hover img {
+      transform:rotateX(0) rotateY(0) translateZ(90px);
+      box-shadow:
+        0 65px 120px rgba(0,0,0,.75),
+        0 0 110px rgba(79,140,255,.45);
+    }
+
+    /* ---------- VERTICAL CARD ---------- */
+    .l-card-vertical {
+      grid-row:1;
+      justify-self:end;
+      width:100%;
+      max-width:720px;
+      background:linear-gradient(180deg,var(--card-light),var(--card));
+      border:1px solid var(--border);
+      border-radius:36px 36px 10px 10px;
+      padding:4.2rem 5rem;
+      box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,.04),
+        0 35px 90px rgba(0,0,0,.45),
+        0 0 45px var(--glow);
+    }
+
+    .l-card-vertical h3 {
+      margin-top:0;
+      margin-bottom:1.4rem;
+      font-size:1.45rem;
+    }
+
+    /* ---------- HORIZONTAL CARD ---------- */
+    .l-card-bottom {
+      grid-column:1 / span 2;
+      justify-self:end;
+      width:calc(100% - 120px);
+      background:linear-gradient(180deg,var(--card-light),var(--card));
+      border:1px solid var(--border);
+      border-top:none;
+      border-radius:0 0 42px 42px;
+      padding:4rem 6.5rem;
+      box-shadow:
+        0 32px 75px rgba(0,0,0,.45),
+        0 0 50px var(--glow);
+      margin-top:-1px;
+    }
+
+    /* ---------- RIGHT ACTION BAR ---------- */
     .side-links {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2.2rem;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:2.6rem;
+      padding-top:1.2rem;
+      z-index:3;
     }
 
     .action-btn {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      color: #f2f6fa;
-      font-size: 0.75rem;
-      font-weight: 600;
+      width:72px;
+      height:72px;
+      border-radius:50%;
+      background:rgba(255,255,255,.1);
+      border:1px solid var(--border);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-decoration:none;
+      color:var(--text);
+      font-size:.76rem;
+      font-weight:700;
+      transition:.2s ease;
     }
 
-    .action-btn img { width: 28px; filter: invert(1); }
+    .action-btn img {
+      width:32px;
+      filter:invert(1);
+    }
 
-    @media (max-width: 900px) {
-      .container { grid-template-columns: 1fr; }
-      .side-links { flex-direction: row; margin-top: 3rem; }
+    .action-btn:hover {
+      background:var(--accent);
+      transform:translateY(-4px);
+      box-shadow:0 18px 40px rgba(79,140,255,.45);
+    }
+
+    /* ---------- MOBILE ---------- */
+    @media(max-width:1200px){
+      .container { grid-template-columns:1fr; }
+      .feature-block { grid-template-columns:1fr; }
+      .l-card-vertical,
+      .l-card-bottom {
+        width:100%;
+        justify-self:start;
+        padding:3rem;
+      }
+      .side-links {
+        flex-direction:row;
+        margin-top:3.5rem;
+      }
+      .photo-3d img { transform:none; }
     }
   </style>
 </head>
@@ -64,27 +216,58 @@
   <div>
     <h1>Automated Resume Relevance Scoring</h1>
 
-    <h3>About the Project</h3>
+    <div class="about-header">
+      <span class="about-badge">ABOUT THE PROJECT</span>
+      <div class="about-line"></div>
+    </div>
+
     <p>
-      This automation evaluates resumes against job descriptions using
-      structured rules and weighted relevance logic, reducing manual screening
-      effort for recruiters.
+      An automation system designed to evaluate resumes against job
+      descriptions using structured logic, reducing recruiter effort and
+      improving screening consistency.
     </p>
 
-    <h3>Why This Matters</h3>
-    <p>
-      Recruiters waste hours filtering resumes manually. This system improves
-      efficiency, consistency, and hiring speed.
-    </p>
+    <div class="feature-block">
+
+      <!-- IMAGE -->
+      <div class="photo-3d">
+        <img src="/visuals/WorkflowDesign.png" alt="Resume Automation Workflow">
+      </div>
+
+      <!-- VERTICAL CARD -->
+      <div class="l-card-vertical">
+        <h3>Scoring & Decision Engine</h3>
+        <p>
+          The system parses resumes, extracts relevant skills and experience,
+          and scores candidates based on alignment with role requirements.
+          This enables faster shortlisting without relying on manual judgment.
+        </p>
+      </div>
+
+      <!-- HORIZONTAL CARD -->
+      <div class="l-card-bottom">
+        <p>
+          Automation logic ensures consistent evaluation across candidates,
+          eliminating bias introduced by manual screening. Recruiters receive
+          ranked outputs that highlight the strongest matches for each role.
+        </p>
+
+        <p>
+          The workflow is extensible — new criteria, weighting logic, and job
+          templates can be added without disrupting the existing pipeline.
+        </p>
+      </div>
+
+    </div>
   </div>
 
+  <!-- ACTIONS -->
   <div class="side-links">
     <a class="action-btn" href="https://github.com/ashwin33086/Automated-Resume-Relevance-Scoring-Workflow-Using-n8n" target="_blank">
       <img src="https://raw.githubusercontent.com/ashwin33086/ashwin_portfolio/main/icons/github-svgrepo-com.svg">
     </a>
-
-    <a class="action-btn" href="https://www.loom.com/share/07a8067762ab4f0b8fa0336261e238e5" target="_blank">
-      DEMO
+    <a class="action-btn" href="#" target="_blank">
+      PRD<br>CASE
     </a>
   </div>
 
@@ -92,4 +275,3 @@
 
 </body>
 </html>
-
