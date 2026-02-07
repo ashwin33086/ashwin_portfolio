@@ -28,11 +28,11 @@
       color: var(--text);
     }
 
-    /* ---------- PAGE LAYOUT ---------- */
+    /* ---------- LAYOUT ---------- */
     .container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 5rem 1.5rem;
+      padding: 5.5rem 1.5rem;
       display: grid;
       grid-template-columns: 1fr 120px;
       gap: 3.5rem;
@@ -44,7 +44,7 @@
     }
 
     h3 {
-      margin-top: 2.8rem;
+      margin-top: 2.6rem;
       margin-bottom: 0.8rem;
       font-size: 1.25rem;
       color: var(--accent);
@@ -68,6 +68,62 @@
       background: var(--tag-bg);
       border: 1px solid var(--border);
       color: var(--accent);
+    }
+
+    /* ---------- FEATURED VISUAL (LAPTOP-LIKE EFFECT) ---------- */
+    .feature-block {
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      gap: 3.8rem;
+      margin-top: 3rem;
+      align-items: center;
+    }
+
+    .photo-3d {
+      perspective: 1200px;
+    }
+
+    .photo-3d img {
+      width: 100%;
+      border-radius: 22px;
+      border: 1px solid var(--border);
+      transform:
+        rotateX(12deg)
+        rotateY(-14deg)
+        translateZ(30px);
+      box-shadow:
+        0 30px 60px rgba(0,0,0,0.45),
+        0 0 40px rgba(79,140,255,0.25);
+      transition: transform 0.6s ease, box-shadow 0.6s ease;
+    }
+
+    .photo-3d:hover img {
+      transform:
+        rotateX(0deg)
+        rotateY(0deg)
+        translateZ(60px);
+      box-shadow:
+        0 45px 90px rgba(0,0,0,0.6),
+        0 0 55px rgba(79,140,255,0.35);
+    }
+
+    .feature-text {
+      background: linear-gradient(180deg, var(--card-light), var(--card));
+      border-radius: 26px;
+      padding: 3rem;
+      border: 1px solid var(--border);
+    }
+
+    .feature-text h4 {
+      margin-top: 0;
+      margin-bottom: 0.8rem;
+      font-size: 1.25rem;
+      color: var(--text);
+    }
+
+    .feature-text p {
+      margin: 0;
+      font-size: 1.02rem;
     }
 
     /* ---------- RIGHT ACTION BAR ---------- */
@@ -108,65 +164,6 @@
       box-shadow: 0 14px 30px rgba(79,140,255,0.35);
     }
 
-    /* ---------- IMAGE + CARD SECTION ---------- */
-    .split-section {
-      display: grid;
-      grid-template-columns: 260px 1fr;
-      gap: 2.6rem;
-      margin-top: 2.8rem;
-      align-items: center;
-    }
-
-    /* 3D IMAGE WRAPPER */
-    .image-3d {
-      perspective: 1000px;
-    }
-
-    .image-3d img {
-      width: 100%;
-      border-radius: 18px;
-      border: 1px solid var(--border);
-      transform:
-        rotateX(8deg)
-        rotateY(-10deg)
-        translateZ(20px);
-      box-shadow:
-        0 20px 40px rgba(0,0,0,0.45),
-        0 0 30px rgba(79,140,255,0.15);
-      transition:
-        transform 0.6s ease,
-        box-shadow 0.6s ease;
-    }
-
-    .image-3d:hover img {
-      transform:
-        rotateX(0deg)
-        rotateY(0deg)
-        translateZ(40px);
-      box-shadow:
-        0 30px 60px rgba(0,0,0,0.55),
-        0 0 45px rgba(79,140,255,0.35);
-    }
-
-    .info-card {
-      background: linear-gradient(180deg, var(--card-light), var(--card));
-      border-radius: 22px;
-      padding: 2.6rem;
-      border: 1px solid var(--border);
-    }
-
-    .info-card h4 {
-      margin-top: 0;
-      margin-bottom: 0.6rem;
-      font-size: 1.15rem;
-      color: var(--text);
-    }
-
-    .info-card p {
-      margin: 0;
-      font-size: 0.98rem;
-    }
-
     /* ---------- MOBILE ---------- */
     @media (max-width: 900px) {
       .container {
@@ -179,11 +176,11 @@
         margin-top: 3rem;
       }
 
-      .split-section {
+      .feature-block {
         grid-template-columns: 1fr;
       }
 
-      .image-3d img {
+      .photo-3d img {
         transform: none;
       }
     }
@@ -203,42 +200,44 @@
       <h3>About the Project</h3>
       <p>
         This project explores how pricing decisions influence user behavior
-        and long-term lifetime value. It focuses on modeling price elasticity,
-        controlled experimentation, and preventing short-term revenue actions
-        that degrade retention and LTV.
+        and long-term lifetime value. It treats pricing as a strategic decision
+        system rather than a short-term revenue lever.
       </p>
 
-      <h3>Why This Matters</h3>
-      <p>
-        Most pricing systems optimize for immediate revenue without accounting
-        for long-term customer impact. This approach reframes pricing as a
-        strategic decision system rather than a revenue lever.
-      </p>
+      <!-- FEATURED IMAGE + TEXT (THIS IS THE LAPTOP-LIKE SECTION) -->
+      <div class="feature-block">
 
-      <!-- IMAGE + CARD -->
-      <div class="split-section">
-
-        <div class="image-3d">
+        <!-- YOUR PHOTO -->
+        <div class="photo-3d">
           <img
-            src="https://picsum.photos/400/300"
-            alt="Pricing Experiment Visualization"
+            src="/asset/ashwin-photo.png"
+            alt="Ashwin Mishra — Product Thinking"
           >
         </div>
 
-        <div class="info-card">
+        <!-- SIDE TEXT -->
+        <div class="feature-text">
           <h4>How the System Thinks</h4>
           <p>
-            Instead of reacting to short-term revenue signals, the system
-            evaluates user cohorts, elasticity thresholds, and downstream
-            retention impact before recommending pricing actions.
+            Instead of reacting to revenue spikes, the system evaluates
+            elasticity bands, cohort behavior, and downstream retention
+            impact before recommending pricing actions. The focus is on
+            long-term value preservation.
           </p>
         </div>
 
       </div>
 
+      <h3>Why This Matters</h3>
+      <p>
+        Short-term pricing optimizations often destroy trust and retention.
+        This framework ensures pricing decisions align with sustainable
+        growth and customer lifetime value.
+      </p>
+
     </div>
 
-    <!-- RIGHT SIDE ACTIONS -->
+    <!-- RIGHT ACTIONS -->
     <div class="side-links">
 
       <a
