@@ -9,123 +9,104 @@
 
   <style>
     :root {
-      --bg: #0b1f33;
-      --text: #f2f6fa;
-      --muted: #b9c6d3;
-      --accent: #4f8cff;
-      --border: rgba(255,255,255,0.15);
+      --bg:#0b1f33; --card:#122f4a; --card-light:#163d60;
+      --text:#f2f6fa; --muted:#b9c6d3; --accent:#4f8cff;
+      --border:rgba(255,255,255,0.15);
     }
 
-    * { box-sizing: border-box; }
+    *{box-sizing:border-box;}
+    body{margin:0;font-family:Inter,sans-serif;background:var(--bg);color:var(--text);}
 
-    body {
-      margin: 0;
-      font-family: Inter, sans-serif;
-      background: var(--bg);
-      color: var(--text);
+    .container{
+      max-width:1200px;margin:0 auto;padding:5.5rem 1.5rem;
+      display:grid;grid-template-columns:1fr 120px;gap:3.5rem;
     }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 5rem 1.5rem;
-      display: grid;
-      grid-template-columns: 1fr 120px;
-      gap: 3.5rem;
+    h1{font-size:3rem;margin-bottom:1.2rem;}
+    h3{margin-top:2.6rem;color:var(--accent);}
+    p{color:var(--muted);line-height:1.85;font-size:1.05rem;max-width:900px;}
+
+    .feature-block{
+      display:grid;grid-template-columns:420px 1fr;
+      gap:3.8rem;margin-top:3rem;align-items:center;
     }
 
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 1.3rem;
+    .photo-3d{perspective:1200px;}
+    .photo-3d img{
+      width:100%;border-radius:22px;border:1px solid var(--border);
+      transform:rotateX(12deg) rotateY(-14deg) translateZ(30px);
+      box-shadow:0 30px 60px rgba(0,0,0,.45),0 0 40px rgba(79,140,255,.25);
+      transition:.6s ease;
+    }
+    .photo-3d:hover img{
+      transform:rotateX(0) rotateY(0) translateZ(60px);
+      box-shadow:0 45px 90px rgba(0,0,0,.6),0 0 55px rgba(79,140,255,.35);
     }
 
-    h3 {
-      margin-top: 2.6rem;
-      color: var(--accent);
+    .feature-text{
+      background:linear-gradient(180deg,var(--card-light),var(--card));
+      border-radius:26px;padding:3rem;border:1px solid var(--border);
     }
 
-    p {
-      color: var(--muted);
-      line-height: 1.85;
-      font-size: 1.08rem;
-      max-width: 900px;
+    .side-links{
+      display:flex;flex-direction:column;align-items:center;gap:2.2rem;
     }
-
-    .side-links {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2.2rem;
+    .action-btn{
+      width:64px;height:64px;border-radius:50%;
+      background:rgba(255,255,255,.1);border:1px solid var(--border);
+      display:flex;align-items:center;justify-content:center;
+      text-decoration:none;color:var(--text);font-size:.75rem;font-weight:600;
+      transition:.2s ease;
     }
+    .action-btn img{width:28px;filter:invert(1);}
+    .action-btn:hover{background:var(--accent);transform:translateY(-4px);}
 
-    .action-btn {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.1);
-      border: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.2s ease, background 0.2s ease;
-      text-decoration: none;
-      color: var(--text);
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-align: center;
-    }
-
-    .action-btn img {
-      width: 28px;
-      filter: invert(1);
-    }
-
-    .action-btn:hover {
-      background: var(--accent);
-      transform: translateY(-4px);
-    }
-
-    @media (max-width: 900px) {
-      .container { grid-template-columns: 1fr; }
-      .side-links { flex-direction: row; margin-top: 3rem; }
+    @media(max-width:900px){
+      .container{grid-template-columns:1fr;}
+      .feature-block{grid-template-columns:1fr;}
+      .side-links{flex-direction:row;margin-top:3rem;}
+      .photo-3d img{transform:none;}
     }
   </style>
 </head>
 
 <body>
-
 <div class="container">
 
   <div>
     <h1>FlowSight Analytics — Funnel Automation</h1>
 
-    <h3>About the Project</h3>
     <p>
-      FlowSight is an end-to-end analytics system designed to track user funnels,
-      identify drop-off points, and convert behavioral data into actionable
-      product insights.
+      FlowSight is an analytics and automation system that tracks user funnels,
+      identifies drop-offs, and converts behavioral data into actionable
+      product decisions.
     </p>
 
-    <h3>Why This Matters</h3>
-    <p>
-      Teams often collect data but fail to act on it. FlowSight bridges that gap
-      by surfacing insights that directly inform product, growth, and retention
-      decisions.
-    </p>
+    <div class="feature-block">
+      <div class="photo-3d">
+        <img src="/asset/flowsight.png" alt="FlowSight Analytics">
+      </div>
+
+      <div class="feature-text">
+        <h3>What It Solves</h3>
+        <p>
+          Teams often collect data but fail to act on it. FlowSight bridges
+          that gap by surfacing insights that directly inform product,
+          growth, and retention strategies.
+        </p>
+      </div>
+    </div>
   </div>
 
   <div class="side-links">
     <a class="action-btn" href="https://github.com/ashwin33086/Flowsight_Analytics" target="_blank">
       <img src="https://raw.githubusercontent.com/ashwin33086/ashwin_portfolio/main/icons/github-svgrepo-com.svg">
     </a>
-
     <a class="action-btn" href="https://github.com/ashwin33086/Flowsight_Analytics/blob/main/Flowsight_ppt/FlowSight.ppt.pdf" target="_blank">
       PRD<br/>CASE
     </a>
   </div>
 
 </div>
-
 </body>
 </html>
-
