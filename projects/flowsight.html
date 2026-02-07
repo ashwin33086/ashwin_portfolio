@@ -19,9 +19,9 @@
       --border:rgba(255,255,255,0.15);
     }
 
-    *{box-sizing:border-box;}
+    * { box-sizing:border-box; }
 
-    body{
+    body {
       margin:0;
       font-family:Inter,sans-serif;
       background:var(--bg);
@@ -29,7 +29,7 @@
     }
 
     /* ---------- PAGE LAYOUT ---------- */
-    .container{
+    .container {
       max-width:1600px;
       margin:0 auto;
       padding:6.5rem 1.5rem;
@@ -38,26 +38,26 @@
       gap:4.5rem;
     }
 
-    h1{
+    h1 {
       font-size:3.1rem;
       margin-bottom:1.1rem;
     }
 
-    p{
+    p {
       color:var(--muted);
       line-height:1.85;
-      font-size:1.02rem; /* smaller */
+      font-size:1.02rem;
     }
 
     /* ---------- ABOUT HEADER ---------- */
-    .about-header{
+    .about-header {
       margin:2.3rem 0 1.8rem;
       display:flex;
       align-items:center;
       gap:1rem;
     }
 
-    .about-badge{
+    .about-badge {
       padding:.4rem 1.1rem;
       border-radius:999px;
       font-size:.72rem;
@@ -68,7 +68,7 @@
       color:var(--accent);
     }
 
-    .about-line{
+    .about-line {
       flex:1;
       height:1px;
       background:linear-gradient(to right,var(--accent),transparent);
@@ -76,27 +76,29 @@
     }
 
     /* ---------- FEATURE BLOCK ---------- */
-    .feature-block{
+    .feature-block {
       margin-top:5rem;
       display:grid;
-      grid-template-columns:680px 1fr;
+      grid-template-columns:620px minmax(520px, 1fr);
       grid-template-rows:auto auto;
-      column-gap:5rem;
+      column-gap:4.5rem;
       row-gap:0;
       align-items:start;
       position:relative;
     }
 
     /* ---------- IMAGE ---------- */
-    .photo-3d{
+    .photo-3d {
       perspective:1600px;
       grid-row:1;
-      margin-top:-2.2rem;
-      z-index:3;
+      display:flex;
+      justify-content:center; /* CENTER IMAGE IN COLUMN */
+      z-index:2;
     }
 
-    .photo-3d img{
+    .photo-3d img {
       width:100%;
+      max-width:560px;
       border-radius:28px;
       border:1px solid var(--border);
       transform:rotateX(10deg) rotateY(-12deg) translateZ(38px);
@@ -107,65 +109,63 @@
       background:#0b1f33;
     }
 
-    .photo-3d:hover img{
+    .photo-3d:hover img {
       transform:rotateX(0) rotateY(0) translateZ(90px);
       box-shadow:
         0 65px 120px rgba(0,0,0,.75),
         0 0 110px rgba(79,140,255,.45);
     }
 
-    /* ---------- L CARD (VERTICAL — FIXED POSITION) ---------- */
-    .l-card-vertical{
+    /* ---------- L CARD (VERTICAL — ANCHORED RIGHT) ---------- */
+    .l-card-vertical {
       grid-row:1;
-      width:108%;              /* still broader */
-      margin-left:-2%;         /* gentle shift right */
+      justify-self:end;            /* KEY FIX */
+      width:100%;
+      max-width:720px;             /* BROAD BUT CONTROLLED */
       background:linear-gradient(180deg,var(--card-light),var(--card));
       border:1px solid var(--border);
       border-radius:36px 36px 10px 10px;
-      padding:4.2rem 5rem;     /* slightly tighter */
+      padding:4.2rem 5rem;
       box-shadow:
         inset 0 0 0 1px rgba(255,255,255,.04),
         0 35px 90px rgba(0,0,0,.45),
         0 0 45px var(--glow);
-      position:relative;
       z-index:1;
     }
 
-    .l-card-vertical h3{
+    .l-card-vertical h3 {
       margin-top:0;
       margin-bottom:1.4rem;
-      font-size:1.45rem; /* smaller */
+      font-size:1.45rem;
     }
 
-    /* ---------- L CARD (BOTTOM — MATCHED EXTENSION) ---------- */
-    .l-card-bottom{
-      grid-column:1 / span 3;
-      width:112%;
-      margin-left:-6%;
+    /* ---------- L CARD (BOTTOM — ALIGNED WITH VERTICAL) ---------- */
+    .l-card-bottom {
+      grid-column:1 / span 2;
+      justify-self:end;            /* KEY FIX */
+      width:calc(100% - 120px);    /* STOP BEFORE ACTION BAR */
       background:linear-gradient(180deg,var(--card-light),var(--card));
       border:1px solid var(--border);
       border-top:none;
       border-radius:0 0 42px 42px;
-      padding:4rem 7rem 4rem 6.2rem;
+      padding:4rem 6.5rem;
       box-shadow:
         0 32px 75px rgba(0,0,0,.45),
         0 0 50px var(--glow);
       margin-top:-1px;
-      position:relative;
-      z-index:0;
     }
 
     /* ---------- RIGHT ACTION BAR ---------- */
-    .side-links{
+    .side-links {
       display:flex;
       flex-direction:column;
       align-items:center;
       gap:2.6rem;
       padding-top:1.2rem;
-      z-index:4;
+      z-index:3;
     }
 
-    .action-btn{
+    .action-btn {
       width:72px;
       height:72px;
       border-radius:50%;
@@ -181,12 +181,12 @@
       transition:.2s ease;
     }
 
-    .action-btn img{
+    .action-btn img {
       width:32px;
       filter:invert(1);
     }
 
-    .action-btn:hover{
+    .action-btn:hover {
       background:var(--accent);
       transform:translateY(-4px);
       box-shadow:0 18px 40px rgba(79,140,255,.45);
@@ -194,19 +194,19 @@
 
     /* ---------- MOBILE ---------- */
     @media(max-width:1200px){
-      .container{grid-template-columns:1fr;}
-      .feature-block{grid-template-columns:1fr;}
+      .container { grid-template-columns:1fr; }
+      .feature-block { grid-template-columns:1fr; }
       .l-card-vertical,
-      .l-card-bottom{
+      .l-card-bottom {
         width:100%;
-        margin-left:0;
+        justify-self:start;
         padding:3rem;
       }
-      .side-links{
+      .side-links {
         flex-direction:row;
         margin-top:3.5rem;
       }
-      .photo-3d img{transform:none;}
+      .photo-3d img { transform:none; }
     }
   </style>
 </head>
@@ -215,9 +215,7 @@
 
 <div class="container">
 
-  <!-- MAIN -->
   <div>
-
     <h1>FlowSight Analytics — Funnel Automation</h1>
 
     <div class="about-header">
@@ -238,7 +236,7 @@
         <img src="/visuals/Architecture.png" alt="FlowSight Architecture">
       </div>
 
-      <!-- VERTICAL ARM -->
+      <!-- VERTICAL CARD -->
       <div class="l-card-vertical">
         <h3>Decision Intelligence Layer</h3>
         <p>
@@ -248,7 +246,7 @@
         </p>
       </div>
 
-      <!-- HORIZONTAL ARM -->
+      <!-- HORIZONTAL CARD -->
       <div class="l-card-bottom">
         <p>
           The architecture is modular by design. New events, experiments, and
@@ -264,7 +262,6 @@
       </div>
 
     </div>
-
   </div>
 
   <!-- ACTIONS -->
