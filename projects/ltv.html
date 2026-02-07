@@ -8,58 +8,109 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --bg: #0b1f33;
+      --card: #122f4a;
+      --text: #f2f6fa;
+      --muted: #b9c6d3;
+      --accent: #4f8cff;
+      --border: rgba(255,255,255,0.12);
+    }
+
+    * { box-sizing: border-box; }
+
     body {
       margin: 0;
       font-family: Inter, sans-serif;
-      background: #0b1f33;
-      color: #f2f6fa;
+      background: var(--bg);
+      color: var(--text);
     }
 
+    /* PAGE LAYOUT */
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 5rem 1.5rem;
       display: grid;
-      grid-template-columns: 1fr 80px;
+      grid-template-columns: 1fr 90px;
       gap: 3rem;
     }
 
     h1 {
-      font-size: 2.8rem;
+      font-size: 2.9rem;
       margin-top: 0;
+      margin-bottom: 1.2rem;
+    }
+
+    h3 {
+      margin-top: 2.5rem;
+      margin-bottom: 0.8rem;
+      font-size: 1.2rem;
+      color: var(--accent);
     }
 
     p {
-      color: #b9c6d3;
-      line-height: 1.8;
+      color: var(--muted);
+      line-height: 1.85;
       font-size: 1.05rem;
+      max-width: 900px;
     }
 
-    /* RIGHT ICON BAR */
+    /* RIGHT ACTION BAR */
     .side-links {
       display: flex;
       flex-direction: column;
-      gap: 1.4rem;
       align-items: center;
+      gap: 1.6rem;
+      padding-top: 0.5rem;
     }
 
-    .side-links a {
-      width: 48px;
-      height: 48px;
+    .github-icon {
+      width: 46px;
+      height: 46px;
       border-radius: 50%;
-      border: 1px solid #4f8cff;
+      border: 1px solid var(--accent);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #4f8cff;
-      text-decoration: none;
-      font-size: 0.75rem;
-      font-weight: 600;
+      transition: transform 0.2s ease, background 0.2s ease;
     }
 
-    .side-links a:hover {
-      background: #4f8cff;
-      color: #0b1f33;
+    .github-icon img {
+      width: 22px;
+      height: 22px;
+    }
+
+    .github-icon:hover {
+      background: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    .prd-link {
+      font-size: 0.85rem;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(79,140,255,0.5);
+      padding-bottom: 2px;
+      transition: opacity 0.2s ease;
+    }
+
+    .prd-link:hover {
+      opacity: 0.8;
+    }
+
+    /* MOBILE */
+    @media (max-width: 900px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+
+      .side-links {
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 2rem;
+        margin-top: 2rem;
+      }
     }
   </style>
 </head>
@@ -68,30 +119,50 @@
 
   <div class="container">
 
-    <!-- CONTENT -->
+    <!-- MAIN CONTENT -->
     <div>
       <h1>Dynamic Pricing Sensitivity & LTV Optimization</h1>
 
       <h3>About the Project</h3>
       <p>
         This project explores how pricing decisions influence user behavior
-        and long-term value. It focuses on elasticity modeling, controlled
-        price experiments, and preventing short-term revenue decisions
-        that negatively impact retention and lifetime value.
+        and long-term lifetime value. It focuses on modeling price elasticity,
+        running controlled pricing experiments, and preventing short-term
+        revenue actions that negatively impact retention and LTV.
+      </p>
+
+      <h3>Why This Matters</h3>
+      <p>
+        Many pricing systems optimize for immediate revenue at the cost of
+        long-term value. This framework emphasizes sustainable pricing
+        strategies that balance growth, user trust, and business longevity.
       </p>
     </div>
 
-    <!-- SIDE ICONS -->
-  <div class="side-links">
-  <a href="https://github.com/ashwin33086/Dynamic-Pricing-Decision-System-LTV-optimization-" target="_blank">
-    <img src="icons/github-svgrepo-com.svg">
-  </a>
+    <!-- RIGHT SIDE ACTIONS -->
+    <div class="side-links">
+      <!-- GitHub ICON -->
+      <a
+        class="github-icon"
+        href="https://github.com/ashwin33086/Dynamic-Pricing-Decision-System-LTV-optimization-"
+        target="_blank"
+        title="View GitHub Repository"
+      >
+        <img
+          src="https://raw.githubusercontent.com/ashwin33086/ashwin_portfolio/main/icons/github-svgrepo-com.svg"
+          alt="GitHub"
+        />
+      </a>
 
-  <a href="PRD_LINK_HERE" target="_blank">
-    <img src="https://raw.githubusercontent.com/ashwin33086/ashwin_portfolio/50918cc09b834260f54ca867d6ef46d3d45a0f25/icons/file.svg">
-  </a>
-</div>
-
+      <!-- PRD TEXT LINK -->
+      <a
+        class="prd-link"
+        href="https://github.com/ashwin33086/Dynamic-Pricing-Decision-System-LTV-optimization-/blob/0a6f46685952eb06e482668a8804ea03371ab0ac/PRD/Dynamic%20Pricing%20Sensitivity%20%2B%20LTV%20Optimization.docx"
+        target="_blank"
+      >
+        View PRD
+      </a>
+    </div>
 
   </div>
 
