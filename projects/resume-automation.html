@@ -82,22 +82,23 @@
       grid-template-columns:620px minmax(520px, 1fr);
       grid-template-rows:auto auto;
       column-gap:4.5rem;
+      row-gap:3.5rem; /* separation from bottom card */
       align-items:start;
-      position:relative;
     }
 
     /* ---------- IMAGE ---------- */
     .photo-3d {
       perspective:1600px;
-      grid-row:1;
       display:flex;
       justify-content:center;
-      z-index:2;
+      margin-bottom:1.5rem; /* separation */
     }
 
     .photo-3d img {
       width:100%;
-      max-width:560px;
+      max-width:580px;
+      aspect-ratio: 4 / 5; /* TALLER IMAGE */
+      object-fit: cover;
       border-radius:28px;
       border:1px solid var(--border);
       transform:rotateX(10deg) rotateY(-12deg) translateZ(38px);
@@ -117,10 +118,10 @@
 
     /* ---------- VERTICAL CARD ---------- */
     .l-card-vertical {
-      grid-row:1;
       justify-self:end;
       width:100%;
       max-width:720px;
+      margin-top:1.2rem; /* separation from image */
       background:linear-gradient(180deg,var(--card-light),var(--card));
       border:1px solid var(--border);
       border-radius:36px 36px 10px 10px;
@@ -142,15 +143,14 @@
       grid-column:1 / span 2;
       justify-self:end;
       width:calc(100% - 120px);
+      margin-top:2.5rem; /* separation from image & vertical card */
       background:linear-gradient(180deg,var(--card-light),var(--card));
       border:1px solid var(--border);
-      border-top:none;
       border-radius:0 0 42px 42px;
       padding:4rem 6.5rem;
       box-shadow:
         0 32px 75px rgba(0,0,0,.45),
         0 0 50px var(--glow);
-      margin-top:-1px;
     }
 
     /* ---------- RIGHT ACTION BAR ---------- */
@@ -160,7 +160,6 @@
       align-items:center;
       gap:2.6rem;
       padding-top:1.2rem;
-      z-index:3;
     }
 
     .action-btn {
