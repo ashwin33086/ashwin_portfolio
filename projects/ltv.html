@@ -14,7 +14,7 @@
       --text: #f2f6fa;
       --muted: #b9c6d3;
       --accent: #4f8cff;
-      --border: rgba(255,255,255,0.12);
+      --border: rgba(255,255,255,0.15);
     }
 
     * { box-sizing: border-box; }
@@ -32,7 +32,7 @@
       margin: 0 auto;
       padding: 5rem 1.5rem;
       display: grid;
-      grid-template-columns: 1fr 90px;
+      grid-template-columns: 1fr 100px;
       gap: 3rem;
     }
 
@@ -43,7 +43,7 @@
     }
 
     h3 {
-      margin-top: 2.5rem;
+      margin-top: 2.6rem;
       margin-bottom: 0.8rem;
       font-size: 1.2rem;
       color: var(--accent);
@@ -61,42 +61,41 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1.6rem;
+      gap: 1.8rem;
       padding-top: 0.5rem;
     }
 
-    .github-icon {
-      width: 46px;
-      height: 46px;
+    .action-btn {
+      width: 52px;
+      height: 52px;
       border-radius: 50%;
-      border: 1px solid var(--accent);
+      background: rgba(255,255,255,0.08);
+      border: 1px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: transform 0.2s ease, background 0.2s ease;
+      transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
     }
 
-    .github-icon img {
+    .action-btn img {
       width: 22px;
       height: 22px;
+      filter: invert(1); /* makes dark SVG white */
     }
 
-    .github-icon:hover {
+    .action-btn:hover {
       background: var(--accent);
       transform: translateY(-3px);
+      box-shadow: 0 10px 22px rgba(79,140,255,0.35);
     }
 
-    .prd-link {
-      font-size: 0.85rem;
-      color: var(--accent);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(79,140,255,0.5);
-      padding-bottom: 2px;
-      transition: opacity 0.2s ease;
-    }
-
-    .prd-link:hover {
-      opacity: 0.8;
+    .action-btn:hover img {
+      filter: invert(0);
     }
 
     /* MOBILE */
@@ -108,8 +107,8 @@
       .side-links {
         flex-direction: row;
         justify-content: flex-start;
-        gap: 2rem;
-        margin-top: 2rem;
+        gap: 1.6rem;
+        margin-top: 2.5rem;
       }
     }
   </style>
@@ -141,9 +140,10 @@
 
     <!-- RIGHT SIDE ACTIONS -->
     <div class="side-links">
+
       <!-- GitHub ICON -->
       <a
-        class="github-icon"
+        class="action-btn"
         href="https://github.com/ashwin33086/Dynamic-Pricing-Decision-System-LTV-optimization-"
         target="_blank"
         title="View GitHub Repository"
@@ -154,14 +154,16 @@
         />
       </a>
 
-      <!-- PRD TEXT LINK -->
+      <!-- PRD BUTTON -->
       <a
-        class="prd-link"
+        class="action-btn"
         href="https://github.com/ashwin33086/Dynamic-Pricing-Decision-System-LTV-optimization-/blob/0a6f46685952eb06e482668a8804ea03371ab0ac/PRD/Dynamic%20Pricing%20Sensitivity%20%2B%20LTV%20Optimization.docx"
         target="_blank"
+        title="View PRD"
       >
-        View PRD
+        PRD
       </a>
+
     </div>
 
   </div>
