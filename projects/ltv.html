@@ -16,9 +16,12 @@
     }
 
     section {
-      max-width: 900px;
+      max-width: 1100px;
       margin: 0 auto;
       padding: 5rem 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 80px;
+      gap: 2.5rem;
     }
 
     p {
@@ -27,20 +30,24 @@
       font-size: 1.05rem;
     }
 
-    .links a {
-      display: inline-block;
-      margin-right: 1rem;
-      margin-top: 1.5rem;
-      padding: 0.5rem 1.4rem;
-      border-radius: 999px;
-      border: 1px solid #4f8cff;
-      color: #4f8cff;
-      text-decoration: none;
+    .side-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+      align-items: center;
+      position: sticky;
+      top: 120px;
     }
 
-    .links a:hover {
-      background: #4f8cff;
-      color: #0b1f33;
+    .side-links img {
+      width: 28px;
+      opacity: 0.85;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    .side-links a:hover img {
+      transform: translateY(-4px);
+      opacity: 1;
     }
   </style>
 </head>
@@ -48,23 +55,29 @@
 <body>
 
   <section>
-    <h1>Dynamic Pricing Sensitivity & LTV Optimization</h1>
+    <!-- CONTENT -->
+    <div>
+      <h1>Dynamic Pricing Sensitivity & LTV Optimization</h1>
 
-    <h3>About the Project</h3>
-    <p>
-      This project explores how pricing decisions affect user behavior and
-      long-term value. It focuses on elasticity modeling, controlled experiments,
-      and protecting LTV from short-term revenue-driven decisions.
-    </p>
+      <h3>About the Project</h3>
+      <p>
+        This project explores how pricing decisions affect user behavior
+        and long-term value. It focuses on elasticity modeling, controlled
+        experimentation, and preventing short-term revenue actions that
+        degrade retention and lifetime value.
+      </p>
+    </div>
 
-    <div class="links">
-      <a href="https://github.com/ashwin33086/Dynamic-Pricing-Decision-System-LTV-optimization-" target="_blank">GitHub</a>
+    <!-- SIDE ICONS -->
+    <div class="side-links">
+      <a href="https://github.com/ashwin33086/Dynamic-Pricing-Decision-System-LTV-optimization-" target="_blank">
+        <img src="/assets/github.svg" alt="GitHub">
+      </a>
       <a href="https://github.com/ashwin33086/Dynamic-Pricing-Decision-System-LTV-optimization-/blob/0a6f46685952eb06e482668a8804ea03371ab0ac/PRD/Dynamic%20Pricing%20Sensitivity%20%2B%20LTV%20Optimization.docx" target="_blank">
-        PRD / Case Study
+        <img src="/assets/file.svg" alt="PRD">
       </a>
     </div>
   </section>
 
 </body>
 </html>
-
