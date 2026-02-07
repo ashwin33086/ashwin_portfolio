@@ -29,51 +29,51 @@
 
     /* ---------- PAGE LAYOUT ---------- */
     .container {
-      max-width: 1250px;
+      max-width: 1350px;
       margin: 0 auto;
-      padding: 5.5rem 1.5rem;
+      padding: 5.8rem 1.5rem;
       display: grid;
       grid-template-columns: 1fr 120px;
-      gap: 3.5rem;
+      gap: 3.8rem;
     }
 
     h1 {
-      font-size: 3rem;
-      margin-bottom: 1.2rem;
+      font-size: 3.1rem;
+      margin-bottom: 1.4rem;
     }
 
     p {
       color: var(--muted);
-      line-height: 1.85;
-      font-size: 1.05rem;
+      line-height: 1.9;
+      font-size: 1.08rem;
       max-width: 100%;
     }
 
     /* ---------- FEATURE BLOCK ---------- */
     .feature-block {
       display: grid;
-      grid-template-columns: 380px 1fr; /* text side is wider */
-      gap: 3.2rem;
-      margin-top: 3.2rem;
+      grid-template-columns: 520px 1fr; /* IMAGE MUCH BIGGER */
+      gap: 4.2rem;
+      margin-top: 3.8rem;
       align-items: center;
     }
 
-    /* 3D IMAGE */
+    /* ---------- 3D IMAGE ---------- */
     .photo-3d {
-      perspective: 1500px;
+      perspective: 1400px;
     }
 
     .photo-3d img {
-      width: 250%;
-      border-radius: 30px;
+      width: 100%;
+      border-radius: 22px;
       border: 1px solid var(--border);
       transform:
         rotateX(10deg)
         rotateY(-12deg)
-        translateZ(28px);
+        translateZ(32px);
       box-shadow:
-        0 28px 55px rgba(0,0,0,0.45),
-        0 0 35px rgba(89,240,355,0.25);
+        0 34px 68px rgba(0,0,0,0.48),
+        0 0 45px rgba(79,140,255,0.28);
       transition: transform 0.6s ease, box-shadow 0.6s ease;
       background: #0b1f33;
     }
@@ -82,24 +82,24 @@
       transform:
         rotateX(0deg)
         rotateY(0deg)
-        translateZ(55px);
+        translateZ(70px);
       box-shadow:
-        0 42px 85px rgba(0,0,0,0.6),
-        0 0 50px rgba(79,140,255,0.35);
+        0 50px 95px rgba(0,0,0,0.65),
+        0 0 65px rgba(79,140,255,0.38);
     }
 
-    /* TEXT CARD */
+    /* ---------- TEXT CARD ---------- */
     .feature-text {
       background: linear-gradient(180deg, var(--card-light), var(--card));
-      border-radius: 26px;
-      padding: 3.2rem; /* wider feel */
+      border-radius: 30px;
+      padding: 3.8rem;   /* BIGGER CARD */
       border: 1px solid var(--border);
     }
 
     .feature-text h3 {
       margin-top: 0;
-      margin-bottom: 0.9rem;
-      font-size: 1.35rem;
+      margin-bottom: 1.1rem;
+      font-size: 1.45rem;
       color: var(--text);
     }
 
@@ -108,13 +108,13 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 2.2rem;
-      padding-top: 0.5rem;
+      gap: 2.4rem;
+      padding-top: 0.6rem;
     }
 
     .action-btn {
-      width: 64px;
-      height: 64px;
+      width: 68px;
+      height: 68px;
       border-radius: 50%;
       background: rgba(255,255,255,0.1);
       border: 1px solid var(--border);
@@ -124,21 +124,21 @@
       transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
       text-decoration: none;
       color: var(--text);
-      font-size: 0.75rem;
+      font-size: 0.78rem;
       font-weight: 600;
       text-align: center;
     }
 
     .action-btn img {
-      width: 28px;
-      height: 28px;
+      width: 30px;
+      height: 30px;
       filter: invert(1);
     }
 
     .action-btn:hover {
       background: var(--accent);
       transform: translateY(-4px);
-      box-shadow: 0 14px 30px rgba(79,140,255,0.35);
+      box-shadow: 0 16px 34px rgba(79,140,255,0.4);
     }
 
     /* ---------- MOBILE ---------- */
@@ -150,7 +150,7 @@
       .side-links {
         flex-direction: row;
         justify-content: flex-start;
-        margin-top: 3rem;
+        margin-top: 3.2rem;
       }
 
       .feature-block {
