@@ -11,10 +11,12 @@
     :root {
       --bg: #0b1f33;
       --card: #122f4a;
+      --card-light: #163d60;
       --text: #f2f6fa;
       --muted: #b9c6d3;
       --accent: #4f8cff;
       --border: rgba(255,255,255,0.15);
+      --tag-bg: rgba(79,140,255,0.15);
     }
 
     * { box-sizing: border-box; }
@@ -26,7 +28,7 @@
       color: var(--text);
     }
 
-    /* PAGE LAYOUT */
+    /* ---------- PAGE LAYOUT ---------- */
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -38,13 +40,12 @@
 
     h1 {
       font-size: 3rem;
-      margin-top: 0;
-      margin-bottom: 1.3rem;
+      margin: 0.6rem 0 1.2rem;
     }
 
     h3 {
-      margin-top: 2.6rem;
-      margin-bottom: 0.9rem;
+      margin-top: 2.8rem;
+      margin-bottom: 0.8rem;
       font-size: 1.25rem;
       color: var(--accent);
     }
@@ -52,11 +53,24 @@
     p {
       color: var(--muted);
       line-height: 1.85;
-      font-size: 1.08rem;
+      font-size: 1.05rem;
       max-width: 900px;
     }
 
-    /* RIGHT ACTION BAR */
+    /* ---------- TAG ---------- */
+    .tag {
+      display: inline-block;
+      padding: 0.35rem 0.9rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      border-radius: 999px;
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      color: var(--accent);
+    }
+
+    /* ---------- RIGHT ACTION BAR ---------- */
     .side-links {
       display: flex;
       flex-direction: column;
@@ -74,23 +88,18 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: 
-        transform 0.2s ease,
-        background 0.2s ease,
-        box-shadow 0.2s ease;
+      transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
       text-decoration: none;
       color: var(--text);
       font-size: 0.75rem;
       font-weight: 600;
-      letter-spacing: 0.04em;
       text-align: center;
-      padding: 0.4rem;
     }
 
     .action-btn img {
       width: 28px;
       height: 28px;
-      filter: invert(1); /* ensures white icon */
+      filter: invert(1);
     }
 
     .action-btn:hover {
@@ -99,11 +108,42 @@
       box-shadow: 0 14px 30px rgba(79,140,255,0.35);
     }
 
-    .action-btn:hover img {
-      filter: invert(0);
+    /* ---------- IMAGE + CARD SECTION ---------- */
+    .split-section {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 2.4rem;
+      margin-top: 2.5rem;
+      align-items: center;
     }
 
-    /* MOBILE */
+    .split-section img {
+      width: 100%;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      opacity: 0.9;
+    }
+
+    .info-card {
+      background: linear-gradient(180deg, var(--card-light), var(--card));
+      border-radius: 22px;
+      padding: 2.4rem;
+      border: 1px solid var(--border);
+    }
+
+    .info-card h4 {
+      margin-top: 0;
+      margin-bottom: 0.6rem;
+      font-size: 1.15rem;
+      color: var(--text);
+    }
+
+    .info-card p {
+      margin: 0;
+      font-size: 0.98rem;
+    }
+
+    /* ---------- MOBILE ---------- */
     @media (max-width: 900px) {
       .container {
         grid-template-columns: 1fr;
@@ -112,8 +152,11 @@
       .side-links {
         flex-direction: row;
         justify-content: flex-start;
-        gap: 2rem;
         margin-top: 3rem;
+      }
+
+      .split-section {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -125,28 +168,47 @@
 
     <!-- MAIN CONTENT -->
     <div>
+
+      <span class="tag">BRAINSTORMING MODE</span>
       <h1>Dynamic Pricing Sensitivity & LTV Optimization</h1>
 
       <h3>About the Project</h3>
       <p>
         This project explores how pricing decisions influence user behavior
         and long-term lifetime value. It focuses on modeling price elasticity,
-        running controlled pricing experiments, and preventing short-term
-        revenue actions that negatively impact retention and LTV.
+        controlled experimentation, and preventing short-term revenue actions
+        that degrade retention and LTV.
       </p>
 
       <h3>Why This Matters</h3>
       <p>
-        Many pricing systems optimize for immediate revenue at the cost of
-        long-term value. This framework emphasizes sustainable pricing
-        strategies that balance growth, user trust, and business longevity.
+        Most pricing systems optimize for immediate revenue without accounting
+        for long-term customer impact. This approach reframes pricing as a
+        strategic decision system rather than a revenue lever.
       </p>
+
+      <!-- IMAGE + CARD -->
+      <div class="split-section">
+
+        <!-- Placeholder image (can be replaced later) -->
+        <img src="https://picsum.photos/400/300" alt="Pricing Experiment Visualization">
+
+        <div class="info-card">
+          <h4>How the System Thinks</h4>
+          <p>
+            Instead of reacting to short-term revenue signals, the system
+            evaluates user cohorts, elasticity thresholds, and downstream
+            retention impact before recommending pricing actions.
+          </p>
+        </div>
+
+      </div>
+
     </div>
 
     <!-- RIGHT SIDE ACTIONS -->
     <div class="side-links">
 
-      <!-- GitHub ICON -->
       <a
         class="action-btn"
         href="https://github.com/ashwin33086/Dynamic-Pricing-Decision-System-LTV-optimization-"
@@ -159,12 +221,11 @@
         />
       </a>
 
-      <!-- PRD / CASE STUDY BUTTON -->
       <a
         class="action-btn"
         href="https://github.com/ashwin33086/Dynamic-Pricing-Decision-System-LTV-optimization-/blob/0a6f46685952eb06e482668a8804ea03371ab0ac/PRD/Dynamic%20Pricing%20Sensitivity%20%2B%20LTV%20Optimization.docx"
         target="_blank"
-        title="View PRD / Case Study"
+        title="PRD / Case Study"
       >
         PRD<br/>CASE
       </a>
