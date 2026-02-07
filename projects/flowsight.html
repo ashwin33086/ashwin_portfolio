@@ -92,7 +92,7 @@
       perspective:1600px;
       grid-row:1;
       display:flex;
-      justify-content:center; /* CENTER IMAGE IN COLUMN */
+      justify-content:center;
       z-index:2;
     }
 
@@ -116,12 +116,12 @@
         0 0 110px rgba(79,140,255,.45);
     }
 
-    /* ---------- L CARD (VERTICAL — ANCHORED RIGHT) ---------- */
+    /* ---------- VERTICAL CARD (RIGHT-ANCHORED) ---------- */
     .l-card-vertical {
       grid-row:1;
-      justify-self:end;            /* KEY FIX */
-      width:100%;
-      max-width:720px;             /* BROAD BUT CONTROLLED */
+      justify-self:end;
+      width:720px;
+      margin-right:-40px;   /* pulls it closer to action rail */
       background:linear-gradient(180deg,var(--card-light),var(--card));
       border:1px solid var(--border);
       border-radius:36px 36px 10px 10px;
@@ -139,20 +139,19 @@
       font-size:1.45rem;
     }
 
-    /* ---------- L CARD (BOTTOM — ALIGNED WITH VERTICAL) ---------- */
+    /* ---------- HORIZONTAL CARD (PUSHED DOWN) ---------- */
     .l-card-bottom {
       grid-column:1 / span 2;
-      justify-self:end;            /* KEY FIX */
-      width:calc(100% - 120px);    /* STOP BEFORE ACTION BAR */
+      justify-self:end;
+      width:calc(100% - 120px);
       background:linear-gradient(180deg,var(--card-light),var(--card));
       border:1px solid var(--border);
-      border-top:none;
       border-radius:0 0 42px 42px;
       padding:4rem 6.5rem;
       box-shadow:
         0 32px 75px rgba(0,0,0,.45),
         0 0 50px var(--glow);
-      margin-top:-1px;
+      margin-top:2.8rem; /* KEY FIX */
     }
 
     /* ---------- RIGHT ACTION BAR ---------- */
@@ -199,6 +198,7 @@
       .l-card-vertical,
       .l-card-bottom {
         width:100%;
+        margin-right:0;
         justify-self:start;
         padding:3rem;
       }
@@ -236,7 +236,7 @@
         <img src="/visuals/Architecture.png" alt="FlowSight Architecture">
       </div>
 
-      <!-- VERTICAL CARD -->
+      <!-- RIGHT-ANCHORED VERTICAL CARD -->
       <div class="l-card-vertical">
         <h3>Decision Intelligence Layer</h3>
         <p>
@@ -246,7 +246,7 @@
         </p>
       </div>
 
-      <!-- HORIZONTAL CARD -->
+      <!-- LOWERED HORIZONTAL CARD -->
       <div class="l-card-bottom">
         <p>
           The architecture is modular by design. New events, experiments, and
