@@ -80,40 +80,39 @@
       margin-top:5rem;
       display:grid;
       grid-template-columns:620px minmax(520px, 1fr);
-      grid-template-rows:auto auto;
       column-gap:4.5rem;
-      row-gap:3.5rem; /* separation from bottom card */
+      row-gap:3.2rem;
       align-items:start;
     }
 
-    /* ---------- IMAGE ---------- */
+    /* ---------- IMAGE (WIDER, SHORTER) ---------- */
     .photo-3d {
       perspective:1600px;
       display:flex;
       justify-content:center;
-      margin-bottom:1.5rem; /* separation */
+      margin-bottom:0.8rem;
     }
 
     .photo-3d img {
       width:100%;
-      max-width:580px;
-      aspect-ratio: 4 / 5; /* TALLER IMAGE */
+      max-width:620px;          /* wider */
+      aspect-ratio: 16 / 10;    /* landscape */
       object-fit: cover;
       border-radius:28px;
       border:1px solid var(--border);
-      transform:rotateX(10deg) rotateY(-12deg) translateZ(38px);
+      transform:rotateX(8deg) rotateY(-10deg) translateZ(34px);
       box-shadow:
-        0 40px 80px rgba(0,0,0,.55),
-        0 0 70px var(--glow);
+        0 38px 70px rgba(0,0,0,.5),
+        0 0 60px var(--glow);
       transition:.6s ease;
       background:#0b1f33;
     }
 
     .photo-3d:hover img {
-      transform:rotateX(0) rotateY(0) translateZ(90px);
+      transform:rotateX(0) rotateY(0) translateZ(80px);
       box-shadow:
-        0 65px 120px rgba(0,0,0,.75),
-        0 0 110px rgba(79,140,255,.45);
+        0 60px 110px rgba(0,0,0,.7),
+        0 0 100px rgba(79,140,255,.4);
     }
 
     /* ---------- VERTICAL CARD ---------- */
@@ -121,7 +120,7 @@
       justify-self:end;
       width:100%;
       max-width:720px;
-      margin-top:1.2rem; /* separation from image */
+      margin-top:0.4rem;
       background:linear-gradient(180deg,var(--card-light),var(--card));
       border:1px solid var(--border);
       border-radius:36px 36px 10px 10px;
@@ -143,7 +142,7 @@
       grid-column:1 / span 2;
       justify-self:end;
       width:calc(100% - 120px);
-      margin-top:2.5rem; /* separation from image & vertical card */
+      margin-top:2.2rem;
       background:linear-gradient(180deg,var(--card-light),var(--card));
       border:1px solid var(--border);
       border-radius:0 0 42px 42px;
