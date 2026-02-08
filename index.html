@@ -31,19 +31,20 @@ body{
 .hero{
   position:relative;
   overflow:hidden;
-  padding:7.5rem 1.5rem 3.5rem;
   text-align:center;
+  padding:10rem 1.5rem 6rem; /* 🔑 MORE SPACE */
 }
 
 .hero::before{
   content:"";
   position:absolute;
-  inset:-35% 0 -35% 0;
+  inset:-60% 0 -60% 0; /* 🔑 MASSIVE CANVAS */
   background:
     linear-gradient(rgba(11,31,51,.85),rgba(11,31,51,.85)),
     url("https://raw.githubusercontent.com/ashwin33086/ashwin_portfolio/1cbacbd5eb450c0000d2d8c13101e217204e480d/asset/pm-venn.png.png")
-    center 42% / 65% no-repeat;
-  animation:spinSlow 140s linear infinite;
+    center 45% / 65% no-repeat;
+  animation:spinSlow 150s linear infinite;
+  z-index:0;
 }
 
 @keyframes spinSlow{
@@ -59,13 +60,13 @@ body{
 }
 
 h1{
-  font-size:clamp(2.6rem,5vw,3.8rem);
+  font-size:clamp(2.7rem,5vw,3.8rem);
   margin:0;
 }
 
 .typing{
-  margin-top:.6rem;
-  font-size:clamp(1.1rem,2.6vw,1.3rem);
+  margin-top:.7rem;
+  font-size:clamp(1.15rem,2.8vw,1.35rem);
   color:var(--accent);
   white-space:nowrap;
   overflow:hidden;
@@ -79,31 +80,31 @@ h1{
 @keyframes blink{50%{border-color:transparent;}}
 
 .tagline{
-  margin-top:1.2rem;
+  margin-top:1.4rem;
   font-style:italic;
   color:var(--muted);
-  font-size:1.05rem;
+  font-size:1.1rem;
 }
 
 /* ================= CONTACT ================= */
 
 .contact{
-  margin-top:2.4rem;
+  margin-top:2.6rem;
   display:flex;
   justify-content:center;
   align-items:center;
-  gap:1rem;
+  gap:1.1rem;
   flex-wrap:wrap;
 }
 
 .contact span{
   color:var(--muted);
-  font-size:.95rem;
+  font-size:1rem;
 }
 
 .contact a{
-  width:46px;
-  height:46px;
+  width:48px;
+  height:48px;
   border-radius:50%;
   background:linear-gradient(180deg,#163d60,#122f4a);
   border:1px solid var(--border);
@@ -129,7 +130,7 @@ h1{
 section{
   max-width:1150px;
   margin:0 auto;
-  padding:3.8rem 1.5rem;
+  padding:5rem 1.5rem;
 }
 
 /* ================= ABOUT ================= */
@@ -141,7 +142,10 @@ section{
   cursor:pointer;
 }
 
-.about-toggle h2{margin:0;}
+.about-toggle h2{
+  margin:0;
+  font-size:1.9rem;
+}
 
 .about-toggle span{
   color:var(--accent);
@@ -149,25 +153,26 @@ section{
 }
 
 .about{
-  margin-top:1.4rem;
+  margin-top:2rem; /* 🔑 PUSHED DOWN */
   background:linear-gradient(180deg,#143a5c,#102f4a);
   border-radius:22px;
   border:1px solid var(--border);
   line-height:1.8;
   color:var(--muted);
+  font-size:1.05rem;
   overflow:hidden;
   transition:.5s ease;
 }
 
 .about.hidden{
   max-height:0;
-  padding:0 1.5rem;
+  padding:0 2rem;
   opacity:0;
 }
 
 .about.visible{
-  max-height:700px;
-  padding:2.2rem;
+  max-height:800px;
+  padding:2.6rem;
   opacity:1;
 }
 
@@ -176,7 +181,7 @@ section{
 .projects{
   display:flex;
   flex-direction:column;
-  gap:2.4rem;
+  gap:2.6rem;
 }
 
 .project-link{text-decoration:none;color:inherit;}
@@ -184,7 +189,7 @@ section{
 .project{
   background:linear-gradient(180deg,#163d60,#122f4a);
   border-radius:22px;
-  padding:2.4rem;
+  padding:2.6rem;
   border:1px solid var(--border);
   display:flex;
   align-items:center;
@@ -198,8 +203,8 @@ section{
 .project.show{opacity:1;transform:translateX(0);}
 
 .project-icon{
-  width:52px;
-  height:52px;
+  width:54px;
+  height:54px;
   border-radius:50%;
   background:radial-gradient(circle,var(--accent),transparent 70%);
   animation:pulse 3s infinite;
@@ -207,17 +212,17 @@ section{
 
 @keyframes pulse{
   0%,100%{box-shadow:0 0 0 rgba(79,140,255,0);}
-  50%{box-shadow:0 0 20px rgba(79,140,255,.6);}
+  50%{box-shadow:0 0 22px rgba(79,140,255,.6);}
 }
 
-.project h3{margin:0 0 .4rem;font-size:1.25rem;}
-.project p{margin:0;font-size:.95rem;color:var(--muted);}
+.project h3{margin:0 0 .4rem;font-size:1.3rem;}
+.project p{margin:0;font-size:1rem;color:var(--muted);}
 
 footer{
   text-align:center;
-  padding:2.5rem;
+  padding:3rem;
   color:var(--muted);
-  font-size:.85rem;
+  font-size:.9rem;
 }
 
 /* ================= MOBILE ================= */
@@ -225,13 +230,13 @@ footer{
 @media(max-width:600px){
 
   .hero{
-    padding-top:9rem; /* 🔑 clears rotating PNG */
+    padding:12rem 1.2rem 7rem; /* 🔑 BIGGER CLEARANCE */
   }
 
   .hero::before{
-    inset:-20% 0 -20% 0;
+    inset:-70% 0 -70% 0;
     background-size:contain;
-    background-position:center 45%;
+    background-position:center 48%;
     animation-duration:180s;
   }
 
@@ -242,11 +247,11 @@ footer{
   }
 
   section{
-    padding:2.8rem 1.2rem;
+    padding:4rem 1.2rem;
   }
 
   section:first-of-type{
-    padding-top:4rem; /* push About down */
+    padding-top:5.5rem; /* 🔑 ABOUT CLEARLY BELOW PNG */
   }
 
   .project{
@@ -290,7 +295,7 @@ footer{
 
   <div class="about hidden" id="aboutBox">
     I build data-driven products at the intersection of product strategy,
-    analytics, and automation. I leverage metrics, user behavior, and AI-powered
+    analytics, and automation. I use metrics, user behavior, and AI-powered
     tools to design scalable systems and long-term business value.
   </div>
 </section>
