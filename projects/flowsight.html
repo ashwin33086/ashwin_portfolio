@@ -146,21 +146,32 @@ p{
   padding-top:1.2rem;
 }
 
-.action-btn{
-  width:72px;
-  height:72px;
-  border-radius:50%;
-  background:rgba(255,255,255,.1);
-  border:1px solid var(--border);
-  display:flex;
-  align-items:center;
-  justify-content:center;
+/* ---------- PRD / CASE GAMIFIED BUTTON ---------- */
+.action-btn.prd {
+  background: linear-gradient(180deg, #ffb703, #f77f00);
+  border: none;
+  color: #0b1f33;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  box-shadow:
+    0 10px 25px rgba(255,183,3,.45),
+    0 0 25px rgba(255,183,3,.55);
+  transition: all .25s ease;
 }
 
-.action-btn img{
-  width:32px;
-  filter:invert(1);
+.action-btn.prd:hover {
+  transform: translateY(-6px) scale(1.08);
+  box-shadow:
+    0 20px 45px rgba(255,183,3,.65),
+    0 0 45px rgba(255,183,3,.8);
 }
+
+.action-btn.prd span {
+  font-size: .72rem;
+  line-height: 1.1;
+  text-align: center;
+}
+
 
 /* ================= MOBILE FIX ================= */
 
