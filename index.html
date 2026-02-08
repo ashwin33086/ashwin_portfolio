@@ -32,17 +32,17 @@ body{
   position:relative;
   overflow:hidden;
   text-align:center;
-  padding:10rem 1.5rem 6rem; /* 🔑 MORE SPACE */
+  padding:10rem 1.5rem 4.5rem; /* ⬅ REDUCED BOTTOM */
 }
 
 .hero::before{
   content:"";
   position:absolute;
-  inset:-60% 0 -60% 0; /* 🔑 MASSIVE CANVAS */
+  inset:-55% 0 -45% 0; /* ⬅ PNG STOPS EARLIER */
   background:
     linear-gradient(rgba(11,31,51,.85),rgba(11,31,51,.85)),
     url("https://raw.githubusercontent.com/ashwin33086/ashwin_portfolio/1cbacbd5eb450c0000d2d8c13101e217204e480d/asset/pm-venn.png.png")
-    center 45% / 65% no-repeat;
+    center 46% / 65% no-repeat;
   animation:spinSlow 150s linear infinite;
   z-index:0;
 }
@@ -135,6 +135,10 @@ section{
 
 /* ================= ABOUT ================= */
 
+.about-section{
+  margin-top:3.5rem; /* ⬅ HARD PUSH DOWN */
+}
+
 .about-toggle{
   display:flex;
   align-items:center;
@@ -153,7 +157,7 @@ section{
 }
 
 .about{
-  margin-top:2rem; /* 🔑 PUSHED DOWN */
+  margin-top:2.2rem;
   background:linear-gradient(180deg,#143a5c,#102f4a);
   border-radius:22px;
   border:1px solid var(--border);
@@ -171,8 +175,8 @@ section{
 }
 
 .about.visible{
-  max-height:800px;
-  padding:2.6rem;
+  max-height:900px;
+  padding:2.8rem;
   opacity:1;
 }
 
@@ -230,28 +234,22 @@ footer{
 @media(max-width:600px){
 
   .hero{
-    padding:12rem 1.2rem 7rem; /* 🔑 BIGGER CLEARANCE */
+    padding:12rem 1.2rem 5rem;
   }
 
   .hero::before{
-    inset:-70% 0 -70% 0;
+    inset:-65% 0 -35% 0; /* ⬅ STOPS BEFORE ABOUT */
     background-size:contain;
     background-position:center 48%;
     animation-duration:180s;
   }
 
-  .typing{
-    border-right:none;
-    white-space:normal;
-    width:auto;
-  }
-
   section{
-    padding:4rem 1.2rem;
+    padding:4.5rem 1.2rem;
   }
 
-  section:first-of-type{
-    padding-top:5.5rem; /* 🔑 ABOUT CLEARLY BELOW PNG */
+  .about-section{
+    margin-top:4.5rem; /* ⬅ FINAL MOBILE PUSH */
   }
 
   .project{
@@ -287,7 +285,7 @@ footer{
   </div>
 </div>
 
-<section>
+<section class="about-section">
   <div class="about-toggle" onclick="toggleAbout()">
     <h2>About Me</h2>
     <span id="aboutArrow">▼</span>
@@ -295,8 +293,8 @@ footer{
 
   <div class="about hidden" id="aboutBox">
     I build data-driven products at the intersection of product strategy,
-    analytics, and automation. I use metrics, user behavior, and AI-powered
-    tools to design scalable systems and long-term business value.
+    analytics, automation, and AI. I use metrics, user behavior, and structured
+    experimentation to design scalable systems and long-term business value.
   </div>
 </section>
 
