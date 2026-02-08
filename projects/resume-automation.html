@@ -28,7 +28,6 @@
       color:var(--text);
     }
 
-    /* ---------- PAGE LAYOUT ---------- */
     .container {
       max-width:1600px;
       margin:0 auto;
@@ -49,7 +48,6 @@
       font-size:1.02rem;
     }
 
-    /* ---------- ABOUT HEADER ---------- */
     .about-header {
       margin:2.3rem 0 1.8rem;
       display:flex;
@@ -75,7 +73,6 @@
       opacity:.6;
     }
 
-    /* ---------- FEATURE BLOCK ---------- */
     .feature-block {
       margin-top:5rem;
       display:grid;
@@ -83,16 +80,12 @@
       grid-template-rows:auto auto;
       column-gap:4.5rem;
       align-items:start;
-      position:relative;
     }
 
-    /* ---------- IMAGE ---------- */
     .photo-3d {
       perspective:1600px;
-      grid-row:1;
       display:flex;
       justify-content:center;
-      z-index:2;
     }
 
     .photo-3d img {
@@ -110,12 +103,8 @@
 
     .photo-3d:hover img {
       transform:rotateX(0) rotateY(0) translateZ(90px);
-      box-shadow:
-        0 65px 120px rgba(0,0,0,.75),
-        0 0 110px rgba(79,140,255,.45);
     }
 
-    /* ---------- VERTICAL CARD ---------- */
     .l-card-vertical {
       grid-row:1;
       justify-self:end;
@@ -126,25 +115,16 @@
       border-radius:36px 36px 10px 10px;
       padding:4.2rem 5rem;
       box-shadow:
-        inset 0 0 0 1px rgba(255,255,255,.04),
         0 35px 90px rgba(0,0,0,.45),
         0 0 45px var(--glow);
     }
 
-    .l-card-vertical h3 {
-      margin-top:0;
-      margin-bottom:1.4rem;
-      font-size:1.45rem;
-    }
-
-    /* ---------- HORIZONTAL CARD ---------- */
     .l-card-bottom {
       grid-column:1 / span 2;
       justify-self:end;
       width:calc(100% - 120px);
       background:linear-gradient(180deg,var(--card-light),var(--card));
       border:1px solid var(--border);
-      border-top:none;
       border-radius:0 0 42px 42px;
       padding:4rem 6.5rem;
       box-shadow:
@@ -153,14 +133,12 @@
       margin-top:-1px;
     }
 
-    /* ---------- RIGHT ACTION BAR ---------- */
     .side-links {
       display:flex;
       flex-direction:column;
       align-items:center;
       gap:2.6rem;
       padding-top:1.2rem;
-      z-index:3;
     }
 
     .action-btn {
@@ -174,9 +152,11 @@
       justify-content:center;
       text-decoration:none;
       color:var(--text);
-      font-size:.76rem;
+      font-size:.72rem;
       font-weight:700;
+      text-align:center;
       transition:.2s ease;
+      line-height:1.2;
     }
 
     .action-btn img {
@@ -188,23 +168,6 @@
       background:var(--accent);
       transform:translateY(-4px);
       box-shadow:0 18px 40px rgba(79,140,255,.45);
-    }
-
-    /* ---------- MOBILE ---------- */
-    @media(max-width:1200px){
-      .container { grid-template-columns:1fr; }
-      .feature-block { grid-template-columns:1fr; }
-      .l-card-vertical,
-      .l-card-bottom {
-        width:100%;
-        justify-self:start;
-        padding:3rem;
-      }
-      .side-links {
-        flex-direction:row;
-        margin-top:3.5rem;
-      }
-      .photo-3d img { transform:none; }
     }
   </style>
 </head>
@@ -229,32 +192,25 @@
 
     <div class="feature-block">
 
-      <!-- IMAGE -->
       <div class="photo-3d">
         <img src="/visuals/WorkflowDesign.png" alt="Resume Automation Workflow">
       </div>
 
-      <!-- VERTICAL CARD -->
       <div class="l-card-vertical">
         <h3>Scoring & Decision Engine</h3>
         <p>
           The system parses resumes, extracts relevant skills and experience,
           and scores candidates based on alignment with role requirements.
-          This enables faster shortlisting without relying on manual judgment.
         </p>
       </div>
 
-      <!-- HORIZONTAL CARD -->
       <div class="l-card-bottom">
         <p>
           Automation logic ensures consistent evaluation across candidates,
-          eliminating bias introduced by manual screening. Recruiters receive
-          ranked outputs that highlight the strongest matches for each role.
+          eliminating bias introduced by manual screening.
         </p>
-
         <p>
-          The workflow is extensible — new criteria, weighting logic, and job
-          templates can be added without disrupting the existing pipeline.
+          The workflow is extensible and supports rapid iteration.
         </p>
       </div>
 
@@ -266,8 +222,8 @@
     <a class="action-btn" href="https://github.com/ashwin33086/Automated-Resume-Relevance-Scoring-Workflow-Using-n8n" target="_blank">
       <img src="https://raw.githubusercontent.com/ashwin33086/ashwin_portfolio/main/icons/github-svgrepo-com.svg">
     </a>
-    <a class="action-btn" href="#" target="_blank">
-      PRD<br>CASE
+    <a class="action-btn" href="https://www.loom.com/share/07a8067762ab4f0b8fa0336261e238e5" target="_blank">
+      WATCH<br>VIDEO
     </a>
   </div>
 
