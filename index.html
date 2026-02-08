@@ -1,215 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ashwin Mishra — Product Portfolio</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ashwin Mishra — Product Portfolio</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --bg: #0b1f33;
-      --card: #122f4a;
-      --text: #f2f6fa;
-      --muted: #b9c6d3;
-      --accent: #4f8cff;
-      --border: rgba(255,255,255,0.12);
-    }
+<style>
+:root {
+  --bg:#0b1f33;
+  --card:#122f4a;
+  --text:#f2f6fa;
+  --muted:#b9c6d3;
+  --accent:#4f8cff;
+  --border:rgba(255,255,255,0.12);
+}
 
-    * { box-sizing: border-box; }
+*{box-sizing:border-box;}
 
-    body {
-      margin: 0;
-      font-family: Inter, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-    }
+body{
+  margin:0;
+  font-family:Inter,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
 
-    section {
-      max-width: 1150px;
-      margin: 0 auto;
-      padding: 5rem 1.5rem;
-    }
+section{
+  max-width:1150px;
+  margin:0 auto;
+  padding:5rem 1.5rem;
+}
 
-    /* ---------- HERO ---------- */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
+/* ================= HERO ================= */
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(rgba(11,31,51,0.85), rgba(11,31,51,0.85)),
-        url("https://raw.githubusercontent.com/ashwin33086/ashwin_portfolio/1cbacbd5eb450c0000d2d8c13101e217204e480d/asset/pm-venn.png.png")
-        center / 60% no-repeat;
-    }
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
 
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 900px;
-    }
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(rgba(11,31,51,.85),rgba(11,31,51,.85)),
+    url("https://raw.githubusercontent.com/ashwin33086/ashwin_portfolio/1cbacbd5eb450c0000d2d8c13101e217204e480d/asset/pm-venn.png.png")
+    center/60% no-repeat;
+  animation:spinSlow 120s linear infinite;
+}
 
-    h1 {
-      font-size: 3.8rem;
-      margin-bottom: 0.4rem;
-    }
+@keyframes spinSlow{
+  from{transform:rotate(0deg);}
+  to{transform:rotate(360deg);}
+}
 
-    .typing {
-      font-size: 1.3rem;
-      color: var(--accent);
-      white-space: nowrap;
-      overflow: hidden;
-      border-right: 2px solid var(--accent);
-      width: 0;
-      margin: 0 auto;
-      animation: typing 3.5s steps(45,end) forwards, blink 0.8s infinite;
-    }
+.hero-content{
+  position:relative;
+  z-index:1;
+  max-width:900px;
+}
 
-    @keyframes typing { to { width: 100%; } }
-    @keyframes blink { 50% { border-color: transparent; } }
+h1{
+  font-size:3.8rem;
+  margin-bottom:.4rem;
+}
 
-    .tagline {
-      margin-top: 1.4rem;
-      font-style: italic;
-      color: var(--muted);
-      font-size: 1.05rem;
-    }
+.typing{
+  font-size:1.3rem;
+  color:var(--accent);
+  white-space:nowrap;
+  overflow:hidden;
+  border-right:2px solid var(--accent);
+  width:0;
+  margin:0 auto;
+  animation:typing 3.5s steps(45,end) forwards, blink .8s infinite;
+}
 
-    /* ---------- CONTACT (GAMIFIED) ---------- */
-    .contact {
-      margin-top: 2.8rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 1.4rem;
-    }
+@keyframes typing{to{width:100%;}}
+@keyframes blink{50%{border-color:transparent;}}
 
-    .contact-label {
-      color: var(--muted);
-      font-size: 0.95rem;
-      margin-right: 0.4rem;
-    }
+.tagline{
+  margin-top:1.4rem;
+  font-style:italic;
+  color:var(--muted);
+  font-size:1.05rem;
+}
 
-    .contact-icon {
-      width: 46px;
-      height: 46px;
-      border-radius: 50%;
-      background: linear-gradient(180deg, #163d60, #122f4a);
-      border: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-      animation: idlePulse 6s ease-in-out infinite;
-    }
+/* ================= CONTACT ================= */
 
-    .contact-icon img {
-      width: 22px;
-      filter: invert(1);
-    }
+.contact{
+  margin-top:2.8rem;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:1.2rem;
+}
 
-    .contact-icon:hover {
-      transform: translateY(-6px) scale(1.08);
-      background: var(--accent);
-      box-shadow: 0 18px 40px rgba(79,140,255,0.45);
-    }
+.contact span{
+  color:var(--muted);
+}
 
-    @keyframes idlePulse {
-      0%,100% { box-shadow: none; }
-      50% { box-shadow: 0 0 12px rgba(79,140,255,0.35); }
-    }
+.contact a{
+  width:46px;
+  height:46px;
+  border-radius:50%;
+  background:linear-gradient(180deg,#163d60,#122f4a);
+  border:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:.25s ease;
+}
 
-    /* ---------- ABOUT (TOGGLE) ---------- */
-    .about-toggle {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      cursor: pointer;
-      user-select: none;
-      width: fit-content;
-    }
+.contact a img{
+  width:22px;
+  filter:invert(1);
+}
 
-    .about-toggle span {
-      color: var(--accent);
-      transition: transform 0.35s ease;
-      font-size: 1.1rem;
-    }
+.contact a:hover{
+  transform:translateY(-6px) scale(1.1);
+  background:var(--accent);
+  box-shadow:0 18px 40px rgba(79,140,255,.45);
+}
 
-    .about {
-      background: linear-gradient(180deg, #143a5c, #102f4a);
-      border-radius: 26px;
-      border: 1px solid var(--border);
-      line-height: 1.9;
-      color: var(--muted);
-      font-size: 1.05rem;
-      margin-top: 1.6rem;
-      overflow: hidden;
-      transition: max-height 0.5s ease, opacity 0.4s ease, padding 0.4s ease;
-    }
+/* ================= ABOUT ================= */
 
-    .about-hidden {
-      max-height: 0;
-      opacity: 0;
-      padding: 0 3.4rem;
-    }
+.about-toggle{
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+  cursor:pointer;
+  width:fit-content;
+}
 
-    .about-visible {
-      max-height: 500px;
-      opacity: 1;
-      padding: 3.4rem;
-    }
+.about-toggle span{
+  color:var(--accent);
+  transition:.4s ease;
+}
 
-    /* ---------- PROJECTS ---------- */
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2.2rem;
-    }
+.about{
+  margin-top:1.6rem;
+  background:linear-gradient(180deg,#143a5c,#102f4a);
+  border-radius:26px;
+  border:1px solid var(--border);
+  line-height:1.9;
+  color:var(--muted);
+  font-size:1.05rem;
+  overflow:hidden;
+  transition:.5s ease;
+}
 
-    .project {
-      background: linear-gradient(180deg, #163d60, #122f4a);
-      border-radius: 26px;
-      padding: 2.6rem;
-      border: 1px solid var(--border);
-      text-decoration: none;
-      color: inherit;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
+.about.hidden{
+  max-height:0;
+  padding:0 3rem;
+  opacity:0;
+}
 
-    .project:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 45px rgba(0,0,0,0.4);
-    }
+.about.visible{
+  max-height:500px;
+  padding:3.4rem;
+  opacity:1;
+}
 
-    .project h3 {
-      margin-top: 0;
-      margin-bottom: 0.6rem;
-      font-size: 1.35rem;
-    }
+/* ================= PROJECTS ================= */
 
-    .project p {
-      color: var(--muted);
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
+.projects{
+  display:flex;
+  flex-direction:column;
+  gap:3rem;
+}
 
-    footer {
-      text-align: center;
-      padding: 3rem;
-      color: var(--muted);
-      font-size: 0.85rem;
-    }
-  </style>
+.project{
+  background:linear-gradient(180deg,#163d60,#122f4a);
+  border-radius:26px;
+  padding:2.8rem;
+  border:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  gap:1.8rem;
+  opacity:0;
+  transform:translateY(80px);
+  transition:.8s cubic-bezier(.2,.8,.2,1);
+  position:relative;
+  overflow:hidden;
+}
+
+.project.right{transform:translateX(120px);}
+.project.left{transform:translateX(-120px);}
+
+.project.show{
+  opacity:1;
+  transform:translateX(0);
+}
+
+.project-icon{
+  width:56px;
+  height:56px;
+  border-radius:50%;
+  background:radial-gradient(circle,var(--accent),transparent 70%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+  animation:pulse 3s infinite;
+}
+
+@keyframes pulse{
+  0%,100%{box-shadow:0 0 0 rgba(79,140,255,0);}
+  50%{box-shadow:0 0 22px rgba(79,140,255,.6);}
+}
+
+.project:hover{
+  box-shadow:0 30px 60px rgba(0,0,0,.45);
+  transform:scale(1.02);
+}
+
+.project h3{
+  margin:0 0 .6rem;
+  font-size:1.4rem;
+}
+
+.project p{
+  color:var(--muted);
+  font-size:.95rem;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+  text-align:center;
+  padding:3rem;
+  color:var(--muted);
+  font-size:.85rem;
+}
+</style>
 </head>
 
 <body>
@@ -225,19 +255,10 @@
     </div>
 
     <div class="contact">
-      <span class="contact-label">Contact Me:</span>
-
-      <a class="contact-icon" href="mailto:ashwin33086@gmail.com">
-        <img src="icons/gmail-svgrepo-com.svg">
-      </a>
-
-      <a class="contact-icon" href="https://www.linkedin.com/in/ashwin-mishra-b6b363256/" target="_blank">
-        <img src="icons/linkedin-1-svgrepo-com.svg">
-      </a>
-
-      <a class="contact-icon" href="https://github.com/ashwin33086" target="_blank">
-        <img src="icons/github-142-svgrepo-com.svg">
-      </a>
+      <span>Contact:</span>
+      <a href="mailto:ashwin33086@gmail.com"><img src="icons/gmail-svgrepo-com.svg"></a>
+      <a href="https://www.linkedin.com/in/ashwin-mishra-b6b363256/" target="_blank"><img src="icons/linkedin-1-svgrepo-com.svg"></a>
+      <a href="https://github.com/ashwin33086" target="_blank"><img src="icons/github-142-svgrepo-com.svg"></a>
     </div>
   </div>
 </div>
@@ -246,56 +267,77 @@
 <section>
   <div class="about-toggle" onclick="toggleAbout()">
     <h2>About Me</h2>
-    <span id="aboutIcon">▼</span>
+    <span id="aboutArrow">▼</span>
   </div>
 
-  <div class="about about-hidden" id="aboutContent">
+  <div class="about hidden" id="aboutBox">
     I work at the intersection of <strong>product, automation, and analytics</strong>.
-    My focus is on building scalable systems that remove manual effort,
-    improve decision quality, and optimize long-term business value.
+    I design scalable systems that reduce manual effort, improve decision quality,
+    and maximize long-term business value.
   </div>
 </section>
 
 <!-- PROJECTS -->
 <section>
-  <h2>Projects</h2>
+<h2>Projects</h2>
 
-  <div class="projects">
-    <a class="project" href="/projects/ltv.html">
+<div class="projects">
+  <div class="project right">
+    <div class="project-icon"></div>
+    <div>
       <h3>Dynamic Pricing Sensitivity & LTV Optimization</h3>
-      <p>Pricing elasticity, experimentation, and long-term value protection.</p>
-    </a>
+      <p>Elasticity modeling, experimentation, and long-term value protection.</p>
+    </div>
+  </div>
 
-    <a class="project" href="/projects/flowsight.html">
+  <div class="project left">
+    <div class="project-icon"></div>
+    <div>
       <h3>FlowSight Analytics — Funnel Automation</h3>
-      <p>Automated funnel intelligence for product decisions.</p>
-    </a>
+      <p>Automated funnel intelligence converting behavior into decisions.</p>
+    </div>
+  </div>
 
-    <a class="project" href="/projects/resume-automation.html">
+  <div class="project right">
+    <div class="project-icon"></div>
+    <div>
       <h3>Automated Resume Relevance Scoring</h3>
-      <p>Structured resume evaluation using automation.</p>
-    </a>
+      <p>Structured resume screening using automation logic.</p>
+    </div>
+  </div>
 
-    <a class="project" href="/projects/opd.html">
+  <div class="project left">
+    <div class="project-icon"></div>
+    <div>
       <h3>OPD Appointment Queue Automation</h3>
       <p>Operational automation reducing patient wait times.</p>
-    </a>
+    </div>
   </div>
+</div>
 </section>
 
 <footer>© Ashwin Mishra</footer>
 
 <script>
-  function toggleAbout() {
-    const content = document.getElementById("aboutContent");
-    const icon = document.getElementById("aboutIcon");
+function toggleAbout(){
+  const box=document.getElementById("aboutBox");
+  const arrow=document.getElementById("aboutArrow");
+  box.classList.toggle("visible");
+  box.classList.toggle("hidden");
+  arrow.style.transform = box.classList.contains("visible") ? "rotate(-90deg)" : "rotate(0deg)";
+}
 
-    content.classList.toggle("about-visible");
-    content.classList.toggle("about-hidden");
+/* Scroll reveal */
+const projects=document.querySelectorAll(".project");
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add("show");
+    }
+  });
+},{threshold:.25});
 
-    icon.style.transform =
-      icon.style.transform === "rotate(-90deg)" ? "rotate(0deg)" : "rotate(-90deg)";
-  }
+projects.forEach(p=>observer.observe(p));
 </script>
 
 </body>
