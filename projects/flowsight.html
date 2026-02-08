@@ -28,7 +28,7 @@ body{
   color:var(--text);
 }
 
-/* ================= DESKTOP (UNCHANGED) ================= */
+/* ================= DESKTOP LAYOUT ================= */
 
 .container{
   max-width:1600px;
@@ -75,6 +75,8 @@ p{
   opacity:.6;
 }
 
+/* ===== FEATURE BLOCK (DESKTOP GRID) ===== */
+
 .feature-block{
   margin-top:5rem;
   display:grid;
@@ -83,11 +85,13 @@ p{
   position:relative;
 }
 
-/* IMAGE */
+/* IMAGE — LEFT SIDE (RESTORED) */
 .photo-3d{
-  perspective:1600px;
+  grid-column:1;
   display:flex;
   justify-content:center;
+  perspective:1600px;
+  z-index:2;
 }
 
 .photo-3d img{
@@ -96,7 +100,9 @@ p{
   border-radius:28px;
   border:1px solid var(--border);
   transform:rotateX(10deg) rotateY(-12deg) translateZ(38px);
-  box-shadow:0 40px 80px rgba(0,0,0,.55),0 0 70px var(--glow);
+  box-shadow:
+    0 40px 80px rgba(0,0,0,.55),
+    0 0 70px var(--glow);
   transition:.6s ease;
 }
 
@@ -104,7 +110,7 @@ p{
   transform:rotateX(0) rotateY(0) translateZ(90px);
 }
 
-/* L SHAPE */
+/* VERTICAL CARD — RIGHT */
 .l-card-vertical{
   grid-column:2 / span 2;
   justify-self:end;
@@ -114,8 +120,10 @@ p{
   border:1px solid var(--border);
   border-radius:36px 36px 10px 10px;
   padding:4.2rem 5rem;
+  z-index:1;
 }
 
+/* BOTTOM CARD */
 .l-card-bottom{
   grid-column:1 / span 2;
   justify-self:end;
@@ -154,7 +162,7 @@ p{
   filter:invert(1);
 }
 
-/* ================= MOBILE (NEW, CLEAN) ================= */
+/* ================= MOBILE FIX ================= */
 
 @media(max-width:1200px){
 
@@ -162,49 +170,36 @@ p{
   grid-template-columns:1fr;
 }
 
-/* BIGGER TEXT ×1.5 */
-.about-badge{font-size:1.08rem;}
-.about-header + p{font-size:1.55rem;}
-.l-card-vertical p,
-.l-card-bottom p{font-size:1.5rem;line-height:1.9;}
-
-/* MOBILE STACK */
+/* STACKED FLOW */
 .feature-block{
   display:flex;
   flex-direction:column;
   gap:3rem;
 }
 
-/* TOGGLE BUTTON */
-.mobile-toggle{
-  width:64px;
-  height:64px;
-  border-radius:50%;
-  background:rgba(79,140,255,.15);
-  border:1px solid var(--border);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  margin:0 auto 1.5rem;
-  cursor:pointer;
-}
-
-.mobile-toggle img{
-  width:36px;
-  filter:invert(1);
-}
-
-/* IMAGE ALWAYS VISIBLE */
+/* IMAGE FIRST — ALWAYS VISIBLE */
 .photo-3d{
+  order:1;
   perspective:none;
 }
 
 .photo-3d img{
-  max-width:90%;
+  max-width:92%;
   transform:none;
 }
 
-/* STACKED L FEEL */
+/* TEXT ×1.5 */
+.about-badge{font-size:1.08rem;}
+.about-header + p{font-size:1.55rem;}
+
+.l-card-vertical h3{font-size:2.2rem;}
+.l-card-vertical p,
+.l-card-bottom p{
+  font-size:1.5rem;
+  line-height:1.9;
+}
+
+/* STACKED L-FEEL */
 .l-card-vertical,
 .l-card-bottom{
   width:100%;
@@ -240,8 +235,8 @@ p{
 <h1>FlowSight Analytics — Funnel Automation</h1>
 
 <div class="about-header">
-<span class="about-badge">ABOUT THE PROJECT</span>
-<div class="about-line"></div>
+  <span class="about-badge">ABOUT THE PROJECT</span>
+  <div class="about-line"></div>
 </div>
 
 <p>
@@ -251,50 +246,42 @@ identify friction points, and translate behavioral data into structured product 
 
 <div class="feature-block">
 
-<!-- MOBILE BUTTON -->
-<div class="mobile-toggle" onclick="scrollToContent()">
-<img src="https://raw.githubusercontent.com/ashwin33086/ashwin_portfolio/main/icons/down-arrow-svgrepo-com.svg">
-</div>
+  <!-- IMAGE -->
+  <div class="photo-3d">
+    <img src="/visuals/Architecture.png" alt="FlowSight Architecture">
+  </div>
 
-<div class="photo-3d" id="contentStart">
-<img src="/visuals/Architecture.png" alt="FlowSight Architecture">
-</div>
+  <!-- VERTICAL CARD -->
+  <div class="l-card-vertical">
+    <h3>Decision Intelligence Layer</h3>
+    <p>
+      FlowSight embeds decision logic directly into analytics pipelines,
+      correlating funnel behavior with downstream impact and priority signals.
+    </p>
+  </div>
 
-<div class="l-card-vertical">
-<h3>Decision Intelligence Layer</h3>
-<p>
-FlowSight embeds decision logic directly into analytics pipelines, correlating
-funnel behavior with downstream impact and priority signals.
-</p>
-</div>
-
-<div class="l-card-bottom">
-<p>
-The architecture is modular by design, allowing experiments, cohorts, and analytics
-logic to evolve without breaking downstream systems.
-</p>
-</div>
+  <!-- BOTTOM CARD -->
+  <div class="l-card-bottom">
+    <p>
+      The architecture is modular by design, allowing experiments, cohorts,
+      and analytics logic to evolve without breaking downstream systems.
+    </p>
+  </div>
 
 </div>
 </div>
 
+<!-- ACTIONS -->
 <div class="side-links">
-<a class="action-btn" href="https://github.com/ashwin33086/Flowsight_Analytics" target="_blank">
-<img src="https://raw.githubusercontent.com/ashwin33086/ashwin_portfolio/main/icons/github-svgrepo-com.svg">
-</a>
-<a class="action-btn" href="https://github.com/ashwin33086/Flowsight_Analytics/blob/main/Flowsight_ppt/FlowSight.ppt.pdf" target="_blank">
-PRD
-</a>
+  <a class="action-btn" href="https://github.com/ashwin33086/Flowsight_Analytics" target="_blank">
+    <img src="https://raw.githubusercontent.com/ashwin33086/ashwin_portfolio/main/icons/github-svgrepo-com.svg">
+  </a>
+  <a class="action-btn" href="https://github.com/ashwin33086/Flowsight_Analytics/blob/main/Flowsight_ppt/FlowSight.ppt.pdf" target="_blank">
+    PRD
+  </a>
 </div>
 
 </div>
-
-<script>
-function scrollToContent(){
-  document.getElementById("contentStart")
-    .scrollIntoView({behavior:"smooth"});
-}
-</script>
 
 </body>
 </html>
