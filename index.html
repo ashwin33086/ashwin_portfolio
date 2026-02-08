@@ -41,11 +41,11 @@ body{
 .hero::before{
   content:"";
   position:absolute;
-  inset:0;
+  inset:-20%; /* 🔑 allow rotation without clipping */
   background:
     linear-gradient(rgba(11,31,51,.85),rgba(11,31,51,.85)),
     url("https://raw.githubusercontent.com/ashwin33086/ashwin_portfolio/1cbacbd5eb450c0000d2d8c13101e217204e480d/asset/pm-venn.png.png")
-    center/60% no-repeat;
+    center / 60% no-repeat;
   animation:spinSlow 120s linear infinite;
 }
 
@@ -143,9 +143,7 @@ section{
   cursor:pointer;
 }
 
-.about-toggle h2{
-  margin:0;
-}
+.about-toggle h2{margin:0;}
 
 .about-toggle span{
   color:var(--accent);
@@ -183,10 +181,7 @@ section{
   gap:2.2rem;
 }
 
-.project-link{
-  text-decoration:none;
-  color:inherit;
-}
+.project-link{text-decoration:none;color:inherit;}
 
 .project{
   background:linear-gradient(180deg,#163d60,#122f4a);
@@ -217,16 +212,8 @@ section{
   50%{box-shadow:0 0 20px rgba(79,140,255,.6);}
 }
 
-.project h3{
-  margin:0 0 .4rem;
-  font-size:1.25rem;
-}
-
-.project p{
-  margin:0;
-  font-size:.95rem;
-  color:var(--muted);
-}
+.project h3{margin:0 0 .4rem;font-size:1.25rem;}
+.project p{margin:0;font-size:.95rem;color:var(--muted);}
 
 footer{
   text-align:center;
@@ -243,19 +230,19 @@ footer{
     padding:3.2rem 1.2rem 1.6rem;
   }
 
+  .hero::before{
+    inset:0;
+    background-size:contain; /* 🔑 FULL PNG VISIBLE */
+    animation:spinSlow 160s linear infinite; /* slower */
+  }
+
   .typing{
     border-right:none;
     white-space:normal;
     width:auto;
   }
 
-  section{
-    padding:2rem 1.2rem;
-  }
-
-  .about.visible{
-    padding:1.6rem;
-  }
+  section{padding:2rem 1.2rem;}
 
   .project{
     flex-direction:column;
@@ -297,9 +284,8 @@ footer{
   </div>
 
   <div class="about hidden" id="aboutBox">
-    I build data-driven products at the intersection of product strategy, analytics, and automation.  
-    My work focuses on turning complex ideas into scalable systems using metrics, user behavior, and AI-powered tools.  
-    Through PRDs, case studies, and hands-on automation, I design products that optimize long-term business value.
+    I build data-driven products at the intersection of product strategy, analytics, and automation.
+    I leverage metrics, user behavior, and AI-powered tools to design scalable systems and long-term business value.
   </div>
 </section>
 
@@ -324,26 +310,6 @@ footer{
     <div>
       <h3>FlowSight Analytics — Funnel Automation</h3>
       <p>Behavior-driven analytics for product decisions.</p>
-    </div>
-  </div>
-</a>
-
-<a class="project-link" href="/projects/resume-automation.html">
-  <div class="project right">
-    <div class="project-icon"></div>
-    <div>
-      <h3>Automated Resume Relevance Scoring</h3>
-      <p>Structured resume screening via automation.</p>
-    </div>
-  </div>
-</a>
-
-<a class="project-link" href="/projects/opd.html">
-  <div class="project left">
-    <div class="project-icon"></div>
-    <div>
-      <h3>OPD Appointment Queue Automation</h3>
-      <p>Operational automation for hospitals.</p>
     </div>
   </div>
 </a>
