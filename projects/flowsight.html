@@ -173,7 +173,7 @@
       box-shadow:0 18px 40px rgba(79,140,255,.45);
     }
 
-    /* ---------- PRD BUTTON (FIXED) ---------- */
+    /* ---------- PRD BUTTON ---------- */
     .action-btn.prd{
       background:linear-gradient(180deg,var(--prd1),var(--prd2));
       border:none;
@@ -198,7 +198,7 @@
         0 0 55px rgba(255,183,3,.9);
     }
 
-    /* ---------- MOBILE ---------- */
+    /* ================= MOBILE TYPOGRAPHY FIX ================= */
     @media(max-width:1200px){
 
       .container{grid-template-columns:1fr;}
@@ -227,6 +227,23 @@
         margin-top:3rem;
         gap:2rem;
       }
+
+      /* 🔑 ALL TEXT ×1.5 */
+      h1{font-size:4.6rem;}
+      .about-badge{font-size:1.05rem;}
+      p{font-size:1.5rem;}
+
+      /* 🔑 CONTENT ×2 */
+      .l-card-vertical h3{font-size:2.6rem;}
+      .l-card-vertical p,
+      .l-card-bottom p{
+        font-size:2.1rem;
+        line-height:1.8;
+      }
+
+      .action-btn{width:90px;height:90px;}
+      .action-btn img{width:40px;}
+      .action-btn.prd span{font-size:.9rem;}
     }
   </style>
 </head>
