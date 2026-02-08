@@ -34,8 +34,8 @@
       margin:0 auto;
       padding:6.5rem 1.5rem;
       display:grid;
-      grid-template-columns:1fr 1fr 120px;
-      gap:4rem;
+      grid-template-columns:1fr 120px;
+      gap:4.5rem;
     }
 
     h1 {
@@ -75,89 +75,97 @@
       opacity:.6;
     }
 
+    /* ---------- FEATURE BLOCK ---------- */
+    .feature-block {
+      margin-top:5rem;
+      display:grid;
+      grid-template-columns:620px minmax(520px, 1fr);
+      grid-template-rows:auto auto;
+      column-gap:4.5rem;
+      align-items:start;
+      position:relative;
+    }
+
     /* ---------- IMAGE ---------- */
     .photo-3d {
-      perspective:1400px;
+      perspective:1600px;
+      grid-row:1;
       display:flex;
       justify-content:center;
-      margin-top:1.5rem;
+      z-index:2;
     }
 
     .photo-3d img {
       width:100%;
-      max-width:480px; /* SMALLER IMAGE */
-      aspect-ratio:16/10;
-      object-fit:cover;
-      border-radius:26px;
+      max-width:560px;
+      border-radius:28px;
       border:1px solid var(--border);
-      transform:rotateX(8deg) rotateY(-10deg) translateZ(30px);
+      transform:rotateX(10deg) rotateY(-12deg) translateZ(38px);
       box-shadow:
-        0 30px 60px rgba(0,0,0,.45),
-        0 0 50px var(--glow);
-      transition:.5s ease;
+        0 40px 80px rgba(0,0,0,.55),
+        0 0 70px var(--glow);
+      transition:.6s ease;
       background:#0b1f33;
     }
 
     .photo-3d:hover img {
-      transform:rotateX(0) rotateY(0) translateZ(60px);
+      transform:rotateX(0) rotateY(0) translateZ(90px);
+      box-shadow:
+        0 65px 120px rgba(0,0,0,.75),
+        0 0 110px rgba(79,140,255,.45);
     }
 
-    /* ---------- L SHAPE (RIGHT ANCHORED) ---------- */
-    .l-shape {
-      grid-column:2;
-      display:grid;
-      grid-template-columns:1fr;
-      grid-template-rows:auto auto;
-      align-items:end;
-    }
-
-    /* ---------- VERTICAL ARM ---------- */
+    /* ---------- VERTICAL CARD ---------- */
     .l-card-vertical {
+      grid-row:1;
       justify-self:end;
-      width:520px;
+      width:100%;
+      max-width:720px;
       background:linear-gradient(180deg,var(--card-light),var(--card));
       border:1px solid var(--border);
-      border-radius:34px 34px 8px 8px;
-      padding:3.8rem 4.5rem;
+      border-radius:36px 36px 10px 10px;
+      padding:4.2rem 5rem;
       box-shadow:
-        0 30px 70px rgba(0,0,0,.45),
+        inset 0 0 0 1px rgba(255,255,255,.04),
+        0 35px 90px rgba(0,0,0,.45),
         0 0 45px var(--glow);
-      z-index:2;
     }
 
     .l-card-vertical h3 {
       margin-top:0;
-      margin-bottom:1.2rem;
+      margin-bottom:1.4rem;
       font-size:1.45rem;
     }
 
-    /* ---------- HORIZONTAL ARM (EXTENDS LEFT) ---------- */
+    /* ---------- HORIZONTAL CARD ---------- */
     .l-card-bottom {
+      grid-column:1 / span 2;
       justify-self:end;
-      width:820px; /* EXTENDS LEFTWARD */
-      margin-top:2.2rem;
+      width:calc(100% - 120px);
       background:linear-gradient(180deg,var(--card-light),var(--card));
       border:1px solid var(--border);
-      border-radius:0 0 40px 40px;
-      padding:3.6rem 4.8rem;
+      border-top:none;
+      border-radius:0 0 42px 42px;
+      padding:4rem 6.5rem;
       box-shadow:
-        0 28px 65px rgba(0,0,0,.4),
-        0 0 40px var(--glow);
+        0 32px 75px rgba(0,0,0,.45),
+        0 0 50px var(--glow);
+      margin-top:-1px;
     }
 
-    /* ---------- ACTION BAR ---------- */
+    /* ---------- RIGHT ACTION BAR ---------- */
     .side-links {
-      grid-column:3;
       display:flex;
       flex-direction:column;
       align-items:center;
-      gap:2.4rem;
-      padding-top:2rem;
+      gap:2.6rem;
+      padding-top:1.2rem;
+      z-index:3;
     }
 
     .action-btn {
-      width:70px;
-      height:70px;
+      width:72px;
+      height:72px;
       border-radius:50%;
       background:rgba(255,255,255,.1);
       border:1px solid var(--border);
@@ -165,35 +173,38 @@
       align-items:center;
       justify-content:center;
       text-decoration:none;
-      font-size:.75rem;
-      font-weight:700;
       color:var(--text);
+      font-size:.76rem;
+      font-weight:700;
       transition:.2s ease;
     }
 
     .action-btn img {
-      width:30px;
+      width:32px;
       filter:invert(1);
     }
 
     .action-btn:hover {
       background:var(--accent);
       transform:translateY(-4px);
+      box-shadow:0 18px 40px rgba(79,140,255,.45);
     }
 
     /* ---------- MOBILE ---------- */
     @media(max-width:1200px){
-      .container {
-        grid-template-columns:1fr;
-      }
-      .l-shape,
-      .side-links {
-        grid-column:1;
-      }
+      .container { grid-template-columns:1fr; }
+      .feature-block { grid-template-columns:1fr; }
       .l-card-vertical,
       .l-card-bottom {
         width:100%;
+        justify-self:start;
+        padding:3rem;
       }
+      .side-links {
+        flex-direction:row;
+        margin-top:3.5rem;
+      }
+      .photo-3d img { transform:none; }
     }
   </style>
 </head>
@@ -202,7 +213,6 @@
 
 <div class="container">
 
-  <!-- LEFT: IMAGE -->
   <div>
     <h1>Automated Resume Relevance Scoring</h1>
 
@@ -212,43 +222,46 @@
     </div>
 
     <p>
-      An automation system designed to evaluate resumes against job descriptions
-      using structured logic, reducing recruiter effort and improving screening
-      consistency.
+      An automation system designed to evaluate resumes against job
+      descriptions using structured logic, reducing recruiter effort and
+      improving screening consistency.
     </p>
 
-    <div class="photo-3d">
-      <img src="/visuals/WorkflowDesign.png" alt="Resume Automation Workflow">
+    <div class="feature-block">
+
+      <!-- IMAGE -->
+      <div class="photo-3d">
+        <img src="/visuals/WorkflowDesign.png" alt="Resume Automation Workflow">
+      </div>
+
+      <!-- VERTICAL CARD -->
+      <div class="l-card-vertical">
+        <h3>Scoring & Decision Engine</h3>
+        <p>
+          The system parses resumes, extracts relevant skills and experience,
+          and scores candidates based on alignment with role requirements.
+          This enables faster shortlisting without relying on manual judgment.
+        </p>
+      </div>
+
+      <!-- HORIZONTAL CARD -->
+      <div class="l-card-bottom">
+        <p>
+          Automation logic ensures consistent evaluation across candidates,
+          eliminating bias introduced by manual screening. Recruiters receive
+          ranked outputs that highlight the strongest matches for each role.
+        </p>
+
+        <p>
+          The workflow is extensible — new criteria, weighting logic, and job
+          templates can be added without disrupting the existing pipeline.
+        </p>
+      </div>
+
     </div>
   </div>
 
-  <!-- CENTER: L SHAPE -->
-  <div class="l-shape">
-
-    <div class="l-card-vertical">
-      <h3>Scoring & Decision Engine</h3>
-      <p>
-        Resumes are parsed, normalized, and evaluated against role-specific
-        criteria to generate relevance scores with consistent logic.
-      </p>
-    </div>
-
-    <div class="l-card-bottom">
-      <p>
-        The system ensures unbiased shortlisting by applying the same scoring
-        framework across all candidates. Recruiters receive ranked outputs
-        instead of raw resumes, accelerating decision-making.
-      </p>
-
-      <p>
-        The workflow is extensible — new skills, weights, and role templates
-        can be added without rewriting the pipeline.
-      </p>
-    </div>
-
-  </div>
-
-  <!-- RIGHT: ACTIONS -->
+  <!-- ACTIONS -->
   <div class="side-links">
     <a class="action-btn" href="https://github.com/ashwin33086/Automated-Resume-Relevance-Scoring-Workflow-Using-n8n" target="_blank">
       <img src="https://raw.githubusercontent.com/ashwin33086/ashwin_portfolio/main/icons/github-svgrepo-com.svg">
