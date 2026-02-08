@@ -43,20 +43,50 @@
       overflow: hidden;
     }
 
+    /* rotating venn */
     .hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(rgba(11,31,51,0.85), rgba(11,31,51,0.85)),
-    url("https://raw.githubusercontent.com/ashwin33086/ashwin_portfolio/1cbacbd5eb450c0000d2d8c13101e217204e480d/asset/pm-venn.png.png")
-    center / 60% no-repeat;
-}
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(11,31,51,0.88), rgba(11,31,51,0.88)),
+        url("https://raw.githubusercontent.com/ashwin33086/ashwin_portfolio/1cbacbd5eb450c0000d2d8c13101e217204e480d/asset/pm-venn.png.png")
+        center / 60% no-repeat;
+      opacity: 0.35;
+      animation: slowRotate 80s linear infinite;
+      transform-origin: center;
+    }
 
+    @keyframes slowRotate {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    /* floating dots */
+    .dot {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(79,140,255,0.45);
+      filter: blur(0.3px);
+      animation: floatDot 12s ease-in-out infinite;
+    }
+
+    .dot:nth-child(1) { top: 20%; left: 15%; animation-duration: 14s; }
+    .dot:nth-child(2) { top: 65%; left: 25%; animation-duration: 18s; }
+    .dot:nth-child(3) { top: 35%; right: 20%; animation-duration: 16s; }
+    .dot:nth-child(4) { bottom: 18%; right: 30%; animation-duration: 20s; }
+
+    @keyframes floatDot {
+      0%   { transform: translateY(0); opacity: 0.25; }
+      50%  { transform: translateY(-18px); opacity: 0.6; }
+      100% { transform: translateY(0); opacity: 0.25; }
+    }
 
     .hero-content {
       position: relative;
-      z-index: 1;
+      z-index: 2;
       max-width: 900px;
     }
 
@@ -158,6 +188,12 @@
 
   <!-- HERO -->
   <div class="hero">
+    <!-- floating dots -->
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+
     <div class="hero-content">
       <h1>Ashwin Mishra</h1>
       <div class="typing">Product • Strategy • Automation • Analytics</div>
@@ -189,39 +225,25 @@
     <h2>Projects</h2>
 
     <div class="projects">
-
       <a class="project" href="/projects/ltv.html">
         <h3>Dynamic Pricing Sensitivity & LTV Optimization</h3>
-        <p>
-          Explores pricing elasticity, controlled experimentation, and
-          long-term value protection through automation.
-        </p>
+        <p>Explores pricing elasticity, controlled experimentation, and long-term value protection.</p>
       </a>
 
       <a class="project" href="/projects/flowsight.html">
         <h3>FlowSight Analytics — Funnel Automation</h3>
-        <p>
-          Automated funnel analysis system converting user behavior
-          into actionable product insights.
-        </p>
+        <p>Automated funnel analysis converting user behavior into product decisions.</p>
       </a>
 
       <a class="project" href="/projects/resume-automation.html">
         <h3>Automated Resume Relevance Scoring</h3>
-        <p>
-          Workflow automation that scores resumes against job descriptions
-          using structured logic.
-        </p>
+        <p>Workflow automation scoring resumes against job descriptions.</p>
       </a>
 
       <a class="project" href="/projects/opd.html">
         <h3>OPD Appointment Queue Automation</h3>
-        <p>
-          Hospital operations automation improving throughput
-          and reducing patient wait times.
-        </p>
+        <p>Hospital automation improving throughput and reducing wait times.</p>
       </a>
-
     </div>
   </section>
 
