@@ -123,20 +123,23 @@
   grid-column: 1 / span 2;
   justify-self: end;
 
-  /* 🔑 KEY LINE: start exactly at vertical card edge */
-  width: calc(720px + 420px);
+  /* 🔑 Perfect inverted L geometry */
+  width: calc(100% + 120px);   /* reach BOTH ends */
+  margin-right: -120px;        /* touch action rail */
+  margin-top: 0;               /* align exactly under vertical */
 
   background: linear-gradient(180deg,var(--card-light),var(--card));
   border: 1px solid var(--border);
+  border-top: none;
   border-radius: 0 0 42px 42px;
-  padding: 4rem 6.5rem;
+
+  padding: 4.5rem 7rem;
 
   box-shadow:
-    0 32px 75px rgba(0,0,0,.45),
-    0 0 50px var(--glow);
-
-  margin-top: -1px;
+    0 36px 85px rgba(0,0,0,.45),
+    0 0 55px var(--glow);
 }
+
 
     .side-links {
       display:flex;
