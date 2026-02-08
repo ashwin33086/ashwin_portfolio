@@ -28,7 +28,7 @@ body{
   color:var(--text);
 }
 
-/* ================= DESKTOP BASE ================= */
+/* ================= DESKTOP BASE (UNCHANGED) ================= */
 
 .container{
   max-width:1600px;
@@ -104,16 +104,14 @@ p{
     0 40px 80px rgba(0,0,0,.55),
     0 0 70px var(--glow);
   transition:.6s ease;
-  background:#0b1f33;
 }
 
 .photo-3d:hover img{
   transform:rotateX(0) rotateY(0) translateZ(90px);
 }
 
-/* VERTICAL CARD */
+/* L CARDS */
 .l-card-vertical{
-  grid-row:1;
   grid-column:2 / span 2;
   justify-self:end;
   width:calc(100% + 120px);
@@ -122,11 +120,8 @@ p{
   border:1px solid var(--border);
   border-radius:36px 36px 10px 10px;
   padding:4.2rem 5rem;
-  box-shadow:0 35px 90px rgba(0,0,0,.45);
-  z-index:2;
 }
 
-/* BOTTOM CARD */
 .l-card-bottom{
   grid-column:1 / span 2;
   justify-self:end;
@@ -138,7 +133,6 @@ p{
   border-top:none;
   border-radius:0 0 42px 42px;
   padding:4.5rem 7rem;
-  box-shadow:0 36px 85px rgba(0,0,0,.45);
 }
 
 /* ACTION BAR */
@@ -159,9 +153,8 @@ p{
   display:flex;
   align-items:center;
   justify-content:center;
+  font-size:.8rem;
   color:var(--text);
-  font-size:.78rem;
-  font-weight:700;
   text-decoration:none;
 }
 
@@ -170,7 +163,7 @@ p{
   filter:invert(1);
 }
 
-/* ================= MOBILE (L SHAPE PRESERVED) ================= */
+/* ================= PHONE DESIGN ================= */
 
 @media(max-width:1200px){
 
@@ -178,16 +171,20 @@ p{
   grid-template-columns:1fr;
 }
 
-/* KEEP GRID — DO NOT FLATTEN */
-.feature-block{
-  grid-template-columns:1fr 1fr;
-  column-gap:1.2rem;
-  row-gap:0;
+/* ABOUT BADGE ONLY = 1.5× */
+.about-badge{
+  font-size:1.08rem;
 }
 
-/* IMAGE VISIBLE */
+/* STACK WITH ORDER */
+.feature-block{
+  grid-template-columns:1fr;
+  row-gap:3.5rem;
+}
+
+/* IMAGE FIRST */
 .photo-3d{
-  grid-column:1 / span 2;
+  order:1;
 }
 
 .photo-3d img{
@@ -195,31 +192,33 @@ p{
   transform:none;
 }
 
-/* MOBILE L SHAPE */
+/* VERTICAL CARD */
 .l-card-vertical{
-  grid-column:2;
+  order:2;
   width:100%;
   margin-right:0;
   padding:3rem;
+  opacity:0;
+  transform:translateX(60px);
+  transition:.8s ease;
 }
 
+/* HORIZONTAL CARD */
 .l-card-bottom{
-  grid-column:1 / span 2;
+  order:3;
   width:100%;
   margin-right:0;
-  padding:3.2rem;
+  padding:3rem;
+  opacity:0;
+  transform:translateX(-60px);
+  transition:.8s ease;
 }
 
-/* UNIFY FONT SIZES */
-.about-header + p,
-.l-card-vertical p,
-.l-card-bottom p{
-  font-size:1.6rem;
-  line-height:1.8;
-}
-
-.l-card-vertical h3{
-  font-size:2rem;
+/* SCROLL ANIMATION */
+.l-card-vertical.show,
+.l-card-bottom.show{
+  opacity:1;
+  transform:translateX(0);
 }
 
 /* ACTION BAR */
@@ -261,22 +260,14 @@ structured product decisions.
 <h3>Decision Intelligence Layer</h3>
 <p>
 FlowSight embeds decision logic directly into analytics pipelines,
-correlating funnel behavior with downstream impact and priority
-signals so teams act with clarity instead of debate.
+correlating funnel behavior with downstream impact and priority signals.
 </p>
 </div>
 
 <div class="l-card-bottom">
 <p>
-The architecture is modular by design. New events, experiments, and
-cohorts can be introduced without breaking existing logic, ensuring
-scalability as product complexity increases.
-</p>
-
-<p>
-By aligning analytics with execution, FlowSight reduces cognitive
-load, eliminates metric ambiguity, and accelerates decision velocity
-across product, growth, and operations teams.
+The architecture is modular by design, allowing experiments, cohorts,
+and analytics logic to evolve without breaking downstream systems.
 </p>
 </div>
 
@@ -293,6 +284,21 @@ PRD
 </div>
 
 </div>
+
+<script>
+/* Smooth mobile animation */
+const cards=document.querySelectorAll('.l-card-vertical,.l-card-bottom');
+
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('show');
+    }
+  });
+},{threshold:.35});
+
+cards.forEach(c=>obs.observe(c));
+</script>
 
 </body>
 </html>
