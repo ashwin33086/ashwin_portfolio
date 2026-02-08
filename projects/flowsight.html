@@ -96,18 +96,15 @@
       z-index:2;
     }
 
-    .photo-3d img {
-      width:100%;
-      max-width:560px;
-      border-radius:28px;
-      border:1px solid var(--border);
-      transform:rotateX(10deg) rotateY(-12deg) translateZ(38px);
-      box-shadow:
-        0 40px 80px rgba(0,0,0,.55),
-        0 0 70px var(--glow);
-      transition:.6s ease;
-      background:#0b1f33;
-    }
+    .photo-3d {
+  perspective:1600px;
+  grid-row:1;
+  display:flex;
+  justify-content:center;
+  z-index:5;              /* 🔑 image ABOVE cards */
+  position:relative;
+}
+
 
     /* ---------- VERTICAL CARD (EXTENDED TO RIGHT EDGE) ---------- */
     .l-card-vertical {
