@@ -1,311 +1,306 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FlowSight Analytics — Funnel Automation</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FlowSight Analytics — Funnel Automation</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --bg:#0b1f33;
-      --card:#122f4a;
-      --card-light:#163d60;
-      --glow:rgba(79,140,255,0.18);
-      --text:#f2f6fa;
-      --muted:#b9c6d3;
-      --accent:#4f8cff;
-      --border:rgba(255,255,255,0.15);
-      --prd1:#ffb703;
-      --prd2:#f77f00;
-    }
+<style>
+:root {
+  --bg:#0b1f33;
+  --card:#122f4a;
+  --card-light:#163d60;
+  --glow:rgba(79,140,255,0.18);
+  --text:#f2f6fa;
+  --muted:#b9c6d3;
+  --accent:#4f8cff;
+  --border:rgba(255,255,255,0.15);
+  --power:#ffb703;
+}
 
-    *{box-sizing:border-box;}
+*{box-sizing:border-box}
 
-    body{
-      margin:0;
-      font-family:Inter,sans-serif;
-      background:var(--bg);
-      color:var(--text);
-    }
+body{
+  margin:0;
+  font-family:Inter,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
 
-    .container{
-      max-width:1600px;
-      margin:0 auto;
-      padding:6.5rem 1.5rem;
-      display:grid;
-      grid-template-columns:1fr 120px;
-      gap:4.5rem;
-    }
+/* ================= DESKTOP LAYOUT (UNCHANGED) ================= */
 
-    h1{
-      font-size:3.1rem;
-      margin-bottom:1.1rem;
-    }
+.container{
+  max-width:1600px;
+  margin:0 auto;
+  padding:6.5rem 1.5rem;
+  display:grid;
+  grid-template-columns:1fr 120px;
+  gap:4.5rem;
+}
 
-    p{
-      color:var(--muted);
-      line-height:1.85;
-      font-size:1.02rem;
-    }
+h1{font-size:3.1rem}
 
-    /* ---------- ABOUT HEADER ---------- */
-    .about-header{
-      margin:2.3rem 0 1.8rem;
-      display:flex;
-      align-items:center;
-      gap:1rem;
-    }
+p{
+  color:var(--muted);
+  line-height:1.85;
+  font-size:1.02rem;
+}
 
-    .about-badge{
-      padding:.45rem 1.15rem;
-      border-radius:999px;
-      font-size:.72rem;
-      font-weight:700;
-      letter-spacing:.12em;
-      background:rgba(79,140,255,.15);
-      border:1px solid var(--border);
-      color:var(--accent);
-    }
+.about-header{
+  margin:2.3rem 0 1.8rem;
+  display:flex;
+  align-items:center;
+  gap:1rem;
+}
 
-    .about-line{
-      flex:1;
-      height:1px;
-      background:linear-gradient(to right,var(--accent),transparent);
-      opacity:.6;
-    }
+.about-badge{
+  padding:.4rem 1.1rem;
+  border-radius:999px;
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.12em;
+  background:rgba(79,140,255,.15);
+  border:1px solid var(--border);
+  color:var(--accent);
+}
 
-    /* ---------- FEATURE BLOCK ---------- */
-    .feature-block{
-      margin-top:5rem;
-      display:grid;
-      grid-template-columns:620px minmax(520px,1fr);
-      column-gap:4.5rem;
-      position:relative;
-    }
+.about-line{
+  flex:1;
+  height:1px;
+  background:linear-gradient(to right,var(--accent),transparent);
+  opacity:.6;
+}
 
-    /* ---------- IMAGE ---------- */
-    .photo-3d{
-      perspective:1600px;
-      display:flex;
-      justify-content:center;
-      z-index:5;
-    }
+.feature-block{
+  margin-top:5rem;
+  display:grid;
+  grid-template-columns:620px minmax(520px,1fr);
+  column-gap:4.5rem;
+  position:relative;
+}
 
-    .photo-3d img{
-      width:100%;
-      max-width:560px;
-      border-radius:28px;
-      border:1px solid var(--border);
-      transform:rotateX(10deg) rotateY(-12deg) translateZ(38px);
-      box-shadow:
-        0 40px 80px rgba(0,0,0,.55),
-        0 0 70px var(--glow);
-      transition:.6s ease;
-      background:#0b1f33;
-    }
+/* IMAGE */
+.photo-3d{
+  perspective:1600px;
+  display:flex;
+  justify-content:center;
+}
 
-    .photo-3d:hover img{
-      transform:rotateX(0) rotateY(0) translateZ(90px);
-    }
+.photo-3d img{
+  width:100%;
+  max-width:560px;
+  border-radius:28px;
+  border:1px solid var(--border);
+  transform:rotateX(10deg) rotateY(-12deg) translateZ(38px);
+  box-shadow:0 40px 80px rgba(0,0,0,.55),0 0 70px var(--glow);
+  transition:.6s ease;
+}
 
-    /* ---------- VERTICAL CARD ---------- */
-    .l-card-vertical{
-      grid-column:2 / span 2;
-      justify-self:end;
-      width:calc(100% + 120px);
-      margin-right:-120px;
-      background:linear-gradient(180deg,var(--card-light),var(--card));
-      border:1px solid var(--border);
-      border-radius:36px 36px 10px 10px;
-      padding:4.2rem 5rem;
-      z-index:2;
-    }
+.photo-3d:hover img{
+  transform:rotateX(0) rotateY(0) translateZ(90px);
+}
 
-    .l-card-vertical h3{
-      margin-top:0;
-      font-size:1.45rem;
-    }
+/* L SHAPE */
+.l-card-vertical{
+  grid-column:2/span 2;
+  justify-self:end;
+  width:calc(100% + 120px);
+  margin-right:-120px;
+  background:linear-gradient(180deg,var(--card-light),var(--card));
+  border:1px solid var(--border);
+  border-radius:36px 36px 10px 10px;
+  padding:4.2rem 5rem;
+}
 
-    /* ---------- HORIZONTAL CARD ---------- */
-    .l-card-bottom{
-      grid-column:1 / span 2;
-      justify-self:end;
-      width:calc(100% + 120px);
-      margin-right:-120px;
-      background:linear-gradient(180deg,var(--card-light),var(--card));
-      border:1px solid var(--border);
-      border-top:none;
-      border-radius:0 0 42px 42px;
-      padding:4.5rem 7rem;
-    }
+.l-card-bottom{
+  grid-column:1/span 2;
+  justify-self:end;
+  width:calc(100% + 120px);
+  margin-right:-120px;
+  background:linear-gradient(180deg,var(--card-light),var(--card));
+  border:1px solid var(--border);
+  border-top:none;
+  border-radius:0 0 42px 42px;
+  padding:4.5rem 7rem;
+}
 
-    /* ---------- ACTION BAR ---------- */
-    .side-links{
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap:2.6rem;
-      padding-top:1.2rem;
-    }
+/* ACTION BAR */
+.side-links{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:2.6rem;
+}
 
-    .action-btn{
-      width:72px;
-      height:72px;
-      border-radius:50%;
-      background:rgba(255,255,255,.1);
-      border:1px solid var(--border);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-decoration:none;
-      transition:.25s ease;
-    }
+.action-btn{
+  width:72px;
+  height:72px;
+  border-radius:50%;
+  background:rgba(255,255,255,.1);
+  border:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
 
-    .action-btn img{
-      width:32px;
-      filter:invert(1);
-    }
+.action-btn img{width:32px;filter:invert(1)}
 
-    .action-btn:hover{
-      transform:translateY(-4px);
-      box-shadow:0 18px 40px rgba(79,140,255,.45);
-    }
+.prd{
+  background:linear-gradient(180deg,#ffb703,#f77f00);
+  color:#000;
+  font-weight:800;
+}
 
-    /* ---------- PRD BUTTON ---------- */
-    .action-btn.prd{
-      background:linear-gradient(180deg,var(--prd1),var(--prd2));
-      border:none;
-      color:#0b1f33;
-      font-weight:800;
-      letter-spacing:.08em;
-      box-shadow:
-        0 10px 25px rgba(255,183,3,.45),
-        0 0 30px rgba(255,183,3,.65);
-    }
+/* ================= MOBILE GAME MODE ================= */
 
-    .action-btn.prd span{
-      font-size:.72rem;
-      line-height:1.1;
-      text-align:center;
-    }
+@media(max-width:1200px){
 
-    .action-btn.prd:hover{
-      transform:translateY(-6px) scale(1.08);
-      box-shadow:
-        0 20px 45px rgba(255,183,3,.75),
-        0 0 55px rgba(255,183,3,.9);
-    }
+.container{
+  grid-template-columns:1fr;
+}
 
-    /* ================= MOBILE TYPOGRAPHY FIX ================= */
-    @media(max-width:1200px){
+.feature-block{
+  grid-template-columns:1fr;
+  row-gap:2.8rem;
+}
 
-      .container{grid-template-columns:1fr;}
+/* IMAGE FIRST */
+.photo-3d img{
+  transform:none;
+}
 
-      .feature-block{
-        grid-template-columns:1fr;
-        row-gap:3rem;
-      }
+/* POWER BUTTON */
+.power-btn{
+  margin:1.8rem auto 0;
+  width:86px;
+  height:86px;
+  border-radius:50%;
+  background:radial-gradient(circle,#ffb703,#f77f00);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 0 35px rgba(255,183,3,.6);
+  cursor:pointer;
+  animation:pulse 2.5s infinite;
+}
 
-      .photo-3d img{
-        transform:none;
-        max-width:92%;
-      }
+@keyframes pulse{
+  0%,100%{box-shadow:0 0 25px rgba(255,183,3,.4)}
+  50%{box-shadow:0 0 45px rgba(255,183,3,.9)}
+}
 
-      .l-card-vertical,
-      .l-card-bottom{
-        grid-column:1;
-        width:100%;
-        margin-right:0;
-        padding:3rem;
-      }
+.power-btn span{
+  font-size:2.2rem;
+  font-weight:900;
+  color:#000;
+}
 
-      .side-links{
-        flex-direction:row;
-        justify-content:center;
-        margin-top:3rem;
-        gap:2rem;
-      }
+/* CONTENT LOCKED */
+.mobile-hidden{
+  opacity:0;
+  transform:translateY(60px) rotateX(-12deg);
+  pointer-events:none;
+  transition:.9s cubic-bezier(.2,.8,.2,1);
+}
 
-      /* 🔑 ALL TEXT ×1.5 */
-      h1{font-size:4.6rem;}
-      .about-badge{font-size:1.05rem;}
-      p{font-size:1.5rem;}
+.mobile-show{
+  opacity:1;
+  transform:translateY(0) rotateX(0);
+  pointer-events:auto;
+}
 
-      /* 🔑 CONTENT ×2 */
-      .l-card-vertical h3{font-size:2.6rem;}
-      .l-card-vertical p,
-      .l-card-bottom p{
-        font-size:2.1rem;
-        line-height:1.8;
-      }
+/* RESET L SHAPE BUT KEEP STACK */
+.l-card-vertical,
+.l-card-bottom{
+  width:100%;
+  margin:0;
+  padding:3.4rem;
+}
 
-      .action-btn{width:90px;height:90px;}
-      .action-btn img{width:40px;}
-      .action-btn.prd span{font-size:.9rem;}
-    }
-  </style>
+/* FONT BOOST */
+.about-header{margin-top:3rem}
+.about-header span{font-size:1.1rem}
+.about-header + p{font-size:1.6rem}
+.l-card-vertical h3{font-size:2.1rem}
+.l-card-vertical p,
+.l-card-bottom p{font-size:1.6rem}
+
+.side-links{
+  flex-direction:row;
+  justify-content:center;
+}
+}
+</style>
 </head>
 
 <body>
 
 <div class="container">
 
-  <div>
-    <h1>FlowSight Analytics — Funnel Automation</h1>
+<div>
+<h1>FlowSight Analytics — Funnel Automation</h1>
 
-    <div class="about-header">
-      <span class="about-badge">ABOUT THE PROJECT</span>
-      <div class="about-line"></div>
-    </div>
+<div class="about-header">
+<span class="about-badge">ABOUT THE PROJECT</span>
+<div class="about-line"></div>
+</div>
 
-    <p>
-      FlowSight is an analytics-driven automation system designed to track user
-      funnels, identify friction points, and translate behavioral data into
-      structured product decisions.
-    </p>
+<p>
+FlowSight is an analytics-driven automation system designed to track user funnels,
+identify friction points, and translate behavioral data into structured product decisions.
+</p>
 
-    <div class="feature-block">
+<div class="feature-block">
 
-      <div class="photo-3d">
-        <img src="/visuals/Architecture.png" alt="FlowSight Architecture">
-      </div>
+<div class="photo-3d">
+<img src="/visuals/Architecture.png" alt="FlowSight Architecture">
+</div>
 
-      <div class="l-card-vertical">
-        <h3>Decision Intelligence Layer</h3>
-        <p>
-          FlowSight embeds decision logic directly into analytics pipelines,
-          correlating funnel behavior with downstream impact and priority
-          signals so teams act with clarity instead of debate.
-        </p>
-      </div>
+<!-- MOBILE POWER BUTTON -->
+<div class="power-btn" onclick="unlockContent()">
+<span>⏻</span>
+</div>
 
-      <div class="l-card-bottom">
-        <p>
-          The architecture is modular by design. New events, experiments, and
-          cohorts can be introduced without breaking existing logic.
-        </p>
-        <p>
-          By aligning analytics with execution, FlowSight reduces cognitive
-          load and accelerates decision velocity.
-        </p>
-      </div>
+<div id="vcard" class="l-card-vertical mobile-hidden">
+<h3>Decision Intelligence Layer</h3>
+<p>
+FlowSight embeds decision logic directly into analytics pipelines, correlating funnel behavior
+with downstream impact and priority signals so teams act with clarity instead of debate.
+</p>
+</div>
 
-    </div>
-  </div>
-
-  <div class="side-links">
-    <a class="action-btn" href="https://github.com/ashwin33086/Flowsight_Analytics" target="_blank">
-      <img src="https://raw.githubusercontent.com/ashwin33086/ashwin_portfolio/main/icons/github-svgrepo-com.svg">
-    </a>
-
-    <a class="action-btn prd" href="https://github.com/ashwin33086/Flowsight_Analytics/blob/main/Flowsight_ppt/FlowSight.ppt.pdf" target="_blank">
-      <span>PRD<br>CASE</span>
-    </a>
-  </div>
+<div id="bcard" class="l-card-bottom mobile-hidden">
+<p>
+The architecture is modular by design. New events, experiments, and cohorts can be introduced
+without breaking existing logic, ensuring scalability as product complexity increases.
+</p>
+<p>
+By aligning analytics with execution, FlowSight reduces cognitive load and accelerates
+decision velocity across teams.
+</p>
+</div>
 
 </div>
+</div>
+
+<div class="side-links">
+<a class="action-btn" href="https://github.com/ashwin33086/Flowsight_Analytics" target="_blank">
+<img src="https://raw.githubusercontent.com/ashwin33086/ashwin_portfolio/main/icons/github-svgrepo-com.svg">
+</a>
+<div class="action-btn prd">PRD</div>
+</div>
+
+</div>
+
+<script>
+function unlockContent(){
+  document.getElementById("vcard").classList.add("mobile-show");
+  document.getElementById("bcard").classList.add("mobile-show");
+  document.getElementById("vcard").scrollIntoView({behavior:"smooth"});
+}
+</script>
 
 </body>
 </html>
