@@ -29,23 +29,20 @@ body{
 /* ================= HERO ================= */
 
 .hero{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
   position:relative;
   overflow:hidden;
-  padding:6rem 1.5rem 3rem;
+  padding:7.5rem 1.5rem 3.5rem;
+  text-align:center;
 }
 
 .hero::before{
   content:"";
   position:absolute;
-  inset:-35% 0 -35% 0; /* 🔑 extra vertical canvas */
+  inset:-35% 0 -35% 0;
   background:
     linear-gradient(rgba(11,31,51,.85),rgba(11,31,51,.85)),
     url("https://raw.githubusercontent.com/ashwin33086/ashwin_portfolio/1cbacbd5eb450c0000d2d8c13101e217204e480d/asset/pm-venn.png.png")
-    center 40% / 65% no-repeat;
+    center 42% / 65% no-repeat;
   animation:spinSlow 140s linear infinite;
 }
 
@@ -58,6 +55,7 @@ body{
   position:relative;
   z-index:1;
   max-width:900px;
+  margin:0 auto;
 }
 
 h1{
@@ -66,9 +64,9 @@ h1{
 }
 
 .typing{
-  font-size:clamp(1.05rem,2.6vw,1.3rem);
-  color:var(--accent);
   margin-top:.6rem;
+  font-size:clamp(1.1rem,2.6vw,1.3rem);
+  color:var(--accent);
   white-space:nowrap;
   overflow:hidden;
   border-right:2px solid var(--accent);
@@ -90,7 +88,7 @@ h1{
 /* ================= CONTACT ================= */
 
 .contact{
-  margin-top:2.2rem;
+  margin-top:2.4rem;
   display:flex;
   justify-content:center;
   align-items:center;
@@ -131,7 +129,7 @@ h1{
 section{
   max-width:1150px;
   margin:0 auto;
-  padding:3.5rem 1.5rem;
+  padding:3.8rem 1.5rem;
 }
 
 /* ================= ABOUT ================= */
@@ -227,7 +225,7 @@ footer{
 @media(max-width:600px){
 
   .hero{
-    padding:3.2rem 1.2rem 2rem;
+    padding-top:9rem; /* 🔑 clears rotating PNG */
   }
 
   .hero::before{
@@ -244,12 +242,11 @@ footer{
   }
 
   section{
-    padding:2.4rem 1.2rem;
+    padding:2.8rem 1.2rem;
   }
 
-  /* 🔑 push About down slightly */
   section:first-of-type{
-    padding-top:3.2rem;
+    padding-top:4rem; /* push About down */
   }
 
   .project{
@@ -292,8 +289,9 @@ footer{
   </div>
 
   <div class="about hidden" id="aboutBox">
-    I build data-driven products at the intersection of product strategy, analytics, and automation.
-    I leverage metrics, user behavior, and AI-powered tools to design scalable systems and long-term business value.
+    I build data-driven products at the intersection of product strategy,
+    analytics, and automation. I leverage metrics, user behavior, and AI-powered
+    tools to design scalable systems and long-term business value.
   </div>
 </section>
 
