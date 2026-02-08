@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root {
+:root{
   --bg:#0b1f33;
   --card:#122f4a;
   --text:#f2f6fa;
@@ -26,10 +26,12 @@ body{
   color:var(--text);
 }
 
+/* ================= GLOBAL SECTIONS ================= */
+
 section{
   max-width:1150px;
   margin:0 auto;
-  padding:5rem 1.5rem;
+  padding:clamp(3rem,6vw,5rem) 1.5rem;
 }
 
 /* ================= HERO ================= */
@@ -64,15 +66,16 @@ section{
   position:relative;
   z-index:1;
   max-width:900px;
+  padding-bottom:1.5rem; /* 🔧 reduces gap on mobile */
 }
 
 h1{
-  font-size:3.8rem;
+  font-size:clamp(2.4rem,6vw,3.8rem);
   margin-bottom:.4rem;
 }
 
 .typing{
-  font-size:1.3rem;
+  font-size:clamp(1.05rem,2.5vw,1.3rem);
   color:var(--accent);
   white-space:nowrap;
   overflow:hidden;
@@ -86,30 +89,31 @@ h1{
 @keyframes blink{50%{border-color:transparent;}}
 
 .tagline{
-  margin-top:1.4rem;
+  margin-top:1rem;
   font-style:italic;
   color:var(--muted);
-  font-size:1.05rem;
+  font-size:clamp(.9rem,2vw,1.05rem);
 }
 
 /* ================= CONTACT ================= */
 
 .contact{
-  margin-top:2.8rem;
+  margin-top:2rem;
   display:flex;
   justify-content:center;
   align-items:center;
-  gap:1.2rem;
+  gap:1rem;
+  flex-wrap:wrap;
 }
 
 .contact span{
   color:var(--muted);
-  font-size:.95rem;
+  font-size:.9rem;
 }
 
 .contact a{
-  width:46px;
-  height:46px;
+  width:44px;
+  height:44px;
   border-radius:50%;
   background:linear-gradient(180deg,#163d60,#122f4a);
   border:1px solid var(--border);
@@ -120,14 +124,14 @@ h1{
 }
 
 .contact a img{
-  width:22px;
+  width:20px;
   filter:invert(1);
 }
 
 .contact a:hover{
-  transform:translateY(-6px) scale(1.1);
+  transform:translateY(-4px) scale(1.08);
   background:var(--accent);
-  box-shadow:0 18px 40px rgba(79,140,255,.45);
+  box-shadow:0 14px 32px rgba(79,140,255,.45);
 }
 
 /* ================= ABOUT ================= */
@@ -135,7 +139,7 @@ h1{
 .about-toggle{
   display:flex;
   align-items:center;
-  gap:.6rem;
+  gap:.5rem;
   cursor:pointer;
   width:fit-content;
 }
@@ -146,26 +150,26 @@ h1{
 }
 
 .about{
-  margin-top:1.6rem;
+  margin-top:1.2rem;
   background:linear-gradient(180deg,#143a5c,#102f4a);
   border-radius:26px;
   border:1px solid var(--border);
-  line-height:1.9;
+  line-height:1.8;
   color:var(--muted);
-  font-size:1.05rem;
+  font-size:clamp(.95rem,2vw,1.05rem);
   overflow:hidden;
   transition:.5s ease;
 }
 
 .about.hidden{
   max-height:0;
-  padding:0 3rem;
+  padding:0 2.5rem;
   opacity:0;
 }
 
 .about.visible{
-  max-height:500px;
-  padding:3.4rem;
+  max-height:600px;
+  padding:2.8rem;
   opacity:1;
 }
 
@@ -174,7 +178,7 @@ h1{
 .projects{
   display:flex;
   flex-direction:column;
-  gap:3rem;
+  gap:2.6rem;
 }
 
 .project-link{
@@ -185,17 +189,17 @@ h1{
 .project{
   background:linear-gradient(180deg,#163d60,#122f4a);
   border-radius:26px;
-  padding:2.8rem;
+  padding:2.4rem;
   border:1px solid var(--border);
   display:flex;
   align-items:center;
-  gap:1.8rem;
+  gap:1.6rem;
   opacity:0;
   transition:.9s cubic-bezier(.2,.8,.2,1);
 }
 
-.project.right{transform:translateX(140px);}
-.project.left{transform:translateX(-140px);}
+.project.right{transform:translateX(120px);}
+.project.left{transform:translateX(-120px);}
 
 .project.show{
   opacity:1;
@@ -203,43 +207,35 @@ h1{
 }
 
 .project-icon{
-  width:56px;
-  height:56px;
+  width:50px;
+  height:50px;
   border-radius:50%;
   background:radial-gradient(circle,var(--accent),transparent 70%);
-  display:flex;
-  align-items:center;
-  justify-content:center;
   animation:pulse 3s infinite;
 }
 
 @keyframes pulse{
   0%,100%{box-shadow:0 0 0 rgba(79,140,255,0);}
-  50%{box-shadow:0 0 22px rgba(79,140,255,.6);}
-}
-
-.project:hover{
-  box-shadow:0 30px 60px rgba(0,0,0,.45);
-  transform:scale(1.03);
+  50%{box-shadow:0 0 20px rgba(79,140,255,.6);}
 }
 
 .project h3{
-  margin:0 0 .6rem;
-  font-size:1.4rem;
+  margin:0 0 .4rem;
+  font-size:clamp(1.15rem,2.5vw,1.4rem);
 }
 
 .project p{
+  font-size:clamp(.85rem,2vw,.95rem);
   color:var(--muted);
-  font-size:.95rem;
 }
 
 /* ================= FOOTER ================= */
 
 footer{
   text-align:center;
-  padding:3rem;
+  padding:2.5rem 1rem;
   color:var(--muted);
-  font-size:.85rem;
+  font-size:.8rem;
 }
 </style>
 </head>
@@ -251,10 +247,7 @@ footer{
   <div class="hero-content">
     <h1>Ashwin Mishra</h1>
     <div class="typing">Product • Strategy • Automation • Analytics</div>
-
-    <div class="tagline">
-      Hire me as a product improvement feature — I optimize your KPIs.
-    </div>
+    <div class="tagline">Hire me as a product improvement feature — I optimize your KPIs.</div>
 
     <div class="contact">
       <span>Contact Me:</span>
@@ -273,9 +266,10 @@ footer{
   </div>
 
   <div class="about hidden" id="aboutBox">
-   I turn ideas into scalable products by solving complex problems with a customer-centric, data-driven approach.I work across product strategy, analytics, and automation, using metrics and user behavior to guide decisions.
-I actively leverage AI tools to accelerate research, write PRDs, analyze funnels, and build systems that create long-term business value.. "If you’re scrolling here, you’re already seeing one example".
-Through case studies, metrics-backed frameworks, and hands-on automation projects, I aim to build products and features that balance growth, usability, and sustainability, not just ambiguous features, but systems that scale.
+    I turn ideas into scalable products using a customer-centric, data-driven approach.
+    My work sits at the intersection of product strategy, analytics, and automation —
+    leveraging metrics, user behavior, and AI tools to write PRDs, analyze funnels,
+    and build systems that scale beyond individual features.
   </div>
 </section>
 
@@ -339,19 +333,12 @@ function toggleAbout(){
   arrow.style.transform = box.classList.contains("visible") ? "rotate(-90deg)" : "rotate(0deg)";
 }
 
-/* Re-triggerable scroll animation */
 const projects=document.querySelectorAll(".project");
-
 const observer=new IntersectionObserver(entries=>{
   entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add("show");
-    } else {
-      entry.target.classList.remove("show");
-    }
+    entry.target.classList.toggle("show", entry.isIntersecting);
   });
 },{threshold:.35});
-
 projects.forEach(p=>observer.observe(p));
 </script>
 
