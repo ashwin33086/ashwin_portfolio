@@ -97,7 +97,6 @@
       grid-template-columns:620px minmax(520px, 1fr);
       grid-template-rows:auto auto;
       column-gap:4.5rem;
-      row-gap:0;
       align-items:start;
       position:relative;
     }
@@ -109,7 +108,6 @@
       display:flex;
       justify-content:center;
       z-index:2;
-      position:relative;
     }
 
     .photo-3d img {
@@ -139,17 +137,13 @@
       justify-self:end;
       width:calc(100% + 120px);
       margin-right:-120px;
-
       background:linear-gradient(180deg,var(--card-light),var(--card));
       border:1px solid var(--border);
       border-radius:36px 36px 10px 10px;
       padding:4.2rem 5rem;
-
       box-shadow:
         0 35px 90px rgba(0,0,0,.45),
         0 0 45px var(--glow);
-
-      position:relative;
       z-index:2;
     }
 
@@ -159,13 +153,11 @@
       justify-self:end;
       width:100%;
       margin-top:-1px;
-
       background:linear-gradient(180deg,var(--card-light),var(--card));
       border:1px solid var(--border);
       border-top:none;
       border-radius:0 0 42px 42px;
       padding:4.5rem 7rem;
-
       box-shadow:
         0 36px 85px rgba(0,0,0,.45),
         0 0 55px var(--glow);
@@ -249,7 +241,7 @@
 
       <!-- IMAGE -->
       <div class="photo-3d">
-        <img src="visuals/Screenshot 2026-02-08 150643.png" alt="LTV Pricing Architecture">
+        <img src="/visuals/Screenshot 2026-02-08 150643.png" alt="LTV Pricing Architecture">
       </div>
 
       <!-- VERTICAL CARD -->
@@ -270,7 +262,9 @@
           prioritizes price stability and perceived fairness across the user
           lifecycle. Experiments are gated through risk thresholds to avoid
           irreversible trust loss.
+        </p>
 
+        <p>
           By connecting pricing decisions to downstream retention and revenue
           durability, the framework shifts monetization from reactive tactics
           to a controlled, compounding growth strategy.
