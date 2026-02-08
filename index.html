@@ -32,13 +32,13 @@ body{
   position:relative;
   overflow:hidden;
   text-align:center;
-  padding:10rem 1.5rem 4.5rem; /* ⬅ REDUCED BOTTOM */
+  padding:11.5rem 1.5rem 6.5rem; /* ⬅ MORE SPACE */
 }
 
 .hero::before{
   content:"";
   position:absolute;
-  inset:-55% 0 -45% 0; /* ⬅ PNG STOPS EARLIER */
+  inset:-70% 0 -35% 0; /* ⬅ PNG ENDS HIGHER */
   background:
     linear-gradient(rgba(11,31,51,.85),rgba(11,31,51,.85)),
     url("https://raw.githubusercontent.com/ashwin33086/ashwin_portfolio/1cbacbd5eb450c0000d2d8c13101e217204e480d/asset/pm-venn.png.png")
@@ -60,7 +60,7 @@ body{
 }
 
 h1{
-  font-size:clamp(2.7rem,5vw,3.8rem);
+  font-size:clamp(2.8rem,5vw,3.8rem);
   margin:0;
 }
 
@@ -89,7 +89,7 @@ h1{
 /* ================= CONTACT ================= */
 
 .contact{
-  margin-top:2.6rem;
+  margin-top:2.8rem;
   display:flex;
   justify-content:center;
   align-items:center;
@@ -136,7 +136,7 @@ section{
 /* ================= ABOUT ================= */
 
 .about-section{
-  margin-top:3.5rem; /* ⬅ HARD PUSH DOWN */
+  margin-top:6rem; /* ⬅ 1.5× PUSH */
 }
 
 .about-toggle{
@@ -157,7 +157,7 @@ section{
 }
 
 .about{
-  margin-top:2.2rem;
+  margin-top:2.4rem;
   background:linear-gradient(180deg,#143a5c,#102f4a);
   border-radius:22px;
   border:1px solid var(--border);
@@ -185,7 +185,7 @@ section{
 .projects{
   display:flex;
   flex-direction:column;
-  gap:2.6rem;
+  gap:2.8rem;
 }
 
 .project-link{text-decoration:none;color:inherit;}
@@ -234,22 +234,22 @@ footer{
 @media(max-width:600px){
 
   .hero{
-    padding:12rem 1.2rem 5rem;
+    padding:14rem 1.2rem 7.5rem; /* ⬅ EXTRA MOBILE PUSH */
   }
 
   .hero::before{
-    inset:-65% 0 -35% 0; /* ⬅ STOPS BEFORE ABOUT */
+    inset:-85% 0 -30% 0;
     background-size:contain;
     background-position:center 48%;
     animation-duration:180s;
   }
 
-  section{
-    padding:4.5rem 1.2rem;
+  .about-section{
+    margin-top:7.5rem; /* ⬅ FINAL MOBILE FIX */
   }
 
-  .about-section{
-    margin-top:4.5rem; /* ⬅ FINAL MOBILE PUSH */
+  section{
+    padding:4.5rem 1.2rem;
   }
 
   .project{
