@@ -32,25 +32,29 @@ body{
   position:relative;
   overflow:hidden;
   text-align:center;
-  padding:16rem 1.5rem 6.5rem; /* ⬅ pushes content + PNG DOWN */
+  padding:16rem 1.5rem 6.5rem;
 }
 
-/* 🔵 ROTATING PNG — PUSHED DOWN 1.8× */
-.hero::before{
-  content:"";
+/* ✅ REAL ROTATING ELEMENT (NO CROPPING EVER) */
+.hero-bg{
   position:absolute;
-  inset:0;
+  top:55%;
+  left:50%;
+  width:140vmax;        /* 🔑 bigger than any screen */
+  height:140vmax;
+  transform:translate(-50%,-50%);
   background:
     linear-gradient(rgba(11,31,51,.85),rgba(11,31,51,.85)),
     url("https://raw.githubusercontent.com/ashwin33086/ashwin_portfolio/1cbacbd5eb450c0000d2d8c13101e217204e480d/asset/pm-venn.png.png")
-    center 72% / 68% no-repeat;  /* ⬅ KEY LINE (DOWN) */
+    center/contain no-repeat;
   animation:spinSlow 80s linear infinite;
   z-index:0;
+  pointer-events:none;
 }
 
 @keyframes spinSlow{
-  from{transform:rotate(0deg);}
-  to{transform:rotate(360deg);}
+  from{transform:translate(-50%,-50%) rotate(0deg);}
+  to{transform:translate(-50%,-50%) rotate(360deg);}
 }
 
 .hero-content{
@@ -137,7 +141,7 @@ section{
 /* ================= ABOUT ================= */
 
 .about-section{
-  margin-top:8.5rem; /* ⬅ pushed DOWN clearly */
+  margin-top:9rem;
 }
 
 .about-toggle{
@@ -233,34 +237,11 @@ footer{
 /* ================= MOBILE ================= */
 
 @media(max-width:600px){
-
-  .hero{
-    padding:19rem 1.2rem 9rem; /* ⬅ PNG fully visible */
-  }
-
-  .hero::before{
-    background-size:78%;
-    background-position:center 78%; /* ⬅ even lower */
-    animation-duration:110s;
-  }
-
-  .about-section{
-    margin-top:9.5rem;
-  }
-
-  section{
-    padding:4.5rem 1.2rem;
-  }
-
-  .project{
-    flex-direction:column;
-    align-items:flex-start;
-  }
-
-  .project.right,
-  .project.left{
-    transform:translateY(60px);
-  }
+  .hero{padding:18rem 1.2rem 9rem;}
+  .hero-bg{width:180vmax;height:180vmax;animation-duration:120s;}
+  .about-section{margin-top:10rem;}
+  .project{flex-direction:column;align-items:flex-start;}
+  .project.right,.project.left{transform:translateY(60px);}
 }
 </style>
 </head>
@@ -268,6 +249,8 @@ footer{
 <body>
 
 <div class="hero">
+  <div class="hero-bg"></div>
+
   <div class="hero-content">
     <h1>Ashwin Mishra</h1>
     <div class="typing">Product • Strategy • Automation • Analytics</div>
@@ -304,43 +287,19 @@ footer{
 <div class="projects">
 
 <a class="project-link" href="/projects/ltv.html">
-  <div class="project right">
-    <div class="project-icon"></div>
-    <div>
-      <h3>Dynamic Pricing Sensitivity & LTV Optimization</h3>
-      <p>Elasticity modeling and long-term value protection.</p>
-    </div>
-  </div>
+  <div class="project right"><div class="project-icon"></div><div><h3>Dynamic Pricing Sensitivity & LTV Optimization</h3><p>Elasticity modeling and long-term value protection.</p></div></div>
 </a>
 
 <a class="project-link" href="/projects/flowsight.html">
-  <div class="project left">
-    <div class="project-icon"></div>
-    <div>
-      <h3>FlowSight Analytics — Funnel Automation</h3>
-      <p>Behavior-driven analytics for product decisions.</p>
-    </div>
-  </div>
+  <div class="project left"><div class="project-icon"></div><div><h3>FlowSight Analytics — Funnel Automation</h3><p>Behavior-driven analytics for product decisions.</p></div></div>
 </a>
 
 <a class="project-link" href="/projects/resume-automation.html">
-  <div class="project right">
-    <div class="project-icon"></div>
-    <div>
-      <h3>Automated Resume Relevance Scoring</h3>
-      <p>Structured resume screening using automation logic.</p>
-    </div>
-  </div>
+  <div class="project right"><div class="project-icon"></div><div><h3>Automated Resume Relevance Scoring</h3><p>Structured resume screening using automation logic.</p></div></div>
 </a>
 
 <a class="project-link" href="/projects/opd.html">
-  <div class="project left">
-    <div class="project-icon"></div>
-    <div>
-      <h3>OPD Appointment Queue Automation</h3>
-      <p>Operational automation reducing patient wait times.</p>
-    </div>
-  </div>
+  <div class="project left"><div class="project-icon"></div><div><h3>OPD Appointment Queue Automation</h3><p>Operational automation reducing patient wait times.</p></div></div>
 </a>
 
 </div>
@@ -363,7 +322,6 @@ const observer=new IntersectionObserver(entries=>{
     entry.target.classList.toggle("show",entry.isIntersecting);
   });
 },{threshold:.3});
-
 projects.forEach(p=>observer.observe(p));
 </script>
 
