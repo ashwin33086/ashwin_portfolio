@@ -18,18 +18,20 @@
       --accent:#4f8cff;
       --border:rgba(255,255,255,0.15);
       --tag:#ffb703;
+      --prd1:#ffb703;
+      --prd2:#f77f00;
     }
 
-    * { box-sizing:border-box; }
+    *{box-sizing:border-box;}
 
-    body {
+    body{
       margin:0;
       font-family:Inter,sans-serif;
       background:var(--bg);
       color:var(--text);
     }
 
-    .container {
+    .container{
       max-width:1600px;
       margin:0 auto;
       padding:6.5rem 1.5rem;
@@ -38,19 +40,19 @@
       gap:4.5rem;
     }
 
-    h1 {
+    h1{
       font-size:3.1rem;
       margin-bottom:.8rem;
     }
 
-    p {
+    p{
       color:var(--muted);
       line-height:1.85;
       font-size:1.02rem;
     }
 
-    /* ---------- BRAINSTORM TAG ---------- */
-    .brainstorm-tag {
+    /* ---------- TAG ---------- */
+    .brainstorm-tag{
       display:inline-block;
       margin-bottom:1.4rem;
       padding:.45rem 1.2rem;
@@ -64,15 +66,15 @@
       text-transform:uppercase;
     }
 
-    /* ---------- ABOUT HEADER ---------- */
-    .about-header {
+    /* ---------- ABOUT ---------- */
+    .about-header{
       margin:2.3rem 0 1.8rem;
       display:flex;
       align-items:center;
       gap:1rem;
     }
 
-    .about-badge {
+    .about-badge{
       padding:.4rem 1.1rem;
       border-radius:999px;
       font-size:.72rem;
@@ -83,7 +85,7 @@
       color:var(--accent);
     }
 
-    .about-line {
+    .about-line{
       flex:1;
       height:1px;
       background:linear-gradient(to right,var(--accent),transparent);
@@ -91,26 +93,23 @@
     }
 
     /* ---------- FEATURE BLOCK ---------- */
-    .feature-block {
+    .feature-block{
       margin-top:5rem;
       display:grid;
-      grid-template-columns:620px minmax(520px, 1fr);
-      grid-template-rows:auto auto;
+      grid-template-columns:620px minmax(520px,1fr);
       column-gap:4.5rem;
-      align-items:start;
       position:relative;
     }
 
     /* ---------- IMAGE ---------- */
-    .photo-3d {
+    .photo-3d{
       perspective:1600px;
-      grid-row:1;
       display:flex;
       justify-content:center;
-      z-index:2;
+      z-index:5;
     }
 
-    .photo-3d img {
+    .photo-3d img{
       width:100%;
       max-width:560px;
       border-radius:28px;
@@ -123,16 +122,12 @@
       background:#0b1f33;
     }
 
-    .photo-3d:hover img {
+    .photo-3d:hover img{
       transform:rotateX(0) rotateY(0) translateZ(90px);
-      box-shadow:
-        0 65px 120px rgba(0,0,0,.75),
-        0 0 110px rgba(79,140,255,.45);
     }
 
     /* ---------- VERTICAL CARD ---------- */
-    .l-card-vertical {
-      grid-row:1;
+    .l-card-vertical{
       grid-column:2 / span 2;
       justify-self:end;
       width:calc(100% + 120px);
@@ -141,14 +136,16 @@
       border:1px solid var(--border);
       border-radius:36px 36px 10px 10px;
       padding:4.2rem 5rem;
-      box-shadow:
-        0 35px 90px rgba(0,0,0,.45),
-        0 0 45px var(--glow);
-      z-index:2;
+      box-shadow:0 35px 90px rgba(0,0,0,.45);
+    }
+
+    .l-card-vertical h3{
+      margin-top:0;
+      font-size:1.45rem;
     }
 
     /* ---------- BOTTOM CARD ---------- */
-    .l-card-bottom {
+    .l-card-bottom{
       grid-column:1 / span 3;
       justify-self:end;
       width:100%;
@@ -158,13 +155,11 @@
       border-top:none;
       border-radius:0 0 42px 42px;
       padding:4.5rem 7rem;
-      box-shadow:
-        0 36px 85px rgba(0,0,0,.45),
-        0 0 55px var(--glow);
+      box-shadow:0 36px 85px rgba(0,0,0,.45);
     }
 
-    /* ---------- ACTION BAR ---------- */
-    .side-links {
+    /* ---------- ACTIONS ---------- */
+    .side-links{
       display:flex;
       flex-direction:column;
       align-items:center;
@@ -172,7 +167,7 @@
       padding-top:1.2rem;
     }
 
-    .action-btn {
+    .action-btn{
       width:72px;
       height:72px;
       border-radius:50%;
@@ -181,38 +176,79 @@
       display:flex;
       align-items:center;
       justify-content:center;
+      transition:.25s ease;
       text-decoration:none;
-      color:var(--text);
-      font-size:.76rem;
-      font-weight:700;
-      transition:.2s ease;
     }
 
-    .action-btn img {
+    .action-btn img{
       width:32px;
       filter:invert(1);
     }
 
-    .action-btn:hover {
-      background:var(--accent);
+    .action-btn:hover{
       transform:translateY(-4px);
       box-shadow:0 18px 40px rgba(79,140,255,.45);
     }
 
+    .action-btn.prd{
+      background:linear-gradient(180deg,var(--prd1),var(--prd2));
+      border:none;
+      color:#0b1f33;
+      font-weight:800;
+      letter-spacing:.08em;
+    }
+
+    .action-btn.prd span{
+      font-size:.72rem;
+      line-height:1.1;
+      text-align:center;
+    }
+
+    /* ================= MOBILE ================= */
     @media(max-width:1200px){
-      .container { grid-template-columns:1fr; }
-      .feature-block { grid-template-columns:1fr; }
+
+      .container{grid-template-columns:1fr;}
+
+      .feature-block{
+        grid-template-columns:1fr;
+        row-gap:3rem;
+      }
+
+      .photo-3d img{
+        transform:none;
+        max-width:92%;
+      }
+
       .l-card-vertical,
-      .l-card-bottom {
+      .l-card-bottom{
+        grid-column:1;
         width:100%;
         margin-right:0;
         padding:3rem;
       }
-      .side-links {
+
+      .side-links{
         flex-direction:row;
-        margin-top:3.5rem;
+        justify-content:center;
+        margin-top:3rem;
+        gap:2rem;
       }
-      .photo-3d img { transform:none; }
+
+      /* TEXT SCALE */
+      h1{font-size:4.6rem;}
+      .about-badge{font-size:1.05rem;}
+      p{font-size:1.5rem;}
+
+      .l-card-vertical h3{font-size:2.6rem;}
+      .l-card-vertical p,
+      .l-card-bottom p{
+        font-size:2.1rem;
+        line-height:1.8;
+      }
+
+      .action-btn{width:90px;height:90px;}
+      .action-btn img{width:40px;}
+      .action-btn.prd span{font-size:.9rem;}
     }
   </style>
 </head>
@@ -231,56 +267,45 @@
     </div>
 
     <p>
-      This project explores how pricing decisions impact long-term customer
-      lifetime value rather than short-term revenue. It models user elasticity,
-      price shock risk, and behavioral decay to guide sustainable pricing
-      strategies.
+      This project analyzes how pricing decisions impact long-term customer
+      lifetime value by modeling elasticity, price shock risk, and behavioral decay.
     </p>
 
     <div class="feature-block">
 
-      <!-- IMAGE -->
       <div class="photo-3d">
-        <img src="/visuals/Screenshot 2026-02-08 150643.png" alt="LTV Pricing Architecture">
+        <img src="/visuals/Screenshot 2026-02-08 150643.png" alt="LTV Architecture">
       </div>
 
-      <!-- VERTICAL CARD -->
       <div class="l-card-vertical">
         <h3>Pricing Decision Engine</h3>
         <p>
-          The pricing engine evaluates user sensitivity across cohorts to
-          determine where price changes drive value versus churn. It integrates
-          elasticity modeling, behavioral signals, and historical response
-          curves to prevent revenue actions that silently destroy long-term LTV.
+          Cohort-level elasticity modeling prevents revenue actions that
+          silently destroy long-term LTV by correlating price moves with
+          retention and behavioral response.
         </p>
       </div>
 
-      <!-- BOTTOM CARD -->
       <div class="l-card-bottom">
         <p>
-          Rather than optimizing for immediate conversion lifts, the system
-          prioritizes price stability and perceived fairness across the user
-          lifecycle. Experiments are gated through risk thresholds to avoid
-          irreversible trust loss.
+          The system prioritizes fairness and trust by gating experiments
+          through risk thresholds instead of chasing short-term lifts.
         </p>
-
         <p>
-          By connecting pricing decisions to downstream retention and revenue
-          durability, the framework shifts monetization from reactive tactics
-          to a controlled, compounding growth strategy.
+          Monetization becomes a controlled, compounding growth strategy
+          rather than a reactive tactic.
         </p>
       </div>
 
     </div>
   </div>
 
-  <!-- ACTIONS -->
   <div class="side-links">
     <a class="action-btn" href="#" target="_blank">
       <img src="https://raw.githubusercontent.com/ashwin33086/ashwin_portfolio/main/icons/github-svgrepo-com.svg">
     </a>
-    <a class="action-btn" href="#" target="_blank">
-      PRD<br>CASE
+    <a class="action-btn prd" href="#" target="_blank">
+      <span>PRD<br>CASE</span>
     </a>
   </div>
 
