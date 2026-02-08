@@ -9,144 +9,151 @@
 
   <style>
     :root {
-      --bg:#0b1f33;
-      --card:#122f4a;
-      --card-light:#163d60;
-      --glow:rgba(79,140,255,0.18);
-      --text:#f2f6fa;
-      --muted:#b9c6d3;
-      --accent:#4f8cff;
-      --border:rgba(255,255,255,0.15);
+      --bg: #0b1f33;
+      --card: #122f4a;
+      --card-light: #163d60;
+      --glow: rgba(79,140,255,0.18);
+      --text: #f2f6fa;
+      --muted: #b9c6d3;
+      --accent: #4f8cff;
+      --border: rgba(255,255,255,0.15);
     }
 
-    * { box-sizing:border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
-      margin:0;
-      font-family:Inter,sans-serif;
-      background:var(--bg);
-      color:var(--text);
+      margin: 0;
+      font-family: Inter, sans-serif;
+      background: var(--bg);
+      color: var(--text);
     }
 
     /* ---------- PAGE LAYOUT ---------- */
     .container {
-      max-width:1600px;
-      margin:0 auto;
-      padding:6.5rem 1.5rem;
-      display:grid;
-      grid-template-columns:1fr 120px;
-      gap:4.5rem;
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 6.5rem 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 120px;
+      gap: 4.5rem;
     }
 
     h1 {
-      font-size:3.1rem;
-      margin-bottom:1.1rem;
+      font-size: 3.1rem;
+      margin-bottom: 1.1rem;
     }
 
     p {
-      color:var(--muted);
-      line-height:1.85;
-      font-size:1.02rem;
+      color: var(--muted);
+      line-height: 1.85;
+      font-size: 1.02rem;
     }
 
     /* ---------- ABOUT HEADER ---------- */
     .about-header {
-      margin:2.3rem 0 1.8rem;
-      display:flex;
-      align-items:center;
-      gap:1rem;
+      margin: 2.3rem 0 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
     }
 
     .about-badge {
-      padding:.4rem 1.1rem;
-      border-radius:999px;
-      font-size:.72rem;
-      font-weight:700;
-      letter-spacing:.12em;
-      background:rgba(79,140,255,.15);
-      border:1px solid var(--border);
-      color:var(--accent);
+      padding: .4rem 1.1rem;
+      border-radius: 999px;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      background: rgba(79,140,255,.15);
+      border: 1px solid var(--border);
+      color: var(--accent);
     }
 
     .about-line {
-      flex:1;
-      height:1px;
-      background:linear-gradient(to right,var(--accent),transparent);
-      opacity:.6;
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, var(--accent), transparent);
+      opacity: .6;
     }
 
     /* ---------- FEATURE BLOCK ---------- */
     .feature-block {
-      margin-top:5rem;
-      display:grid;
-      grid-template-columns:620px minmax(520px, 1fr);
-      grid-template-rows:auto auto;
-      column-gap:4.5rem;
-      row-gap:0;
-      align-items:start;
-      position:relative;
+      margin-top: 5rem;
+      display: grid;
+      grid-template-columns: 620px minmax(520px, 1fr);
+      grid-template-rows: auto auto;
+      column-gap: 4.5rem;
+      row-gap: 0;
+      align-items: start;
+      position: relative;
     }
 
     /* ---------- IMAGE ---------- */
     .photo-3d {
-      perspective:1600px;
-      grid-row:1;
-      display:flex;
-      justify-content:center;
-      z-index:2;
+      perspective: 1600px;
+      grid-row: 1;
+      display: flex;
+      justify-content: center;
+      z-index: 2;
+      position: relative;
     }
 
-    .photo-3d {
-  perspective:1600px;
+    .photo-3d img {
+      width: 100%;
+      max-width: 560px;
+      border-radius: 28px;
+      border: 1px solid var(--border);
+      transform: rotateX(10deg) rotateY(-12deg) translateZ(38px);
+      box-shadow:
+        0 40px 80px rgba(0,0,0,.55),
+        0 0 70px var(--glow);
+      transition: .6s ease;
+      background: #0b1f33;
+      pointer-events: auto;
+    }
+
+    .photo-3d:hover img {
+      transform: rotateX(0) rotateY(0) translateZ(90px);
+      box-shadow:
+        0 65px 120px rgba(0,0,0,.75),
+        0 0 110px rgba(79,140,255,.45);
+    }
+
+   .l-card-vertical {
   grid-row:1;
-  display:flex;
-  justify-content:center;
-  z-index:5;              /* 🔑 image ABOVE cards */
+  grid-column:2 / span 2;     /* extend into action column */
+  justify-self:end;
+
+  width:calc(100% + 120px);   /* reach right edge */
+  margin-right:-120px;        /* align with bottom card */
+
+  background:linear-gradient(180deg,var(--card-light),var(--card));
+  border:1px solid var(--border);
+  border-radius:36px 36px 10px 10px;
+  padding:4.2rem 5rem;
+
+  box-shadow:
+    0 35px 90px rgba(0,0,0,.45),
+    0 0 45px var(--glow);
+
   position:relative;
+  z-index:2;
 }
 
 
-    /* ---------- VERTICAL CARD (EXTENDED TO RIGHT EDGE) ---------- */
-    .l-card-vertical {
-      grid-row:1;
-      grid-column:2 / span 2;
-      justify-self:end;
-      width:calc(100% + 120px);
-      margin-right:-120px;
-
-      background:linear-gradient(180deg,var(--card-light),var(--card));
-      border:1px solid var(--border);
-      border-radius:36px 36px 10px 10px;
-      padding:4.2rem 5rem;
-
-      box-shadow:
-        0 35px 90px rgba(0,0,0,.45),
-        0 0 45px var(--glow);
-
-      position:relative;
-      z-index:2;
-    }
-
-    .l-card-vertical h3 {
-      margin-top:0;
-      margin-bottom:1.4rem;
-      font-size:1.45rem;
-    }
-
-    /* ---------- BOTTOM CARD (FULL WIDTH, ALIGNED) ---------- */
+    /* ---------- HORIZONTAL CARD ---------- */
     .l-card-bottom {
-      grid-column:1 / span 3;
-      justify-self:end;
-      width:100%;
-      margin-top:-1px;
-
-      background:linear-gradient(180deg,var(--card-light),var(--card));
-      border:1px solid var(--border);
-      border-top:none;
-      border-radius:0 0 42px 42px;
-
-      padding:4.5rem 7rem;
-
+      grid-column: 1 / span 2;
+      justify-self: end;
+      width: calc(100% + 120px);
+      margin-right: -120px;
+      margin-top: 0;
+      background: linear-gradient(180deg, var(--card-light), var(--card));
+      border: 1px solid var(--border);
+      border-top: none;
+      border-radius: 0 0 42px 42px;
+      padding: 4.5rem 7rem;
       box-shadow:
         0 36px 85px rgba(0,0,0,.45),
         0 0 55px var(--glow);
@@ -154,57 +161,66 @@
 
     /* ---------- RIGHT ACTION BAR ---------- */
     .side-links {
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap:2.6rem;
-      padding-top:1.2rem;
-      z-index:3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2.6rem;
+      padding-top: 1.2rem;
+      z-index: 3;
     }
 
     .action-btn {
-      width:72px;
-      height:72px;
-      border-radius:50%;
-      background:rgba(255,255,255,.1);
-      border:1px solid var(--border);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-decoration:none;
-      color:var(--text);
-      font-size:.76rem;
-      font-weight:700;
-      transition:.2s ease;
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.1);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: var(--text);
+      font-size: .76rem;
+      font-weight: 700;
+      transition: .2s ease;
     }
 
     .action-btn img {
-      width:32px;
-      filter:invert(1);
+      width: 32px;
+      filter: invert(1);
     }
 
     .action-btn:hover {
-      background:var(--accent);
-      transform:translateY(-4px);
-      box-shadow:0 18px 40px rgba(79,140,255,.45);
+      background: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(79,140,255,.45);
     }
 
     /* ---------- MOBILE ---------- */
-    @media(max-width:1200px){
-      .container { grid-template-columns:1fr; }
-      .feature-block { grid-template-columns:1fr; }
+    @media (max-width: 1200px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-block {
+        grid-template-columns: 1fr;
+      }
+
       .l-card-vertical,
       .l-card-bottom {
-        width:100%;
-        margin-right:0;
-        grid-column:1;
-        padding:3rem;
+        width: 100%;
+        margin-right: 0;
+        padding: 3rem;
       }
+
       .side-links {
-        flex-direction:row;
-        margin-top:3.5rem;
+        flex-direction: row;
+        margin-top: 3.5rem;
       }
-      .photo-3d img { transform:none; }
+
+      .photo-3d img {
+        transform: none;
+      }
     }
   </style>
 </head>
@@ -221,12 +237,10 @@
       <div class="about-line"></div>
     </div>
 
-    <!-- ABOUT PROJECT (3 LINES) -->
     <p>
-      FlowSight is a decision-centric analytics automation platform designed to
-      convert raw funnel behavior into prioritized product actions. It bridges
-      metrics, diagnosis, and execution by embedding reasoning directly into
-      analytics workflows.
+      FlowSight is an analytics-driven automation system designed to track user
+      funnels, identify friction points, and translate behavioral data into
+      structured product decisions.
     </p>
 
     <div class="feature-block">
@@ -240,31 +254,24 @@
       <div class="l-card-vertical">
         <h3>Decision Intelligence Layer</h3>
         <p>
-          The Decision Intelligence Layer forms the core reasoning engine of
-          FlowSight. It transforms fragmented user behavior into structured,
-          prioritized signals that product teams can act on with confidence.
-
-          Instead of treating analytics as passive dashboards, this layer embeds
-          explicit decision logic that evaluates funnel events in the context of
-          business objectives, user intent, and downstream impact.
-
+          FlowSight embeds decision logic directly into analytics pipelines,
+          correlating funnel behavior with downstream impact and priority
+          signals so teams act with clarity instead of debate.
         </p>
       </div>
 
-      <!-- BOTTOM CARD -->
+      <!-- HORIZONTAL CARD -->
       <div class="l-card-bottom">
         <p>
-          The execution layer ensures insights do not remain static observations
-          but are translated into clear, actionable recommendations that map
-          directly to product changes, experiments, or operational interventions.
+          The architecture is modular by design. New events, experiments, and
+          cohorts can be introduced without breaking existing logic, ensuring
+          scalability as product complexity increases.
+        </p>
 
-          FlowSight continuously monitors funnels across cohorts, devices,
-          channels, and lifecycle stages, allowing teams to distinguish isolated
-          issues from systemic experience failures before allocating resources.
-
-          Ultimately, the system reframes analytics from a reporting function
-          into a compounding decision asset that grows in value as data,
-          adoption, and organizational complexity increase.
+        <p>
+          By aligning analytics with execution, FlowSight reduces cognitive
+          load, eliminates metric ambiguity, and accelerates decision velocity
+          across product, growth, and operations teams.
         </p>
       </div>
 
