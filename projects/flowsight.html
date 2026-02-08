@@ -148,20 +148,25 @@
     }
 
     /* ---------- L CARD (BOTTOM — ALIGNED WITH VERTICAL) ---------- */
-    .l-card-bottom {
-      grid-column:1 / span 2;
-      justify-self:end;            /* KEY FIX */
-      width:calc(100% - 120px);    /* STOP BEFORE ACTION BAR */
-      background:linear-gradient(180deg,var(--card-light),var(--card));
-      border:1px solid var(--border);
-      border-top:none;
-      border-radius:0 0 42px 42px;
-      padding:4rem 6.5rem;
-      box-shadow:
-        0 32px 75px rgba(0,0,0,.45),
-        0 0 50px var(--glow);
-      margin-top:-1px;
-    }
+   .l-card-bottom {
+  grid-column: 1 / span 3;     /* 🔑 span image + card + action */
+  justify-self: end;
+
+  width: 100%;                 /* fill the spanned grid */
+  
+  background: linear-gradient(180deg,var(--card-light),var(--card));
+  border: 1px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 42px 42px;
+
+  padding: 4rem 6.5rem;
+
+  box-shadow:
+    0 32px 75px rgba(0,0,0,.45),
+    0 0 50px var(--glow);
+
+  margin-top: -1px;
+}
 
     /* ---------- RIGHT ACTION BAR ---------- */
     .side-links {
