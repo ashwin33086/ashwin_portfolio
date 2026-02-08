@@ -119,19 +119,24 @@
         0 0 45px var(--glow);
     }
 
-    .l-card-bottom {
-      grid-column:1 / span 2;
-      justify-self:end;
-      width:calc(200% - 220px);
-      background:linear-gradient(180deg,var(--card-light),var(--card));
-      border:1px solid var(--border);
-      border-radius:0 0 42px 42px;
-      padding:4rem 6.5rem;
-      box-shadow:
-        0 32px 75px rgba(0,0,0,.45),
-        0 0 50px var(--glow);
-      margin-top:-1px;
-    }
+   .l-card-bottom {
+  grid-column: 1 / span 2;
+  justify-self: end;
+
+  /* 🔑 KEY LINE: start exactly at vertical card edge */
+  width: calc(720px + 420px);
+
+  background: linear-gradient(180deg,var(--card-light),var(--card));
+  border: 1px solid var(--border);
+  border-radius: 0 0 42px 42px;
+  padding: 4rem 6.5rem;
+
+  box-shadow:
+    0 32px 75px rgba(0,0,0,.45),
+    0 0 50px var(--glow);
+
+  margin-top: -1px;
+}
 
     .side-links {
       display:flex;
