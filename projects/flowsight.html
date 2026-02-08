@@ -1,274 +1,295 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FlowSight Analytics — Funnel Automation</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FlowSight Analytics — Funnel Automation</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --bg: #0b1f33;
-      --card: #122f4a;
-      --card-light: #163d60;
-      --glow: rgba(79,140,255,0.18);
-      --text: #f2f6fa;
-      --muted: #b9c6d3;
-      --accent: #4f8cff;
-      --border: rgba(255,255,255,0.15);
-    }
+<style>
+:root{
+  --bg:#0b1f33;
+  --card:#122f4a;
+  --card-light:#163d60;
+  --glow:rgba(79,140,255,.22);
+  --text:#f2f6fa;
+  --muted:#b9c6d3;
+  --accent:#4f8cff;
+  --border:rgba(255,255,255,.15);
+}
 
-    * { box-sizing: border-box; }
+*{box-sizing:border-box;}
 
-    body {
-      margin: 0;
-      font-family: Inter, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-    }
+body{
+  margin:0;
+  font-family:Inter,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
 
-    .container {
-      max-width: 1600px;
-      margin: 0 auto;
-      padding: 6.5rem 1.5rem;
-      display: grid;
-      grid-template-columns: 1fr 120px;
-      gap: 4.5rem;
-    }
+/* ================= DESKTOP ================= */
 
-    h1 {
-      font-size: 3.1rem;
-      margin-bottom: 1.1rem;
-    }
+.container{
+  max-width:1600px;
+  margin:0 auto;
+  padding:6.5rem 1.5rem;
+  display:grid;
+  grid-template-columns:1fr 120px;
+  gap:4.5rem;
+}
 
-    p {
-      color: var(--muted);
-      line-height: 1.85;
-      font-size: 1.02rem;
-    }
+h1{
+  font-size:3.1rem;
+  margin-bottom:1.1rem;
+}
 
-    .about-header {
-      margin: 2.3rem 0 1.8rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
+p{
+  color:var(--muted);
+  line-height:1.85;
+  font-size:1.02rem;
+}
 
-    .about-badge {
-      padding: .4rem 1.1rem;
-      border-radius: 999px;
-      font-size: .72rem;
-      font-weight: 700;
-      letter-spacing: .12em;
-      background: rgba(79,140,255,.15);
-      border: 1px solid var(--border);
-      color: var(--accent);
-    }
+/* ABOUT HEADER */
+.about-header{
+  margin:2.3rem 0 1.8rem;
+  display:flex;
+  align-items:center;
+  gap:1rem;
+}
 
-    .about-line {
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(to right, var(--accent), transparent);
-      opacity: .6;
-    }
+.about-badge{
+  padding:.4rem 1.1rem;
+  border-radius:999px;
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.12em;
+  background:rgba(79,140,255,.15);
+  border:1px solid var(--border);
+  color:var(--accent);
+}
 
-    .feature-block {
-      margin-top: 5rem;
-      display: grid;
-      grid-template-columns: 620px minmax(520px, 1fr);
-      column-gap: 4.5rem;
-      position: relative;
-    }
+.about-line{
+  flex:1;
+  height:1px;
+  background:linear-gradient(to right,var(--accent),transparent);
+  opacity:.6;
+}
 
-    /* IMAGE */
-    .photo-3d {
-      perspective: 1600px;
-      display: flex;
-      justify-content: center;
-      position: relative;
-      z-index: 5;
-    }
+/* FEATURE BLOCK */
+.feature-block{
+  margin-top:5rem;
+  display:grid;
+  grid-template-columns:620px minmax(520px,1fr);
+  column-gap:4.5rem;
+  position:relative;
+}
 
-    .photo-3d img {
-      width: 100%;
-      max-width: 560px;
-      border-radius: 28px;
-      border: 1px solid var(--border);
-      transform: rotateX(10deg) rotateY(-12deg) translateZ(38px);
-      box-shadow:
-        0 40px 80px rgba(0,0,0,.55),
-        0 0 70px var(--glow);
-      transition: .6s ease;
-      background: #0b1f33;
-    }
+/* IMAGE */
+.photo-3d{
+  perspective:1600px;
+  display:flex;
+  justify-content:center;
+  z-index:5;
+}
 
-    .photo-3d:hover img {
-      transform: rotateX(0) rotateY(0) translateZ(90px);
-    }
+.photo-3d img{
+  width:100%;
+  max-width:560px;
+  border-radius:28px;
+  border:1px solid var(--border);
+  transform:rotateX(10deg) rotateY(-12deg) translateZ(38px);
+  box-shadow:
+    0 40px 80px rgba(0,0,0,.55),
+    0 0 70px var(--glow);
+  transition:.6s ease;
+  background:#0b1f33;
+}
 
-    /* VERTICAL CARD */
-    .l-card-vertical {
-      grid-column: 2 / span 2;
-      justify-self: end;
-      width: calc(100% + 120px);
-      margin-right: -120px;
-      background: linear-gradient(180deg,var(--card-light),var(--card));
-      border: 1px solid var(--border);
-      border-radius: 36px 36px 10px 10px;
-      padding: 4.2rem 5rem;
-      z-index: 2;
-    }
+.photo-3d:hover img{
+  transform:rotateX(0) rotateY(0) translateZ(90px);
+}
 
-    /* HORIZONTAL CARD */
-    .l-card-bottom {
-      grid-column: 1 / span 2;
-      justify-self: end;
-      width: calc(100% + 120px);
-      margin-right: -120px;
-      background: linear-gradient(180deg,var(--card-light),var(--card));
-      border: 1px solid var(--border);
-      border-top: none;
-      border-radius: 0 0 42px 42px;
-      padding: 4.5rem 7rem;
-    }
+/* VERTICAL CARD */
+.l-card-vertical{
+  grid-column:2 / span 2;
+  justify-self:end;
+  width:calc(100% + 120px);
+  margin-right:-120px;
+  background:linear-gradient(180deg,var(--card-light),var(--card));
+  border:1px solid var(--border);
+  border-radius:36px 36px 10px 10px;
+  padding:4.2rem 5rem;
+  box-shadow:0 35px 90px rgba(0,0,0,.45);
+}
 
-    /* ACTION BAR */
-    .side-links {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2.6rem;
-      padding-top: 1.2rem;
-    }
+/* BOTTOM CARD */
+.l-card-bottom{
+  grid-column:1 / span 2;
+  justify-self:end;
+  width:calc(100% + 120px);
+  margin-right:-120px;
+  background:linear-gradient(180deg,var(--card-light),var(--card));
+  border:1px solid var(--border);
+  border-top:none;
+  border-radius:0 0 42px 42px;
+  padding:4.5rem 7rem;
+  box-shadow:0 36px 85px rgba(0,0,0,.45);
+}
 
-    .action-btn {
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
-      background: rgba(255,255,255,.1);
-      border: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+/* ACTION BAR */
+.side-links{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:2.6rem;
+  padding-top:1.2rem;
+}
 
-    .action-btn img {
-      width: 32px;
-      filter: invert(1);
-    }
+.action-btn{
+  width:72px;
+  height:72px;
+  border-radius:50%;
+  background:radial-gradient(circle at top,var(--accent),#163d60);
+  border:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:
+    0 0 25px rgba(79,140,255,.6),
+    inset 0 0 20px rgba(255,255,255,.25);
+  animation:pulse 2.8s infinite;
+}
 
-    /* ================= MOBILE FIX ================= */
-    @media (max-width: 1200px) {
+.action-btn img{
+  width:32px;
+  filter:invert(1);
+}
 
-      .container {
-        grid-template-columns: 1fr;
-      }
+@keyframes pulse{
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.08);}
+}
 
-      .feature-block {
-        grid-template-columns: 1fr;
-        row-gap: 3rem;
-      }
+/* ================= MOBILE ================= */
 
-      /* 🔑 Image always visible */
-      .photo-3d {
-        order: -1;
-        z-index: 10;
-      }
+@media(max-width:1200px){
 
-      .photo-3d img {
-        transform: none;
-      }
+.container{
+  grid-template-columns:1fr;
+}
 
-      /* 🔑 Reset L-shape on mobile */
-      .l-card-vertical,
-      .l-card-bottom {
-        grid-column: 1;
-        width: 100%;
-        margin-right: 0;
-        padding: 3rem;
-      }
+.feature-block{
+  grid-template-columns:1fr;
+  row-gap:2.8rem;
+}
 
-      /* 🔑 FONT 2× ONLY ON PHONE */
-      .about-header + p {
-        font-size: 2.05rem;
-      }
+/* IMAGE FIRST */
+.photo-3d{
+  order:-1;
+}
 
-      .l-card-vertical h3 {
-        font-size: 2.2rem;
-      }
+.photo-3d img{
+  transform:none;
+  max-width:92%;
+}
 
-      .l-card-vertical p {
-        font-size: 2rem;
-        line-height: 1.8;
-      }
+/* 🔑 MOBILE L-SHAPE */
+.l-card-vertical{
+  width:88%;
+  margin:0 auto;
+  padding:3.2rem;
+}
 
-      .side-links {
-        flex-direction: row;
-        margin-top: 3rem;
-      }
-    }
-  </style>
+.l-card-bottom{
+  width:100%;
+  margin:-1.2rem auto 0;
+  padding:3.4rem;
+  border-radius:0 0 36px 36px;
+}
+
+/* 🔑 FONT UNIFICATION */
+.about-header + p,
+.l-card-vertical p,
+.l-card-bottom p{
+  font-size:1.8rem;
+  line-height:1.75;
+}
+
+.l-card-vertical h3{
+  font-size:2.1rem;
+}
+
+/* ACTIONS */
+.side-links{
+  flex-direction:row;
+  justify-content:center;
+  margin-top:3rem;
+  gap:2rem;
+}
+
+}
+</style>
 </head>
 
 <body>
 
 <div class="container">
 
-  <div>
-    <h1>FlowSight Analytics — Funnel Automation</h1>
+<div>
+<h1>FlowSight Analytics — Funnel Automation</h1>
 
-    <div class="about-header">
-      <span class="about-badge">ABOUT THE PROJECT</span>
-      <div class="about-line"></div>
-    </div>
+<div class="about-header">
+<span class="about-badge">ABOUT THE PROJECT</span>
+<div class="about-line"></div>
+</div>
 
-    <p>
-      FlowSight is an analytics-driven automation system designed to track user
-      funnels, identify friction points, and translate behavioral data into
-      structured product decisions.
-    </p>
+<p>
+FlowSight is an analytics-driven automation system designed to track user
+funnels, identify friction points, and translate behavioral data into
+structured product decisions.
+</p>
 
-    <div class="feature-block">
+<div class="feature-block">
 
-      <div class="photo-3d">
-        <img src="/visuals/Architecture.png" alt="FlowSight Architecture">
-      </div>
+<div class="photo-3d">
+<img src="/visuals/Architecture.png" alt="FlowSight Architecture">
+</div>
 
-      <div class="l-card-vertical">
-        <h3>Decision Intelligence Layer</h3>
-        <p>
-          FlowSight embeds decision logic directly into analytics pipelines,
-          correlating funnel behavior with downstream impact and priority
-          signals so teams act with clarity instead of debate.
-        </p>
-      </div>
+<div class="l-card-vertical">
+<h3>Decision Intelligence Layer</h3>
+<p>
+FlowSight embeds decision logic directly into analytics pipelines,
+correlating funnel behavior with downstream impact and priority
+signals so teams act with clarity instead of debate.
+</p>
+</div>
 
-      <div class="l-card-bottom">
-        <p>
-          The architecture is modular by design. New events, experiments, and
-          cohorts can be introduced without breaking existing logic, ensuring
-          scalability as product complexity increases.
-        </p>
+<div class="l-card-bottom">
+<p>
+The architecture is modular by design. New events, experiments, and
+cohorts can be introduced without breaking existing logic, ensuring
+scalability as product complexity increases.
+</p>
 
-        <p>
-          By aligning analytics with execution, FlowSight reduces cognitive
-          load, eliminates metric ambiguity, and accelerates decision velocity
-          across product, growth, and operations teams.
-        </p>
-      </div>
+<p>
+By aligning analytics with execution, FlowSight reduces cognitive
+load, eliminates metric ambiguity, and accelerates decision velocity
+across product, growth, and operations teams.
+</p>
+</div>
 
-    </div>
-  </div>
+</div>
+</div>
 
-  <div class="side-links">
-    <a class="action-btn" href="https://github.com/ashwin33086/Flowsight_Analytics" target="_blank">
-      <img src="https://raw.githubusercontent.com/ashwin33086/ashwin_portfolio/main/icons/github-svgrepo-com.svg">
-    </a>
-    <a class="action-btn" href="https://github.com/ashwin33086/Flowsight_Analytics/blob/main/Flowsight_ppt/FlowSight.ppt.pdf" target="_blank">
-      PRD<br>CASE
-    </a>
-  </div>
+<div class="side-links">
+<a class="action-btn" href="https://github.com/ashwin33086/Flowsight_Analytics" target="_blank">
+<img src="https://raw.githubusercontent.com/ashwin33086/ashwin_portfolio/main/icons/github-svgrepo-com.svg">
+</a>
+<a class="action-btn" href="https://github.com/ashwin33086/Flowsight_Analytics/blob/main/Flowsight_ppt/FlowSight.ppt.pdf" target="_blank">
+PRD
+</a>
+</div>
 
 </div>
 
