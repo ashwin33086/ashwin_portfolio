@@ -28,7 +28,7 @@ body{
   color:var(--text);
 }
 
-/* ================= DESKTOP BASE (UNCHANGED) ================= */
+/* ================= DESKTOP (UNCHANGED) ================= */
 
 .container{
   max-width:1600px;
@@ -50,7 +50,6 @@ p{
   font-size:1.02rem;
 }
 
-/* ABOUT HEADER */
 .about-header{
   margin:2.3rem 0 1.8rem;
   display:flex;
@@ -76,12 +75,10 @@ p{
   opacity:.6;
 }
 
-/* FEATURE BLOCK */
 .feature-block{
   margin-top:5rem;
   display:grid;
   grid-template-columns:620px minmax(520px,1fr);
-  grid-template-rows:auto auto;
   column-gap:4.5rem;
   position:relative;
 }
@@ -91,7 +88,6 @@ p{
   perspective:1600px;
   display:flex;
   justify-content:center;
-  z-index:3;
 }
 
 .photo-3d img{
@@ -100,9 +96,7 @@ p{
   border-radius:28px;
   border:1px solid var(--border);
   transform:rotateX(10deg) rotateY(-12deg) translateZ(38px);
-  box-shadow:
-    0 40px 80px rgba(0,0,0,.55),
-    0 0 70px var(--glow);
+  box-shadow:0 40px 80px rgba(0,0,0,.55),0 0 70px var(--glow);
   transition:.6s ease;
 }
 
@@ -110,7 +104,7 @@ p{
   transform:rotateX(0) rotateY(0) translateZ(90px);
 }
 
-/* L CARDS */
+/* L SHAPE */
 .l-card-vertical{
   grid-column:2 / span 2;
   justify-self:end;
@@ -153,9 +147,6 @@ p{
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:.8rem;
-  color:var(--text);
-  text-decoration:none;
 }
 
 .action-btn img{
@@ -163,7 +154,7 @@ p{
   filter:invert(1);
 }
 
-/* ================= PHONE DESIGN ================= */
+/* ================= MOBILE (NEW, CLEAN) ================= */
 
 @media(max-width:1200px){
 
@@ -171,20 +162,41 @@ p{
   grid-template-columns:1fr;
 }
 
-/* ABOUT BADGE ONLY = 1.5× */
-.about-badge{
-  font-size:1.08rem;
-}
+/* BIGGER TEXT ×1.5 */
+.about-badge{font-size:1.08rem;}
+.about-header + p{font-size:1.55rem;}
+.l-card-vertical p,
+.l-card-bottom p{font-size:1.5rem;line-height:1.9;}
 
-/* STACK WITH ORDER */
+/* MOBILE STACK */
 .feature-block{
-  grid-template-columns:1fr;
-  row-gap:3.5rem;
+  display:flex;
+  flex-direction:column;
+  gap:3rem;
 }
 
-/* IMAGE FIRST */
+/* TOGGLE BUTTON */
+.mobile-toggle{
+  width:64px;
+  height:64px;
+  border-radius:50%;
+  background:rgba(79,140,255,.15);
+  border:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 1.5rem;
+  cursor:pointer;
+}
+
+.mobile-toggle img{
+  width:36px;
+  filter:invert(1);
+}
+
+/* IMAGE ALWAYS VISIBLE */
 .photo-3d{
-  order:1;
+  perspective:none;
 }
 
 .photo-3d img{
@@ -192,40 +204,27 @@ p{
   transform:none;
 }
 
-/* VERTICAL CARD */
-.l-card-vertical{
-  order:2;
-  width:100%;
-  margin-right:0;
-  padding:3rem;
-  opacity:0;
-  transform:translateX(60px);
-  transition:.8s ease;
-}
-
-/* HORIZONTAL CARD */
+/* STACKED L FEEL */
+.l-card-vertical,
 .l-card-bottom{
-  order:3;
   width:100%;
-  margin-right:0;
+  margin:0;
   padding:3rem;
-  opacity:0;
-  transform:translateX(-60px);
-  transition:.8s ease;
 }
 
-/* SCROLL ANIMATION */
-.l-card-vertical.show,
-.l-card-bottom.show{
-  opacity:1;
-  transform:translateX(0);
-}
-
-/* ACTION BAR */
+/* BIGGER ICONS */
 .side-links{
   flex-direction:row;
   justify-content:center;
-  margin-top:3rem;
+}
+
+.action-btn{
+  width:88px;
+  height:88px;
+}
+
+.action-btn img{
+  width:40px;
 }
 
 }
@@ -237,6 +236,7 @@ p{
 <div class="container">
 
 <div>
+
 <h1>FlowSight Analytics — Funnel Automation</h1>
 
 <div class="about-header">
@@ -245,29 +245,33 @@ p{
 </div>
 
 <p>
-FlowSight is an analytics-driven automation system designed to track user
-funnels, identify friction points, and translate behavioral data into
-structured product decisions.
+FlowSight is an analytics-driven automation system designed to track user funnels,
+identify friction points, and translate behavioral data into structured product decisions.
 </p>
 
 <div class="feature-block">
 
-<div class="photo-3d">
+<!-- MOBILE BUTTON -->
+<div class="mobile-toggle" onclick="scrollToContent()">
+<img src="https://raw.githubusercontent.com/ashwin33086/ashwin_portfolio/main/icons/down-arrow-svgrepo-com.svg">
+</div>
+
+<div class="photo-3d" id="contentStart">
 <img src="/visuals/Architecture.png" alt="FlowSight Architecture">
 </div>
 
 <div class="l-card-vertical">
 <h3>Decision Intelligence Layer</h3>
 <p>
-FlowSight embeds decision logic directly into analytics pipelines,
-correlating funnel behavior with downstream impact and priority signals.
+FlowSight embeds decision logic directly into analytics pipelines, correlating
+funnel behavior with downstream impact and priority signals.
 </p>
 </div>
 
 <div class="l-card-bottom">
 <p>
-The architecture is modular by design, allowing experiments, cohorts,
-and analytics logic to evolve without breaking downstream systems.
+The architecture is modular by design, allowing experiments, cohorts, and analytics
+logic to evolve without breaking downstream systems.
 </p>
 </div>
 
@@ -286,18 +290,10 @@ PRD
 </div>
 
 <script>
-/* Smooth mobile animation */
-const cards=document.querySelectorAll('.l-card-vertical,.l-card-bottom');
-
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.classList.add('show');
-    }
-  });
-},{threshold:.35});
-
-cards.forEach(c=>obs.observe(c));
+function scrollToContent(){
+  document.getElementById("contentStart")
+    .scrollIntoView({behavior:"smooth"});
+}
 </script>
 
 </body>
