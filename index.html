@@ -104,6 +104,7 @@ h1{
 
 .contact span{
   color:var(--muted);
+  font-size:.95rem;
 }
 
 .contact a{
@@ -176,6 +177,11 @@ h1{
   gap:3rem;
 }
 
+.project-link{
+  text-decoration:none;
+  color:inherit;
+}
+
 .project{
   background:linear-gradient(180deg,#163d60,#122f4a);
   border-radius:26px;
@@ -185,14 +191,11 @@ h1{
   align-items:center;
   gap:1.8rem;
   opacity:0;
-  transform:translateY(80px);
-  transition:.8s cubic-bezier(.2,.8,.2,1);
-  position:relative;
-  overflow:hidden;
+  transition:.9s cubic-bezier(.2,.8,.2,1);
 }
 
-.project.right{transform:translateX(120px);}
-.project.left{transform:translateX(-120px);}
+.project.right{transform:translateX(140px);}
+.project.left{transform:translateX(-140px);}
 
 .project.show{
   opacity:1;
@@ -207,7 +210,6 @@ h1{
   display:flex;
   align-items:center;
   justify-content:center;
-  flex-shrink:0;
   animation:pulse 3s infinite;
 }
 
@@ -218,7 +220,7 @@ h1{
 
 .project:hover{
   box-shadow:0 30px 60px rgba(0,0,0,.45);
-  transform:scale(1.02);
+  transform:scale(1.03);
 }
 
 .project h3{
@@ -255,7 +257,7 @@ footer{
     </div>
 
     <div class="contact">
-      <span>Contact:</span>
+      <span>Contact Me:</span>
       <a href="mailto:ashwin33086@gmail.com"><img src="icons/gmail-svgrepo-com.svg"></a>
       <a href="https://www.linkedin.com/in/ashwin-mishra-b6b363256/" target="_blank"><img src="icons/linkedin-1-svgrepo-com.svg"></a>
       <a href="https://github.com/ashwin33086" target="_blank"><img src="icons/github-142-svgrepo-com.svg"></a>
@@ -282,6 +284,8 @@ footer{
 <h2>Projects</h2>
 
 <div class="projects">
+
+<a class="project-link" href="/projects/ltv.html">
   <div class="project right">
     <div class="project-icon"></div>
     <div>
@@ -289,7 +293,9 @@ footer{
       <p>Elasticity modeling, experimentation, and long-term value protection.</p>
     </div>
   </div>
+</a>
 
+<a class="project-link" href="/projects/flowsight.html">
   <div class="project left">
     <div class="project-icon"></div>
     <div>
@@ -297,7 +303,9 @@ footer{
       <p>Automated funnel intelligence converting behavior into decisions.</p>
     </div>
   </div>
+</a>
 
+<a class="project-link" href="/projects/resume-automation.html">
   <div class="project right">
     <div class="project-icon"></div>
     <div>
@@ -305,7 +313,9 @@ footer{
       <p>Structured resume screening using automation logic.</p>
     </div>
   </div>
+</a>
 
+<a class="project-link" href="/projects/opd.html">
   <div class="project left">
     <div class="project-icon"></div>
     <div>
@@ -313,6 +323,8 @@ footer{
       <p>Operational automation reducing patient wait times.</p>
     </div>
   </div>
+</a>
+
 </div>
 </section>
 
@@ -327,15 +339,18 @@ function toggleAbout(){
   arrow.style.transform = box.classList.contains("visible") ? "rotate(-90deg)" : "rotate(0deg)";
 }
 
-/* Scroll reveal */
+/* Re-triggerable scroll animation */
 const projects=document.querySelectorAll(".project");
+
 const observer=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.classList.add("show");
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    } else {
+      entry.target.classList.remove("show");
     }
   });
-},{threshold:.25});
+},{threshold:.35});
 
 projects.forEach(p=>observer.observe(p));
 </script>
