@@ -39,10 +39,10 @@ body{
   position:absolute;
   inset:0;
   background:
-    linear-gradient(rgba(11,31,51,.9),rgba(11,31,51,.9)),
+    linear-gradient(rgba(11,31,51,.8),rgba(11,31,51,.8)),
     url("https://raw.githubusercontent.com/ashwin33086/ashwin_portfolio/main/asset/pm-venn.png.png")
     center/contain no-repeat;
-  animation:spinSlow 90s linear infinite;
+  animation:spinSlow 75s linear infinite;
 }
 
 @keyframes spinSlow{
@@ -83,24 +83,24 @@ h1{
   font-size:1.6rem;
 }
 
-/* ================= CONTACT (0.5× FIX) ================= */
+/* ================= CONTACT (1.2× SCALE) ================= */
 
 .contact{
   margin-top:3.2rem;
   display:flex;
   justify-content:center;
-  gap:1.6rem;
+  gap:1.9rem; /* adjusted for scale */
   flex-wrap:wrap;
 }
 
 .contact span{
-  font-size:1.2rem;
+  font-size:1.44rem; /* 1.2× */
   color:var(--muted);
 }
 
 .contact a{
-  width:40px;      /* 🔑 0.5× */
-  height:40px;
+  width:48px;   /* 40 × 1.2 */
+  height:48px;
   border-radius:50%;
   background:linear-gradient(180deg,#163d60,#122f4a);
   border:1px solid var(--border);
@@ -111,7 +111,7 @@ h1{
 }
 
 .contact a img{
-  width:20px;      /* 🔑 0.5× */
+  width:24px; /* 20 × 1.2 */
   filter:invert(1);
 }
 
