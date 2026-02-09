@@ -43,7 +43,6 @@ body{
     url("https://raw.githubusercontent.com/ashwin33086/ashwin_portfolio/main/asset/pm-venn.png.png")
     center/contain no-repeat;
   animation:spinSlow 90s linear infinite;
-  transform-origin:center;
 }
 
 @keyframes spinSlow{
@@ -60,7 +59,6 @@ body{
 h1{
   font-size:clamp(3.4rem,6vw,4.4rem);
   margin:0;
-  font-weight:700;
 }
 
 .typing{
@@ -85,24 +83,24 @@ h1{
   font-size:1.6rem;
 }
 
-/* ================= CONTACT ================= */
+/* ================= CONTACT (0.5× FIX) ================= */
 
 .contact{
   margin-top:3.2rem;
   display:flex;
   justify-content:center;
-  gap:2.4rem;
+  gap:1.6rem;
   flex-wrap:wrap;
 }
 
 .contact span{
-  font-size:1.8rem;
+  font-size:1.2rem;
   color:var(--muted);
 }
 
 .contact a{
-  width:81px;
-  height:81px;
+  width:40px;      /* 🔑 0.5× */
+  height:40px;
   border-radius:50%;
   background:linear-gradient(180deg,#163d60,#122f4a);
   border:1px solid var(--border);
@@ -113,13 +111,13 @@ h1{
 }
 
 .contact a img{
-  width:39px;
+  width:20px;      /* 🔑 0.5× */
   filter:invert(1);
 }
 
 .contact a:hover{
   background:var(--accent);
-  transform:translateY(-6px) scale(1.1);
+  transform:translateY(-4px) scale(1.05);
 }
 
 /* ================= SECTIONS ================= */
@@ -146,12 +144,10 @@ section{
 .about-toggle h2{
   margin:0;
   font-size:2.3rem;
-  font-weight:600;
 }
 
 .about-toggle span{
   color:var(--accent);
-  transition:.3s ease;
 }
 
 .about{
@@ -172,15 +168,14 @@ section{
 
 /* ================= PROJECTS ================= */
 
+section > h2{
+  font-size:2.3rem;
+}
+
 .projects{
   display:flex;
   flex-direction:column;
   gap:3.2rem;
-}
-
-section > h2{
-  font-size:2.3rem;
-  font-weight:600;
 }
 
 .project-link{
@@ -235,7 +230,6 @@ footer{
 
 @media(max-width:600px){
   .hero{padding:20rem 1.2rem 10rem;}
-  .tagline{font-size:1.4rem;}
   .project{flex-direction:column;}
 }
 </style>
@@ -262,7 +256,7 @@ footer{
 <section class="about-section">
   <div class="about-toggle" onclick="toggleAbout()">
     <h2>About Me</h2>
-    <span id="arrow">▼</span>
+    <span>▼</span>
   </div>
   <div class="about" id="about">
     I build data-driven products at the intersection of product strategy,
@@ -275,19 +269,35 @@ footer{
 <h2>Projects</h2>
 
 <div class="projects">
-  <a class="project-link" href="/projects/ltv.html">
-    <div class="project"><div class="project-icon"></div><div>
-      <h3>Dynamic Pricing Sensitivity & LTV Optimization</h3>
-      <p>Elasticity modeling and long-term value protection.</p>
-    </div></div>
-  </a>
 
-  <a class="project-link" href="/projects/flowsight.html">
-    <div class="project"><div class="project-icon"></div><div>
-      <h3>FlowSight Analytics — Funnel Automation</h3>
-      <p>Behavior-driven analytics for product decisions.</p>
-    </div></div>
-  </a>
+<a class="project-link" href="/projects/ltv.html">
+  <div class="project"><div class="project-icon"></div><div>
+    <h3>Dynamic Pricing Sensitivity & LTV Optimization</h3>
+    <p>Elasticity modeling and long-term value protection.</p>
+  </div></div>
+</a>
+
+<a class="project-link" href="/projects/flowsight.html">
+  <div class="project"><div class="project-icon"></div><div>
+    <h3>FlowSight Analytics — Funnel Automation</h3>
+    <p>Behavior-driven analytics for product decisions.</p>
+  </div></div>
+</a>
+
+<a class="project-link" href="/projects/resume-automation.html">
+  <div class="project"><div class="project-icon"></div><div>
+    <h3>Automated Resume Relevance Scoring</h3>
+    <p>Structured resume screening using automation logic.</p>
+  </div></div>
+</a>
+
+<a class="project-link" href="/projects/opd.html">
+  <div class="project"><div class="project-icon"></div><div>
+    <h3>OPD Appointment Queue Automation</h3>
+    <p>Operational automation reducing patient wait times.</p>
+  </div></div>
+</a>
+
 </div>
 </section>
 
