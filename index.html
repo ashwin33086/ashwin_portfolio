@@ -32,21 +32,21 @@ body{
   position:relative;
   overflow:hidden;
   text-align:center;
-  padding:18rem 1.5rem 8rem; /* extra bottom to avoid sharp cut */
+  padding:18rem 1.5rem 8rem;
 }
 
-/* Rotating visual — FIXED */
+/* 🔑 FIXED BACKGROUND */
 .hero-bg{
   position:absolute;
-  top:60%;
+  top:55%;
   left:50%;
-  width:110vmax;   /* 🔑 smaller than before */
-  height:110vmax;
+  min-width:160vw;
+  min-height:160vw;
   transform:translate(-50%,-50%);
   background:
-    linear-gradient(rgba(11,31,51,.88),rgba(11,31,51,.88)),
+    linear-gradient(rgba(11,31,51,.9),rgba(11,31,51,.9)),
     url("https://raw.githubusercontent.com/ashwin33086/ashwin_portfolio/1cbacbd5eb450c0000d2d8c13101e217204e480d/asset/pm-venn.png.png")
-    center/contain no-repeat;
+    center/cover no-repeat;
   animation:spinSlow 90s linear infinite;
   z-index:0;
   pointer-events:none;
@@ -69,10 +69,9 @@ h1{
   margin:0;
 }
 
-/* Typing line */
 .typing{
   margin-top:1rem;
-  font-size:clamp(1.6rem,3.2vw,1.85rem); /* 🔑 1.5× */
+  font-size:clamp(1.6rem,3.2vw,1.85rem);
   color:var(--accent);
   white-space:nowrap;
   overflow:hidden;
@@ -85,12 +84,11 @@ h1{
 @keyframes typing{to{width:100%;}}
 @keyframes blink{50%{border-color:transparent;}}
 
-/* Hire me line */
 .tagline{
   margin-top:1.8rem;
   font-style:italic;
   color:var(--muted);
-  font-size:1.6rem; /* 🔑 1.5× */
+  font-size:1.6rem;
 }
 
 /* ================= CONTACT ================= */
@@ -100,18 +98,19 @@ h1{
   display:flex;
   justify-content:center;
   align-items:center;
-  gap:1.6rem;
+  gap:1.8rem;
   flex-wrap:wrap;
 }
 
 .contact span{
   color:var(--muted);
-  font-size:1.2rem; /* 🔑 larger */
+  font-size:1.4rem;
 }
 
+/* 🔑 1.5× ICON SCALE */
 .contact a{
-  width:54px;
-  height:54px;
+  width:80px;
+  height:80px;
   border-radius:50%;
   background:linear-gradient(180deg,#163d60,#122f4a);
   border:1px solid var(--border);
@@ -122,7 +121,7 @@ h1{
 }
 
 .contact a img{
-  width:26px;
+  width:40px;
   filter:invert(1);
 }
 
@@ -143,7 +142,7 @@ section{
 /* ================= ABOUT ================= */
 
 .about-section{
-  margin-top:10rem; /* pushed down clearly */
+  margin-top:7rem; /* 🔑 closer to hero */
 }
 
 .about-toggle{
@@ -155,7 +154,7 @@ section{
 
 .about-toggle h2{
   margin:0;
-  font-size:2.3rem; /* 🔑 bigger */
+  font-size:2.3rem;
 }
 
 .about-toggle span{
@@ -164,13 +163,13 @@ section{
 }
 
 .about{
-  margin-top:2.8rem;
+  margin-top:2.6rem;
   background:linear-gradient(180deg,#143a5c,#102f4a);
   border-radius:22px;
   border:1px solid var(--border);
   line-height:1.9;
   color:var(--muted);
-  font-size:1.45rem; /* 🔑 1.5× */
+  font-size:1.45rem;
   overflow:hidden;
   transition:.5s ease;
 }
@@ -257,19 +256,18 @@ footer{
   }
 
   .hero-bg{
-    width:140vmax;
-    height:140vmax;
+    min-width:190vw;
+    min-height:190vw;
     animation-duration:130s;
   }
 
-  .tagline{font-size:1.4rem;}
-  .about{font-size:1.35rem;}
+  .about-section{
+    margin-top:5rem;
+  }
+
   .project{
     flex-direction:column;
     align-items:flex-start;
-  }
-  .project.right,.project.left{
-    transform:translateY(60px);
   }
 }
 </style>
