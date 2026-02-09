@@ -15,6 +15,8 @@
   --muted:#b9c6d3;
   --accent:#4f8cff;
   --border:rgba(255,255,255,.12);
+  --power1:#ffb703;
+  --power2:#f77f00;
 }
 
 *{box-sizing:border-box;}
@@ -32,28 +34,26 @@ body{
   position:relative;
   overflow:hidden;
   text-align:center;
-  padding:18rem 1.5rem 8rem;
+  padding:18rem 1.5rem 9rem;
 }
 
-/* 🔑 FIXED BACKGROUND */
 .hero-bg{
   position:absolute;
-  top:55%;
+  top:60%;
   left:50%;
-  min-width:160vw;
-  min-height:160vw;
+  width:130vmax;
+  height:130vmax;
   transform:translate(-50%,-50%);
   background:
-    linear-gradient(rgba(11,31,51,.9),rgba(11,31,51,.9)),
+    linear-gradient(rgba(11,31,51,.88),rgba(11,31,51,.88)),
     url("https://raw.githubusercontent.com/ashwin33086/ashwin_portfolio/1cbacbd5eb450c0000d2d8c13101e217204e480d/asset/pm-venn.png.png")
-    center/cover no-repeat;
-  animation:spinSlow 90s linear infinite;
+    center/contain no-repeat;
+  animation:spinSlow 120s linear infinite;
   z-index:0;
-  pointer-events:none;
 }
 
 @keyframes spinSlow{
-  from{transform:translate(-50%,-50%) rotate(0deg);}
+  from{transform:translate(-50%,-50%) rotate(0);}
   to{transform:translate(-50%,-50%) rotate(360deg);}
 }
 
@@ -61,7 +61,7 @@ body{
   position:relative;
   z-index:1;
   max-width:950px;
-  margin:0 auto;
+  margin:auto;
 }
 
 h1{
@@ -71,7 +71,7 @@ h1{
 
 .typing{
   margin-top:1rem;
-  font-size:clamp(1.6rem,3.2vw,1.85rem);
+  font-size:clamp(1.6rem,3vw,1.9rem);
   color:var(--accent);
   white-space:nowrap;
   overflow:hidden;
@@ -94,20 +94,19 @@ h1{
 /* ================= CONTACT ================= */
 
 .contact{
-  margin-top:3.2rem;
+  margin-top:3.5rem;
   display:flex;
   justify-content:center;
   align-items:center;
-  gap:1.8rem;
+  gap:2rem;
   flex-wrap:wrap;
 }
 
 .contact span{
-  color:var(--muted);
   font-size:1.4rem;
+  color:var(--muted);
 }
 
-/* 🔑 1.5× ICON SCALE */
 .contact a{
   width:80px;
   height:80px;
@@ -142,13 +141,13 @@ section{
 /* ================= ABOUT ================= */
 
 .about-section{
-  margin-top:7rem; /* 🔑 closer to hero */
+  margin-top:6rem;
 }
 
 .about-toggle{
   display:flex;
   align-items:center;
-  gap:.8rem;
+  gap:1rem;
   cursor:pointer;
 }
 
@@ -157,13 +156,8 @@ section{
   font-size:2.3rem;
 }
 
-.about-toggle span{
-  color:var(--accent);
-  transition:.4s ease;
-}
-
 .about{
-  margin-top:2.6rem;
+  margin-top:2.2rem;
   background:linear-gradient(180deg,#143a5c,#102f4a);
   border-radius:22px;
   border:1px solid var(--border);
@@ -181,22 +175,55 @@ section{
 }
 
 .about.visible{
-  max-height:1200px;
+  max-height:900px;
   padding:3.4rem;
   opacity:1;
 }
 
 /* ================= PROJECTS ================= */
 
+.projects-header{
+  display:flex;
+  align-items:center;
+  gap:1.5rem;
+  margin-bottom:3rem;
+}
+
+.projects-header h2{
+  font-size:3.2rem; /* 🔑 1.5× */
+  margin:0;
+}
+
+/* POWER BUTTON */
+.power-btn{
+  width:90px;
+  height:90px;
+  border-radius:50%;
+  background:radial-gradient(circle,var(--power1),var(--power2));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:2.2rem;
+  font-weight:800;
+  color:#0b1f33;
+  cursor:pointer;
+  box-shadow:
+    0 0 25px rgba(255,183,3,.7),
+    0 0 60px rgba(255,183,3,.9);
+  transition:.3s ease;
+}
+
+.power-btn.active{
+  box-shadow:
+    0 0 40px rgba(255,183,3,1),
+    0 0 90px rgba(255,183,3,1);
+  transform:scale(1.08);
+}
+
 .projects{
   display:flex;
   flex-direction:column;
   gap:3.2rem;
-}
-
-.project-link{
-  text-decoration:none;
-  color:inherit;
 }
 
 .project{
@@ -205,37 +232,22 @@ section{
   padding:3rem;
   border:1px solid var(--border);
   display:flex;
-  align-items:center;
-  gap:1.8rem;
+  gap:2rem;
   opacity:0;
   transition:.8s cubic-bezier(.2,.8,.2,1);
 }
 
-.project.right{transform:translateX(120px);}
-.project.left{transform:translateX(-120px);}
+.project.right{transform:translateX(140px);}
+.project.left{transform:translateX(-140px);}
 .project.show{opacity:1;transform:translateX(0);}
 
-.project-icon{
-  width:60px;
-  height:60px;
-  border-radius:50%;
-  background:radial-gradient(circle,var(--accent),transparent 70%);
-  animation:pulse 3s infinite;
-}
-
-@keyframes pulse{
-  0%,100%{box-shadow:0 0 0 rgba(79,140,255,0);}
-  50%{box-shadow:0 0 22px rgba(79,140,255,.6);}
-}
-
 .project h3{
-  margin:0 0 .5rem;
-  font-size:1.55rem;
+  font-size:2.1rem; /* 🔑 bigger */
+  margin:0 0 .6rem;
 }
 
 .project p{
-  margin:0;
-  font-size:1.2rem;
+  font-size:1.25rem;
   color:var(--muted);
 }
 
@@ -251,23 +263,11 @@ footer{
 /* ================= MOBILE ================= */
 
 @media(max-width:600px){
-  .hero{
-    padding:20rem 1.2rem 10rem;
-  }
-
-  .hero-bg{
-    min-width:190vw;
-    min-height:190vw;
-    animation-duration:130s;
-  }
-
-  .about-section{
-    margin-top:5rem;
-  }
-
   .project{
     flex-direction:column;
-    align-items:flex-start;
+  }
+  .project.right,.project.left{
+    transform:translateY(80px);
   }
 }
 </style>
@@ -275,16 +275,13 @@ footer{
 
 <body>
 
+<!-- HERO -->
 <div class="hero">
   <div class="hero-bg"></div>
-
   <div class="hero-content">
     <h1>Ashwin Mishra</h1>
     <div class="typing">Product • Strategy • Automation • Analytics</div>
-
-    <div class="tagline">
-      Hire me as a product improvement feature — I optimize your KPIs.
-    </div>
+    <div class="tagline">Hire me as a product improvement feature — I optimize your KPIs.</div>
 
     <div class="contact">
       <span>Contact:</span>
@@ -295,85 +292,60 @@ footer{
   </div>
 </div>
 
+<!-- ABOUT -->
 <section class="about-section">
   <div class="about-toggle" onclick="toggleAbout()">
     <h2>About Me</h2>
-    <span id="aboutArrow">▼</span>
   </div>
-
   <div class="about hidden" id="aboutBox">
     I build data-driven products at the intersection of product strategy,
     analytics, automation, and AI—using metrics, user behavior, and structured
-    experimentation to design scalable systems that deliver long-term business
-    value.
+    experimentation to design scalable systems that deliver long-term value.
   </div>
 </section>
 
+<!-- PROJECTS -->
 <section>
-<h2>Projects</h2>
-
-<div class="projects">
-
-<a class="project-link" href="/projects/ltv.html">
-  <div class="project right">
-    <div class="project-icon"></div>
-    <div>
-      <h3>Dynamic Pricing Sensitivity & LTV Optimization</h3>
-      <p>Elasticity modeling and long-term value protection.</p>
-    </div>
+  <div class="projects-header">
+    <h2>Projects</h2>
+    <div class="power-btn" id="powerBtn">⏻</div>
   </div>
-</a>
 
-<a class="project-link" href="/projects/flowsight.html">
-  <div class="project left">
-    <div class="project-icon"></div>
-    <div>
-      <h3>FlowSight Analytics — Funnel Automation</h3>
-      <p>Behavior-driven analytics for product decisions.</p>
-    </div>
+  <div class="projects" id="projects">
+    <div class="project right"><div><h3>LTV Optimization</h3><p>Pricing elasticity & long-term value.</p></div></div>
+    <div class="project left"><div><h3>FlowSight Analytics</h3><p>Funnel automation & decisions.</p></div></div>
+    <div class="project right"><div><h3>Resume Automation</h3><p>Scoring workflows using logic.</p></div></div>
+    <div class="project left"><div><h3>OPD Queue Automation</h3><p>Operational throughput systems.</p></div></div>
   </div>
-</a>
-
-<a class="project-link" href="/projects/resume-automation.html">
-  <div class="project right">
-    <div class="project-icon"></div>
-    <div>
-      <h3>Automated Resume Relevance Scoring</h3>
-      <p>Structured resume screening using automation logic.</p>
-    </div>
-  </div>
-</a>
-
-<a class="project-link" href="/projects/opd.html">
-  <div class="project left">
-    <div class="project-icon"></div>
-    <div>
-      <h3>OPD Appointment Queue Automation</h3>
-      <p>Operational automation reducing patient wait times.</p>
-    </div>
-  </div>
-</a>
-
-</div>
 </section>
 
 <footer>© Ashwin Mishra</footer>
 
 <script>
 function toggleAbout(){
-  const box=document.getElementById("aboutBox");
-  const arrow=document.getElementById("aboutArrow");
-  box.classList.toggle("visible");
-  box.classList.toggle("hidden");
-  arrow.style.transform=box.classList.contains("visible")?"rotate(-90deg)":"rotate(0)";
+  document.getElementById("aboutBox").classList.toggle("visible");
+  document.getElementById("aboutBox").classList.toggle("hidden");
 }
 
+let powerOn=false;
+const btn=document.getElementById("powerBtn");
 const projects=document.querySelectorAll(".project");
+
+btn.onclick=()=>{
+  powerOn=!powerOn;
+  btn.classList.toggle("active",powerOn);
+};
+
 const observer=new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    entry.target.classList.toggle("show",entry.isIntersecting);
+  entries.forEach(e=>{
+    if(powerOn){
+      e.target.classList.toggle("show",e.isIntersecting);
+    } else {
+      e.target.classList.add("show");
+    }
   });
-},{threshold:.3});
+},{threshold:.35});
+
 projects.forEach(p=>observer.observe(p));
 </script>
 
