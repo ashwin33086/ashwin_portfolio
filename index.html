@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Ashwin Mishra — Product Portfolio</title>
 
-<!-- 🔑 Font upgrade -->
+<!-- 🔑 FONT CHANGE -->
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -22,7 +22,7 @@
 
 body{
   margin:0;
-  font-family:"Space Grotesk",system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+  font-family:"Space Grotesk",system-ui,sans-serif;
   background:var(--bg);
   color:var(--text);
 }
@@ -33,26 +33,27 @@ body{
   position:relative;
   overflow:hidden;
   text-align:center;
-  padding:18rem 1.5rem 9rem;
+  padding:18rem 1.5rem 8rem;
 }
 
 .hero-bg{
   position:absolute;
   top:60%;
   left:50%;
-  width:130vmax;
-  height:130vmax;
+  width:110vmax;
+  height:110vmax;
   transform:translate(-50%,-50%);
   background:
     linear-gradient(rgba(11,31,51,.88),rgba(11,31,51,.88)),
     url("https://raw.githubusercontent.com/ashwin33086/ashwin_portfolio/1cbacbd5eb450c0000d2d8c13101e217204e480d/asset/pm-venn.png.png")
     center/contain no-repeat;
-  animation:spinSlow 120s linear infinite;
+  animation:spinSlow 90s linear infinite;
   z-index:0;
+  pointer-events:none;
 }
 
 @keyframes spinSlow{
-  from{transform:translate(-50%,-50%) rotate(0);}
+  from{transform:translate(-50%,-50%) rotate(0deg);}
   to{transform:translate(-50%,-50%) rotate(360deg);}
 }
 
@@ -60,60 +61,58 @@ body{
   position:relative;
   z-index:1;
   max-width:950px;
-  margin:auto;
+  margin:0 auto;
 }
 
 h1{
   font-size:clamp(3.4rem,6vw,4.4rem);
   margin:0;
   font-weight:700;
-  letter-spacing:-0.02em;
 }
 
+/* Typing */
 .typing{
   margin-top:1rem;
-  font-size:clamp(1.6rem,3vw,1.9rem);
+  font-size:clamp(1.6rem,3.2vw,1.85rem);
   color:var(--accent);
   white-space:nowrap;
   overflow:hidden;
   border-right:2px solid var(--accent);
   width:0;
   margin-inline:auto;
-  font-weight:500;
   animation:typing 3.5s steps(40,end) forwards, blink .8s infinite;
 }
 
 @keyframes typing{to{width:100%;}}
 @keyframes blink{50%{border-color:transparent;}}
 
+/* Tagline */
 .tagline{
   margin-top:1.8rem;
   font-style:italic;
   color:var(--muted);
   font-size:1.6rem;
-  font-weight:400;
 }
 
-/* ================= CONTACT ================= */
+/* ================= CONTACT (1.5× SCALE) ================= */
 
 .contact{
-  margin-top:3.5rem;
+  margin-top:3.2rem;
   display:flex;
   justify-content:center;
   align-items:center;
-  gap:2rem;
+  gap:2.4rem;
   flex-wrap:wrap;
 }
 
 .contact span{
-  font-size:1.4rem;
   color:var(--muted);
-  font-weight:500;
+  font-size:1.8rem; /* 1.5× */
 }
 
 .contact a{
-  width:80px;
-  height:80px;
+  width:81px;   /* 54 × 1.5 */
+  height:81px;
   border-radius:50%;
   background:linear-gradient(180deg,#163d60,#122f4a);
   border:1px solid var(--border);
@@ -124,7 +123,7 @@ h1{
 }
 
 .contact a img{
-  width:40px;
+  width:39px; /* 26 × 1.5 */
   filter:invert(1);
 }
 
@@ -145,13 +144,13 @@ section{
 /* ================= ABOUT ================= */
 
 .about-section{
-  margin-top:6rem;
+  margin-top:10rem;
 }
 
 .about-toggle{
   display:flex;
   align-items:center;
-  gap:1rem;
+  gap:.8rem;
   cursor:pointer;
 }
 
@@ -159,18 +158,21 @@ section{
   margin:0;
   font-size:2.3rem;
   font-weight:600;
-  letter-spacing:-0.01em;
+}
+
+.about-toggle span{
+  color:var(--accent);
+  transition:.4s ease;
 }
 
 .about{
-  margin-top:2.2rem;
+  margin-top:2.8rem;
   background:linear-gradient(180deg,#143a5c,#102f4a);
   border-radius:22px;
   border:1px solid var(--border);
   line-height:1.9;
   color:var(--muted);
   font-size:1.45rem;
-  font-weight:400;
   overflow:hidden;
   transition:.5s ease;
 }
@@ -182,31 +184,22 @@ section{
 }
 
 .about.visible{
-  max-height:900px;
+  max-height:1200px;
   padding:3.4rem;
   opacity:1;
 }
 
 /* ================= PROJECTS ================= */
 
-.projects-header{
-  display:flex;
-  align-items:center;
-  gap:1.5rem;
-  margin-bottom:3rem;
-}
-
-.projects-header h2{
-  font-size:2.3rem;
-  margin:0;
-  font-weight:600;
-  letter-spacing:-0.01em;
-}
-
 .projects{
   display:flex;
   flex-direction:column;
   gap:3.2rem;
+}
+
+.project-link{
+  text-decoration:none;
+  color:inherit;
 }
 
 .project{
@@ -215,7 +208,8 @@ section{
   padding:3rem;
   border:1px solid var(--border);
   display:flex;
-  gap:2rem;
+  align-items:center;
+  gap:1.8rem;
   opacity:0;
   transition:.8s cubic-bezier(.2,.8,.2,1);
 }
@@ -224,17 +218,30 @@ section{
 .project.left{transform:translateX(-120px);}
 .project.show{opacity:1;transform:translateX(0);}
 
+.project-icon{
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  background:radial-gradient(circle,var(--accent),transparent 70%);
+  animation:pulse 3s infinite;
+}
+
+@keyframes pulse{
+  0%,100%{box-shadow:0 0 0 rgba(79,140,255,0);}
+  50%{box-shadow:0 0 22px rgba(79,140,255,.6);}
+}
+
+/* 🔑 PROJECT TITLE SIZE = ABOUT ME TITLE */
 .project h3{
-  font-size:2.1rem;
-  margin:0 0 .6rem;
+  margin:0 0 .5rem;
+  font-size:2.3rem;
   font-weight:600;
-  letter-spacing:-0.015em;
 }
 
 .project p{
-  font-size:1.25rem;
+  margin:0;
+  font-size:1.2rem;
   color:var(--muted);
-  font-weight:400;
 }
 
 /* ================= FOOTER ================= */
@@ -244,17 +251,27 @@ footer{
   padding:3rem;
   color:var(--muted);
   font-size:1rem;
-  font-weight:400;
 }
 
 /* ================= MOBILE ================= */
 
 @media(max-width:600px){
+  .hero{
+    padding:20rem 1.2rem 10rem;
+  }
+  .hero-bg{
+    width:140vmax;
+    height:140vmax;
+    animation-duration:130s;
+  }
+  .tagline{font-size:1.4rem;}
+  .about{font-size:1.35rem;}
   .project{
     flex-direction:column;
+    align-items:flex-start;
   }
   .project.right,.project.left{
-    transform:translateY(80px);
+    transform:translateY(60px);
   }
 }
 </style>
@@ -281,24 +298,61 @@ footer{
 <section class="about-section">
   <div class="about-toggle" onclick="toggleAbout()">
     <h2>About Me</h2>
+    <span id="aboutArrow">▼</span>
   </div>
+
   <div class="about hidden" id="aboutBox">
     I build data-driven products at the intersection of product strategy,
     analytics, automation, and AI—using metrics, user behavior, and structured
-    experimentation to design scalable systems that deliver long-term value.
+    experimentation to design scalable systems that deliver long-term business value.
   </div>
 </section>
 
 <section>
-  <div class="projects-header">
-    <h2>Projects</h2>
-  </div>
+  <h2>Projects</h2>
 
   <div class="projects">
-    <div class="project right show"><div><h3>LTV Optimization</h3><p>Pricing elasticity & long-term value.</p></div></div>
-    <div class="project left show"><div><h3>FlowSight Analytics</h3><p>Funnel automation & decisions.</p></div></div>
-    <div class="project right show"><div><h3>Resume Automation</h3><p>Scoring workflows using logic.</p></div></div>
-    <div class="project left show"><div><h3>OPD Queue Automation</h3><p>Operational throughput systems.</p></div></div>
+
+    <a class="project-link" href="/projects/ltv.html">
+      <div class="project right">
+        <div class="project-icon"></div>
+        <div>
+          <h3>Dynamic Pricing Sensitivity & LTV Optimization</h3>
+          <p>Elasticity modeling and long-term value protection.</p>
+        </div>
+      </div>
+    </a>
+
+    <a class="project-link" href="/projects/flowsight.html">
+      <div class="project left">
+        <div class="project-icon"></div>
+        <div>
+          <h3>FlowSight Analytics — Funnel Automation</h3>
+          <p>Behavior-driven analytics for product decisions.</p>
+        </div>
+      </div>
+    </a>
+
+    <a class="project-link" href="/projects/resume-automation.html">
+      <div class="project right">
+        <div class="project-icon"></div>
+        <div>
+          <h3>Automated Resume Relevance Scoring</h3>
+          <p>Structured resume screening using automation logic.</p>
+        </div>
+      </div>
+    </a>
+
+    <a class="project-link" href="/projects/opd.html">
+      <div class="project left">
+        <div class="project-icon"></div>
+        <div>
+          <h3>OPD Appointment Queue Automation</h3>
+          <p>Operational automation reducing patient wait times.</p>
+        </div>
+      </div>
+    </a>
+
   </div>
 </section>
 
@@ -307,9 +361,19 @@ footer{
 <script>
 function toggleAbout(){
   const box=document.getElementById("aboutBox");
+  const arrow=document.getElementById("aboutArrow");
   box.classList.toggle("visible");
   box.classList.toggle("hidden");
+  arrow.style.transform=box.classList.contains("visible")?"rotate(-90deg)":"rotate(0)";
 }
+
+const projects=document.querySelectorAll(".project");
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    entry.target.classList.toggle("show",entry.isIntersecting);
+  });
+},{threshold:.3});
+projects.forEach(p=>observer.observe(p));
 </script>
 
 </body>
