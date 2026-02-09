@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Ashwin Mishra — Product Portfolio</title>
 
-<!-- ✅ BETTER FONT -->
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -22,7 +21,7 @@
 
 body{
   margin:0;
-  font-family:"Manrope",system-ui,sans-serif;
+  font-family:"Manrope",sans-serif;
   background:var(--bg);
   color:var(--text);
 }
@@ -38,30 +37,24 @@ body{
 
 .hero-bg{
   position:absolute;
-  top:60%;
-  left:50%;
-  width:110vmax;
-  height:110vmax;
-  transform:translate(-50%,-50%);
+  inset:0;
   background:
-    linear-gradient(rgba(11,31,51,.88),rgba(11,31,51,.88)),
-    url("https://raw.githubusercontent.com/ashwin33086/ashwin_portfolio/1cbacbd5eb450c0000d2d8c13101e217204e480d/asset/pm-venn.png.png")
+    linear-gradient(rgba(11,31,51,.9),rgba(11,31,51,.9)),
+    url("https://raw.githubusercontent.com/ashwin33086/ashwin_portfolio/main/asset/pm-venn.png.png")
     center/contain no-repeat;
   animation:spinSlow 90s linear infinite;
-  z-index:0;
-  pointer-events:none;
+  transform-origin:center;
 }
 
 @keyframes spinSlow{
-  from{transform:translate(-50%,-50%) rotate(0deg);}
-  to{transform:translate(-50%,-50%) rotate(360deg);}
+  from{transform:rotate(0deg);}
+  to{transform:rotate(360deg);}
 }
 
 .hero-content{
   position:relative;
-  z-index:1;
   max-width:950px;
-  margin:0 auto;
+  margin:auto;
 }
 
 h1{
@@ -72,7 +65,7 @@ h1{
 
 .typing{
   margin-top:1rem;
-  font-size:clamp(1.6rem,3.2vw,1.85rem);
+  font-size:1.8rem;
   color:var(--accent);
   white-space:nowrap;
   overflow:hidden;
@@ -98,14 +91,13 @@ h1{
   margin-top:3.2rem;
   display:flex;
   justify-content:center;
-  align-items:center;
   gap:2.4rem;
   flex-wrap:wrap;
 }
 
 .contact span{
-  color:var(--muted);
   font-size:1.8rem;
+  color:var(--muted);
 }
 
 .contact a{
@@ -126,23 +118,22 @@ h1{
 }
 
 .contact a:hover{
-  transform:translateY(-6px) scale(1.1);
   background:var(--accent);
-  box-shadow:0 18px 40px rgba(79,140,255,.45);
+  transform:translateY(-6px) scale(1.1);
 }
 
 /* ================= SECTIONS ================= */
 
 section{
   max-width:1150px;
-  margin:0 auto;
+  margin:auto;
   padding:6rem 1.5rem;
 }
 
 /* ================= ABOUT ================= */
 
 .about-section{
-  margin-top:10rem;
+  margin-top:8rem;
 }
 
 .about-toggle{
@@ -160,7 +151,7 @@ section{
 
 .about-toggle span{
   color:var(--accent);
-  transition:.4s ease;
+  transition:.3s ease;
 }
 
 .about{
@@ -168,23 +159,15 @@ section{
   background:linear-gradient(180deg,#143a5c,#102f4a);
   border-radius:22px;
   border:1px solid var(--border);
-  line-height:1.9;
-  color:var(--muted);
-  font-size:1.45rem;
-  overflow:hidden;
-  transition:.5s ease;
-}
-
-.about.hidden{
-  max-height:0;
-  padding:0 2.2rem;
-  opacity:0;
-}
-
-.about.visible{
-  max-height:1200px;
   padding:3.4rem;
-  opacity:1;
+  font-size:1.45rem;
+  color:var(--muted);
+  line-height:1.9;
+  display:none;
+}
+
+.about.show{
+  display:block;
 }
 
 /* ================= PROJECTS ================= */
@@ -195,7 +178,6 @@ section{
   gap:3.2rem;
 }
 
-/* 🔑 ONLY THIS HEADING CHANGED */
 section > h2{
   font-size:2.3rem;
   font-weight:600;
@@ -212,34 +194,27 @@ section > h2{
   padding:3rem;
   border:1px solid var(--border);
   display:flex;
-  align-items:center;
   gap:1.8rem;
   opacity:0;
-  transition:.8s cubic-bezier(.2,.8,.2,1);
+  transform:translateY(60px);
+  transition:.8s ease;
 }
 
-.project.right{transform:translateX(120px);}
-.project.left{transform:translateX(-120px);}
-.project.show{opacity:1;transform:translateX(0);}
+.project.show{
+  opacity:1;
+  transform:translateY(0);
+}
 
 .project-icon{
   width:60px;
   height:60px;
   border-radius:50%;
   background:radial-gradient(circle,var(--accent),transparent 70%);
-  animation:pulse 3s infinite;
 }
 
-@keyframes pulse{
-  0%,100%{box-shadow:0 0 0 rgba(79,140,255,0);}
-  50%{box-shadow:0 0 22px rgba(79,140,255,.6);}
-}
-
-/* 🔒 UNCHANGED PROJECT TEXT */
 .project h3{
   margin:0 0 .5rem;
   font-size:1.55rem;
-  font-weight:600;
 }
 
 .project p{
@@ -254,33 +229,81 @@ footer{
   text-align:center;
   padding:3rem;
   color:var(--muted);
-  font-size:1rem;
 }
 
 /* ================= MOBILE ================= */
 
 @media(max-width:600px){
-  .hero{
-    padding:20rem 1.2rem 10rem;
-  }
-  .hero-bg{
-    width:140vmax;
-    height:140vmax;
-    animation-duration:130s;
-  }
+  .hero{padding:20rem 1.2rem 10rem;}
   .tagline{font-size:1.4rem;}
-  .about{font-size:1.35rem;}
-  .project{
-    flex-direction:column;
-    align-items:flex-start;
-  }
-  .project.right,.project.left{
-    transform:translateY(60px);
-  }
+  .project{flex-direction:column;}
 }
 </style>
 </head>
 
 <body>
 
-<!-- BODY CONTENT UNCHANGED -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <h1>Ashwin Mishra</h1>
+    <div class="typing">Product • Strategy • Automation • Analytics</div>
+    <div class="tagline">Hire me as a product improvement feature — I optimize your KPIs.</div>
+
+    <div class="contact">
+      <span>Contact:</span>
+      <a href="mailto:ashwin33086@gmail.com"><img src="icons/gmail-svgrepo-com.svg"></a>
+      <a href="https://www.linkedin.com/in/ashwin-mishra-b6b363256/" target="_blank"><img src="icons/linkedin-1-svgrepo-com.svg"></a>
+      <a href="https://github.com/ashwin33086" target="_blank"><img src="icons/github-142-svgrepo-com.svg"></a>
+    </div>
+  </div>
+</div>
+
+<section class="about-section">
+  <div class="about-toggle" onclick="toggleAbout()">
+    <h2>About Me</h2>
+    <span id="arrow">▼</span>
+  </div>
+  <div class="about" id="about">
+    I build data-driven products at the intersection of product strategy,
+    analytics, automation, and AI—using metrics, user behavior, and structured
+    experimentation to design scalable systems that deliver long-term value.
+  </div>
+</section>
+
+<section>
+<h2>Projects</h2>
+
+<div class="projects">
+  <a class="project-link" href="/projects/ltv.html">
+    <div class="project"><div class="project-icon"></div><div>
+      <h3>Dynamic Pricing Sensitivity & LTV Optimization</h3>
+      <p>Elasticity modeling and long-term value protection.</p>
+    </div></div>
+  </a>
+
+  <a class="project-link" href="/projects/flowsight.html">
+    <div class="project"><div class="project-icon"></div><div>
+      <h3>FlowSight Analytics — Funnel Automation</h3>
+      <p>Behavior-driven analytics for product decisions.</p>
+    </div></div>
+  </a>
+</div>
+</section>
+
+<footer>© Ashwin Mishra</footer>
+
+<script>
+function toggleAbout(){
+  document.getElementById("about").classList.toggle("show");
+}
+
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>e.target.classList.toggle("show",e.isIntersecting));
+},{threshold:.2});
+
+document.querySelectorAll(".project").forEach(p=>observer.observe(p));
+</script>
+
+</body>
+</html>
