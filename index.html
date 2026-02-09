@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Ashwin Mishra — Product Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- 🔑 Font upgrade -->
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
@@ -21,7 +22,7 @@
 
 body{
   margin:0;
-  font-family:Inter,sans-serif;
+  font-family:"Space Grotesk",system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
   background:var(--bg);
   color:var(--text);
 }
@@ -65,6 +66,8 @@ body{
 h1{
   font-size:clamp(3.4rem,6vw,4.4rem);
   margin:0;
+  font-weight:700;
+  letter-spacing:-0.02em;
 }
 
 .typing{
@@ -76,6 +79,7 @@ h1{
   border-right:2px solid var(--accent);
   width:0;
   margin-inline:auto;
+  font-weight:500;
   animation:typing 3.5s steps(40,end) forwards, blink .8s infinite;
 }
 
@@ -87,6 +91,7 @@ h1{
   font-style:italic;
   color:var(--muted);
   font-size:1.6rem;
+  font-weight:400;
 }
 
 /* ================= CONTACT ================= */
@@ -103,6 +108,7 @@ h1{
 .contact span{
   font-size:1.4rem;
   color:var(--muted);
+  font-weight:500;
 }
 
 .contact a{
@@ -152,6 +158,8 @@ section{
 .about-toggle h2{
   margin:0;
   font-size:2.3rem;
+  font-weight:600;
+  letter-spacing:-0.01em;
 }
 
 .about{
@@ -162,6 +170,7 @@ section{
   line-height:1.9;
   color:var(--muted);
   font-size:1.45rem;
+  font-weight:400;
   overflow:hidden;
   transition:.5s ease;
 }
@@ -188,8 +197,10 @@ section{
 }
 
 .projects-header h2{
-  font-size:2.3rem; /* 🔑 same as About Me */
+  font-size:2.3rem;
   margin:0;
+  font-weight:600;
+  letter-spacing:-0.01em;
 }
 
 .projects{
@@ -216,11 +227,14 @@ section{
 .project h3{
   font-size:2.1rem;
   margin:0 0 .6rem;
+  font-weight:600;
+  letter-spacing:-0.015em;
 }
 
 .project p{
   font-size:1.25rem;
   color:var(--muted);
+  font-weight:400;
 }
 
 /* ================= FOOTER ================= */
@@ -230,6 +244,7 @@ footer{
   padding:3rem;
   color:var(--muted);
   font-size:1rem;
+  font-weight:400;
 }
 
 /* ================= MOBILE ================= */
