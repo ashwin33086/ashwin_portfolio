@@ -1,290 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>OPD Appointment Queue Automation — Case Study</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mood-Based Food Recommendation — Case Study</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<style>
-:root{
-  --bg:#0b1f33;
-  --card:#122f4a;
-  --card-light:#163d60;
-  --text:#f2f6fa;
-  --muted:#b9c6d3;
-  --accent:#4f8cff;
-  --border:rgba(255,255,255,.15);
-  --case:#ffb703;
-  --prd1:#ffb703;
-  --prd2:#f77f00;
-}
+  <style>
+    body {
+      margin: 0;
+      font-family: Inter, sans-serif;
+      background: #0b1f33;
+      color: #f2f6fa;
+    }
 
-*{box-sizing:border-box;}
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 5rem 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 120px;
+      gap: 3.5rem;
+    }
 
-body{
-  margin:0;
-  font-family:"Manrope",sans-serif;
-  background:var(--bg);
-  color:var(--text);
-}
+    p { 
+      color: #b9c6d3; 
+      line-height: 1.85; 
+      font-size: 1.08rem; 
+    }
 
-.container{
-  max-width:1600px;
-  margin:0 auto;
-  padding:6.5rem 1.5rem;
-  display:grid;
-  grid-template-columns:1fr 120px;
-  gap:4.5rem;
-}
+    .side-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2.2rem;
+    }
 
-h1{
-  font-size:3.1rem;
-  margin-bottom:1rem;
-}
+    .action-btn {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: #f2f6fa;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-align: center;
+      line-height: 1.2;
+    }
 
-p{
-  color:var(--muted);
-  line-height:1.9;
-  font-size:1.05rem;
-}
+    .action-btn img { 
+      width: 28px; 
+      filter: invert(1); 
+    }
 
-/* ---------- CASE STUDY TAG ---------- */
-.case-tag{
-  display:inline-block;
-  margin-bottom:1.2rem;
-  padding:.45rem 1.2rem;
-  border-radius:999px;
-  font-size:.75rem;
-  font-weight:700;
-  letter-spacing:.08em;
-  background:rgba(255,183,3,.15);
-  border:1px solid rgba(255,183,3,.5);
-  color:var(--case);
-}
-
-/* ---------- ABOUT HEADER ---------- */
-.about-header{
-  margin:2.5rem 0 1.8rem;
-  display:flex;
-  align-items:center;
-  gap:1rem;
-}
-
-.about-badge{
-  padding:.45rem 1.15rem;
-  border-radius:999px;
-  font-size:.75rem;
-  font-weight:700;
-  letter-spacing:.1em;
-  background:rgba(79,140,255,.15);
-  border:1px solid var(--border);
-  color:var(--accent);
-}
-
-.about-line{
-  flex:1;
-  height:1px;
-  background:linear-gradient(to right,var(--accent),transparent);
-  opacity:.6;
-}
-
-/* ---------- FEATURE BLOCK ---------- */
-.feature-block{
-  margin-top:5rem;
-  display:grid;
-  grid-template-columns:620px minmax(520px,1fr);
-  column-gap:4.5rem;
-}
-
-/* ---------- IMAGE ---------- */
-.photo-3d{
-  perspective:1600px;
-  display:flex;
-  justify-content:center;
-}
-
-.photo-3d img{
-  width:100%;
-  max-width:560px;
-  border-radius:28px;
-  border:1px solid var(--border);
-  transform:rotateX(10deg) rotateY(-12deg) translateZ(38px);
-  box-shadow:0 40px 80px rgba(0,0,0,.55);
-  transition:.6s ease;
-}
-
-.photo-3d:hover img{
-  transform:rotateX(0) rotateY(0) translateZ(80px);
-}
-
-/* ---------- VERTICAL CARD ---------- */
-.l-card-vertical{
-  grid-column:2 / span 2;
-  justify-self:end;
-  width:calc(100% + 120px);
-  margin-right:-120px;
-  background:linear-gradient(180deg,var(--card-light),var(--card));
-  border:1px solid var(--border);
-  border-radius:36px 36px 10px 10px;
-  padding:4.2rem 5rem;
-}
-
-.l-card-vertical h3{
-  margin-top:0;
-  font-size:1.5rem;
-}
-
-/* ---------- BOTTOM CARD ---------- */
-.l-card-bottom{
-  grid-column:1 / span 3;
-  justify-self:end;
-  width:100%;
-  margin-top:-1px;
-  background:linear-gradient(180deg,var(--card-light),var(--card));
-  border:1px solid var(--border);
-  border-top:none;
-  border-radius:0 0 42px 42px;
-  padding:4.5rem 7rem;
-}
-
-/* ---------- ACTION RAIL ---------- */
-.side-links{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:2.6rem;
-  padding-top:1.2rem;
-}
-
-.action-btn{
-  width:72px;
-  height:72px;
-  border-radius:50%;
-  background:rgba(255,255,255,.1);
-  border:1px solid var(--border);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-decoration:none;
-  transition:.25s ease;
-}
-
-.action-btn img{
-  width:32px;
-  filter:invert(1);
-}
-
-.action-btn.prd{
-  background:linear-gradient(180deg,var(--prd1),var(--prd2));
-  border:none;
-  color:#0b1f33;
-  font-weight:800;
-  letter-spacing:.08em;
-}
-
-.action-btn.prd span{
-  font-size:.75rem;
-  line-height:1.1;
-  text-align:center;
-}
-
-/* ---------- MOBILE ---------- */
-@media(max-width:1200px){
-
-  .container{grid-template-columns:1fr;}
-
-  .feature-block{
-    grid-template-columns:1fr;
-    row-gap:3rem;
-  }
-
-  .photo-3d img{
-    transform:none;
-  }
-
-  .l-card-vertical,
-  .l-card-bottom{
-    grid-column:1;
-    width:100%;
-    margin-right:0;
-    padding:3rem;
-  }
-
-  .side-links{
-    flex-direction:row;
-    justify-content:center;
-    margin-top:3rem;
-  }
-
-  h1{font-size:2.6rem;}
-  p{font-size:1.4rem;}
-}
-</style>
+    @media (max-width: 900px) {
+      .container { grid-template-columns: 1fr; }
+      .side-links { flex-direction: row; margin-top: 3rem; }
+    }
+  </style>
 </head>
 
 <body>
 
 <div class="container">
 
-<div>
+  <div>
+    <h1>Mood-Based Food Recommendation</h1>
 
-<span class="case-tag">CASE STUDY</span>
-<h1>OPD Appointment Queue Automation</h1>
+    <h3>About the Case Study</h3>
+    <p>
+      A product case study exploring how food delivery platforms can personalize
+      discovery using real-time mood inputs. The feature maps emotional states
+      to cuisine preferences, contextual triggers, and behavioral patterns to
+      improve relevance and reduce decision fatigue.
+    </p>
 
-<div class="about-header">
-  <span class="about-badge">ABOUT THE PROJECT</span>
-  <div class="about-line"></div>
-</div>
+    <h3>Problem & Strategic Insight</h3>
+    <p>
+      Users often open food delivery apps without a clear intent, leading to
+      friction in discovery and longer decision cycles. This solution reframes
+      browsing as a mood-driven journey, aligning recommendations with user
+      context to increase engagement, conversion probability, and long-term
+      retention.
+    </p>
+  </div>
 
-<p>
-This case study explores how automation can redesign outpatient department 
-(OPD) queue management by reducing wait time, improving doctor utilization, 
-and structuring patient flow using workflow logic and system triggers.
-</p>
-
-<div class="feature-block">
-
-<div class="photo-3d">
-  <img src="/visuals/opd-architecture.png" alt="OPD Automation Workflow">
-</div>
-
-<div class="l-card-vertical">
-  <h3>Operational Decision Layer</h3>
-  <p>
-  The system automates appointment slot allocation, real-time queue updates,
-  and priority routing. It integrates conditional logic to balance load across
-  doctors while minimizing idle time and overcrowding.
-  </p>
-</div>
-
-<div class="l-card-bottom">
-  <p>
-  Instead of manual coordination, the workflow ensures structured patient 
-  progression from check-in to consultation. This reduces friction,
-  prevents bottlenecks, and increases daily throughput without adding staff.
-  </p>
-
-  <p>
-  By reframing queue management as a system optimization problem rather than
-  an administrative task, the solution improves both patient experience and
-  hospital efficiency.
-  </p>
-</div>
-
-</div>
-</div>
-
-<div class="side-links">
-  <a class="action-btn" href="https://github.com/ashwin33086/opd-appointment-queue-automation-n8n" target="_blank">
-    <img src="https://raw.githubusercontent.com/ashwin33086/ashwin_portfolio/main/icons/github-svgrepo-com.svg">
-  </a>
-
-  <a class="action-btn prd" href="#" target="_blank">
-    <span>PRD<br>CASE</span>
-  </a>
-</div>
+  <div class="side-links">
+    <a class="action-btn" href="#" target="_blank">
+      CASE<br>STUDY
+    </a>
+  </div>
 
 </div>
 
