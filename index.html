@@ -15,6 +15,7 @@
   --muted:#b9c6d3;
   --accent:#4f8cff;
   --border:rgba(255,255,255,.12);
+  --case:#ffb703;
 }
 
 *{box-sizing:border-box;}
@@ -83,23 +84,23 @@ h1{
   font-size:1.6rem;
 }
 
-/* ================= CONTACT (1.2× SCALE) ================= */
+/* ================= CONTACT ================= */
 
 .contact{
   margin-top:3.2rem;
   display:flex;
   justify-content:center;
-  gap:1.9rem; /* adjusted for scale */
+  gap:1.9rem;
   flex-wrap:wrap;
 }
 
 .contact span{
-  font-size:1.44rem; /* 1.2× */
+  font-size:1.44rem;
   color:var(--muted);
 }
 
 .contact a{
-  width:58px;   /* 40 × 1.2 */
+  width:58px;
   height:58px;
   border-radius:50%;
   background:linear-gradient(180deg,#163d60,#122f4a);
@@ -111,7 +112,7 @@ h1{
 }
 
 .contact a img{
-  width:24px; /* 20 × 1.2 */
+  width:24px;
   filter:invert(1);
 }
 
@@ -210,6 +211,21 @@ section > h2{
 .project h3{
   margin:0 0 .5rem;
   font-size:1.55rem;
+  display:flex;
+  align-items:center;
+  gap:1rem;
+}
+
+/* 🔑 CASE STUDY TAG */
+.case-tag{
+  font-size:.75rem;
+  font-weight:700;
+  padding:.35rem .8rem;
+  border-radius:999px;
+  background:rgba(255,183,3,.15);
+  color:var(--case);
+  border:1px solid rgba(255,183,3,.5);
+  letter-spacing:.05em;
 }
 
 .project p{
@@ -289,11 +305,17 @@ footer{
   </div></div>
 </a>
 
-<a class="project-link" href="/projects/opd.html">
-  <div class="project"><div class="project-icon"></div><div>
-    <h3>OPD Appointment Queue Automation</h3>
-    <p>Operational automation reducing patient wait times.</p>
-  </div></div>
+<a class="project-link" href="/projects/mood-based-recommendation.html">
+  <div class="project">
+    <div class="project-icon"></div>
+    <div>
+      <h3>
+        Mood-Based Recommendation for Food Delivery Platforms
+        <span class="case-tag">CASE STUDY</span>
+      </h3>
+      <p>Emotion-driven personalization layer to improve discovery, retention, and order frequency.</p>
+    </div>
+  </div>
 </a>
 
 </div>
