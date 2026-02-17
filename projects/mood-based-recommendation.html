@@ -1,236 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mood-Based Food Recommendation — Case Study</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mood-Based Food Recommendation — Case Study</title>
 
-  <!-- 🔑 FONT: MANROPE ONLY -->
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --bg:#0b1f33;
-      --card:#122f4a;
-      --card-light:#163d60;
-      --glow:rgba(79,140,255,0.18);
-      --text:#f2f6fa;
-      --muted:#b9c6d3;
-      --accent:#4f8cff;
-      --border:rgba(255,255,255,0.15);
-      --tag:#ffb703;
-      --prd1:#ffb703;
-      --prd2:#f77f00;
-    }
+<style>
+:root{
+  --bg:#0b1f33;
+  --card:#122f4a;
+  --text:#f2f6fa;
+  --muted:#b9c6d3;
+  --accent:#4f8cff;
+  --border:rgba(255,255,255,.15);
+  --tag:#ffb703;
+  --prd1:#ffb703;
+  --prd2:#f77f00;
+}
 
-    *{box-sizing:border-box;}
+*{box-sizing:border-box;}
 
-    body{
-      margin:0;
-      font-family:"Manrope", sans-serif;
-      background:var(--bg);
-      color:var(--text);
-    }
+body{
+  margin:0;
+  font-family:"Manrope",sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
 
-    .container{
-      max-width:1600px;
-      margin:0 auto;
-      padding:6.5rem 1.5rem;
-      display:grid;
-      grid-template-columns:1fr 120px;
-      gap:4.5rem;
-    }
+/* Layout */
+.container{
+  max-width:1000px;
+  margin:0 auto;
+  padding:6rem 1.5rem;
+  display:grid;
+  grid-template-columns:1fr 120px;
+  gap:4rem;
+}
 
-    h1{
-      font-size:3.1rem;
-      margin-bottom:.8rem;
-      font-weight:800;
-    }
+h1{
+  font-size:3rem;
+  font-weight:800;
+  margin-bottom:1rem;
+}
 
-    p{
-      color:var(--muted);
-      line-height:1.85;
-      font-size:1.02rem;
-      font-weight:500;
-    }
+h2{
+  font-size:1.6rem;
+  margin-top:3rem;
+  margin-bottom:1rem;
+  font-weight:700;
+}
 
-    .brainstorm-tag{
-      display:inline-block;
-      margin-bottom:1.4rem;
-      padding:.45rem 1.2rem;
-      border-radius:999px;
-      font-size:.7rem;
-      font-weight:800;
-      letter-spacing:.14em;
-      background:rgba(255,183,3,.15);
-      border:1px solid rgba(255,183,3,.45);
-      color:var(--tag);
-      text-transform:uppercase;
-    }
+p{
+  font-size:1.05rem;
+  line-height:1.9;
+  color:var(--muted);
+  margin-bottom:1.4rem;
+}
 
-    .about-header{
-      margin:2.3rem 0 1.8rem;
-      display:flex;
-      align-items:center;
-      gap:1rem;
-    }
+/* Tag */
+.blog-tag{
+  display:inline-block;
+  margin-bottom:1.5rem;
+  padding:.45rem 1.2rem;
+  border-radius:999px;
+  font-size:.75rem;
+  font-weight:800;
+  letter-spacing:.12em;
+  background:rgba(255,183,3,.15);
+  border:1px solid rgba(255,183,3,.45);
+  color:var(--tag);
+  text-transform:uppercase;
+}
 
-    .about-badge{
-      padding:.4rem 1.1rem;
-      border-radius:999px;
-      font-size:.72rem;
-      font-weight:700;
-      letter-spacing:.12em;
-      background:rgba(79,140,255,.15);
-      border:1px solid var(--border);
-      color:var(--accent);
-    }
+/* Side Links */
+.side-links{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:2.6rem;
+  padding-top:1rem;
+}
 
-    .about-line{
-      flex:1;
-      height:1px;
-      background:linear-gradient(to right,var(--accent),transparent);
-      opacity:.6;
-    }
+.action-btn{
+  width:72px;
+  height:72px;
+  border-radius:50%;
+  background:rgba(255,255,255,.1);
+  border:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  transition:.25s ease;
+}
 
-    .feature-block{
-      margin-top:5rem;
-      display:grid;
-      grid-template-columns:620px minmax(520px,1fr);
-      column-gap:4.5rem;
-      position:relative;
-    }
+.action-btn img{
+  width:32px;
+  filter:invert(1);
+}
 
-    .photo-3d{
-      perspective:1600px;
-      display:flex;
-      justify-content:center;
-      z-index:5;
-    }
+.action-btn:hover{
+  transform:translateY(-4px);
+  box-shadow:0 18px 40px rgba(79,140,255,.45);
+}
 
-    .photo-3d img{
-      width:100%;
-      max-width:560px;
-      border-radius:28px;
-      border:1px solid var(--border);
-      transform:rotateX(10deg) rotateY(-12deg) translateZ(38px);
-      box-shadow:
-        0 40px 80px rgba(0,0,0,.55),
-        0 0 70px var(--glow);
-      transition:.6s ease;
-      background:#0b1f33;
-    }
+.action-btn.prd{
+  background:linear-gradient(180deg,var(--prd1),var(--prd2));
+  border:none;
+  color:#0b1f33;
+  font-weight:800;
+  letter-spacing:.08em;
+}
 
-    .photo-3d:hover img{
-      transform:rotateX(0) rotateY(0) translateZ(90px);
-    }
+.action-btn.prd span{
+  font-size:.75rem;
+  text-align:center;
+  line-height:1.1;
+}
 
-    .l-card-vertical{
-      grid-column:2 / span 2;
-      justify-self:end;
-      width:calc(100% + 120px);
-      margin-right:-120px;
-      background:linear-gradient(180deg,var(--card-light),var(--card));
-      border:1px solid var(--border);
-      border-radius:36px 36px 10px 10px;
-      padding:4.2rem 5rem;
-      box-shadow:0 35px 90px rgba(0,0,0,.45);
-    }
+/* Mobile */
+@media(max-width:1100px){
+  .container{
+    grid-template-columns:1fr;
+  }
 
-    .l-card-vertical h3{
-      margin-top:0;
-      font-size:1.45rem;
-      font-weight:700;
-    }
+  .side-links{
+    flex-direction:row;
+    justify-content:center;
+    margin-top:3rem;
+  }
 
-    .l-card-bottom{
-      grid-column:1 / span 3;
-      justify-self:end;
-      width:100%;
-      margin-top:-1px;
-      background:linear-gradient(180deg,var(--card-light),var(--card));
-      border:1px solid var(--border);
-      border-top:none;
-      border-radius:0 0 42px 42px;
-      padding:4.5rem 7rem;
-      box-shadow:0 36px 85px rgba(0,0,0,.45);
-    }
-
-    .side-links{
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap:2.6rem;
-      padding-top:1.2rem;
-    }
-
-    .action-btn{
-      width:72px;
-      height:72px;
-      border-radius:50%;
-      background:rgba(255,255,255,.1);
-      border:1px solid var(--border);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      transition:.25s ease;
-      text-decoration:none;
-    }
-
-    .action-btn img{
-      width:32px;
-      filter:invert(1);
-    }
-
-    .action-btn:hover{
-      transform:translateY(-4px);
-      box-shadow:0 18px 40px rgba(79,140,255,.45);
-    }
-
-    .action-btn.prd{
-      background:linear-gradient(180deg,var(--prd1),var(--prd2));
-      border:none;
-      color:#0b1f33;
-      font-weight:800;
-      letter-spacing:.08em;
-    }
-
-    .action-btn.prd span{
-      font-size:.72rem;
-      line-height:1.1;
-      text-align:center;
-    }
-
-    @media(max-width:1200px){
-      .container{grid-template-columns:1fr;}
-      .feature-block{grid-template-columns:1fr;row-gap:3rem;}
-      .photo-3d img{transform:none;max-width:92%;}
-      .l-card-vertical,.l-card-bottom{
-        grid-column:1;
-        width:100%;
-        margin-right:0;
-        padding:3rem;
-      }
-      .side-links{
-        flex-direction:row;
-        justify-content:center;
-        margin-top:3rem;
-        gap:2rem;
-      }
-      h1{font-size:4.6rem;}
-      .about-badge{font-size:1.05rem;}
-      p{font-size:1.5rem;}
-      .l-card-vertical h3{font-size:2.6rem;}
-      .l-card-vertical p,
-      .l-card-bottom p{
-        font-size:2.1rem;
-        line-height:1.8;
-      }
-      .action-btn{width:90px;height:90px;}
-      .action-btn img{width:40px;}
-      .action-btn.prd span{font-size:.9rem;}
-    }
-  </style>
+  h1{font-size:2.4rem;}
+  p{font-size:1.2rem;}
+}
+</style>
 </head>
 
 <body>
@@ -238,45 +143,55 @@
 <div class="container">
 
   <div>
-    <span class="brainstorm-tag">Product Case Study</span>
+
+    <span class="blog-tag">Product Case Study</span>
     <h1>Mood-Based Food Recommendation</h1>
 
-    <div class="about-header">
-      <span class="about-badge">ABOUT THE PROJECT</span>
-      <div class="about-line"></div>
-    </div>
-
     <p>
-      A personalization framework for food delivery platforms that maps real-time user mood to contextual cuisine recommendations, reducing decision fatigue and improving discovery efficiency.
+      Food delivery platforms are built around search and categories. But most users don’t open an app thinking “I want North Indian.” They open it thinking “I feel like something comforting” or “I want something light.” The gap between emotion and structured menus creates friction in discovery.
     </p>
 
-    <div class="feature-block">
+    <h2>The Problem</h2>
 
-      <div class="photo-3d">
-        <img src="/visuals/mood-food-architecture.png" alt="Mood Recommendation Architecture">
-      </div>
+    <p>
+      Users experience decision fatigue when scrolling through large restaurant catalogs. Static recommendations based on popularity or past orders ignore real-time context. This reduces engagement depth and slows conversion.
+    </p>
 
-      <div class="l-card-vertical">
-        <h3>Contextual Recommendation Engine</h3>
-        <p>
-          The engine translates emotional input into weighted cuisine clusters using behavioral history, session timing, and preference decay curves—optimizing for engagement probability rather than static popularity.
-        </p>
-      </div>
+    <h2>The Insight</h2>
 
-      <div class="l-card-bottom">
-        <p>
-          Instead of generic listings, the system restructures discovery into mood-led journeys, increasing click-through rate, session depth, and order conversion through contextual relevance.
-        </p>
-        <p>
-          By integrating feedback loops and measurable KPIs such as CTR, dwell time, and repeat ordering, the feature evolves from novelty to a scalable retention lever.
-        </p>
-      </div>
+    <p>
+      Mood is a contextual signal. It changes dynamically and influences cuisine preference, price tolerance, and exploration behavior. Instead of optimizing only for historical frequency, recommendations should adapt to emotional intent.
+    </p>
 
-    </div>
+    <h2>The Solution</h2>
+
+    <p>
+      I designed a mood-driven recommendation layer that maps emotional input into weighted cuisine clusters. The engine blends session timing, behavioral history, and preference decay to surface contextually relevant dishes.
+    </p>
+
+    <p>
+      Rather than showing “Top Rated,” the interface guides users through mood journeys — Comfort, Celebration, Light & Healthy, Indulgent, etc. This restructures discovery from search-heavy to intent-led navigation.
+    </p>
+
+    <h2>Measurement Framework</h2>
+
+    <p>
+      Success is evaluated through measurable product metrics: click-through rate uplift, reduction in scroll depth before selection, increase in repeat orders, and session-to-order conversion rate. Experiment design includes A/B testing against standard recommendation logic.
+    </p>
+
+    <h2>Why This Matters</h2>
+
+    <p>
+      This feature transforms recommendations from passive ranking systems into dynamic engagement levers. By aligning emotional context with measurable KPIs, the product shifts from transactional ordering to experiential discovery — improving both retention and long-term value.
+    </p>
+
   </div>
 
   <div class="side-links">
-    <a class="action-btn prd" href="https://www.notion.so/Mood-Based-Food-Discovery-for-food-ordering-platforms-1d002edb1f7280b1b0e5d3662c67f2ad?source=copy_link" target="_blank">
+    <a class="action-btn" href="#" target="_blank">
+      <img src="https://raw.githubusercontent.com/ashwin33086/ashwin_portfolio/main/icons/github-svgrepo-com.svg">
+    </a>
+    <a class="action-btn prd" href="#" target="_blank">
       <span>CASE<br>STUDY</span>
     </a>
   </div>
